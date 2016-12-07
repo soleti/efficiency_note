@@ -64,57 +64,70 @@ In the future, the method described in this paper will be adapted to use the dat
 \section{The Muon Counter System}\label{sec:proc}
 The MuCS consists of two sets of planar modules made up of scintillator strips placed into two separate, light-tight boxes, readout via wavelength shifting fibers connected to Multi-Anode PMTs and placed on the top of the TPC. The Multi-Anode PMTs are readout by a DAQ system, separated from the DAQ system that reads out the TPC and PMT systems of the main detector.
 
-Each planar module is made up of two sets of 24 scintillator strips, 4 cm wide, arranged into bi-layers oriented perpendicular to each other. This configuration provides two coordinates ($z$ and $x$ in the MicroBooNE TPC coordinate system, shown in Fig. \ref{fig:coord}) of the crossing points of the cosmic rays. Combining these two coordinates with the height of the modules (corresponding to the $y$ coordinate in the MicroBooNE TPC coordinate system), it is possible to extrapolate the 3D trajectory of the cosmic ray.
+Each planar module is made up of two sets of 24 scintillator strips, 4 cm wide, arranged into bi-layers oriented perpendicular to each other. This configuration provides two coordinates ($z$ and $x$ in the MicroBooNE TPC coordinate system, shown in Fig. \ref{fig:coord}) of the crossing points of the cosmic rays. Combining these two coordinates with the height of the modules (corresponding to the $y$ coordinate in the MicroBooNE TPC coordinate system), it is possible to extrapolate the three-dimensional trajectory of the cosmic ray.
 
 The starting angle of the cosmic ray, in spherical coordinates, will be given by:
 \begin{align}
-\theta_{\mathrm{MuCS}} = \mathrm{acos}\left(\frac{z_{\mathrm{top}}-z_{\mathrm{bottom}}}{r}\right) \\
-\phi_{\mathrm{MuCS}} = \mathrm{atan}\left(\frac{y_{\mathrm{top}}-y_{\mathrm{bottom}}}{x_{\mathrm{top}}-x_{\mathrm{bottom}}}\right),
+  \theta_{\mathrm{MuCS}} = \mathrm{acos}\left(\frac{z_{\mathrm{top}}-z_{\mathrm{bottom}}}{r}\right) \\
+  \phi_{\mathrm{MuCS}} = \mathrm{atan}\left(\frac{y_{\mathrm{top}}-y_{\mathrm{bottom}}}{x_{\mathrm{top}}-x_{\mathrm{bottom}}}\right),
 \end{align}
 where $r = \sqrt{(x_{\mathrm{top}}-x_{\mathrm{bottom}})^2+(y_{\mathrm{top}}-y_{\mathrm{bottom}})^2+(z_{\mathrm{top}}-z_{\mathrm{bottom}})^2}$ and the top (bottom) coordinates are given by the hits in the top (bottom) MuCS panel.
- \begin{figure}[htbp]
- \begin{center}
- \includegraphics[width=0.8\linewidth]{figures/coord.pdf}
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[width=0.8\linewidth]{figures/coord.pdf}
 
- \caption{The MicroBooNE co-ordinate system. The three wire planes are vertical (collection plane) and at  $\pm60^{\circ}$ to the vertical (induction planes). The dimensions of the TPC are 256.35 cm $\times$ 233 cm $\times$ 1036.8 cm (x $\times$ y $\times$ z). The fiducial volume of the detector is 236.35 cm $\times$ 203 cm $\times$ 1026.8 cm.} \label{fig:coord}
- \end{center}
- \end{figure}
+    \caption{The MicroBooNE coordinate system. The three wire planes are vertical (collection plane) and at  $\pm60^{\circ}$ to the vertical (induction planes). The dimensions of the TPC are 256.35 cm $\times$ 233 cm $\times$ 1036.8 cm (x $\times$ y $\times$ z). The fiducial volume of the detector is 236.35 cm $\times$ 203 cm $\times$ 1026.8 cm. The coordinate system is explained in detail in \cite{mcdata}} \label{fig:coord}
+  \end{center}
+\end{figure}
 
 This analysis has been performed on three merged dataset, acquired with different geometrical configurations. In each configuration, the two boxes have been placed at the upstream end, at the center and at the downstream end of the LArTPC, respectively.
 
 A three-dimensional schematics of the three MuCS setups is shown in Fig. \ref{fig:mucs} and the coordinates of the two boxes for each configuration are reported in Tab. \ref{tab:mucs}.
+\begin{figure}[htbp]
+  \begin{subfigure}{0.30\textwidth}
+    \includegraphics[width=\linewidth]{figures/upstream.png}
+    \caption{Upstream} \label{fig:upstream}
+  \end{subfigure}
+  \begin{subfigure}{0.30\textwidth}
+    \includegraphics[width=\linewidth]{figures/center.png}
+    \caption{Center} \label{fig:centre}
+  \end{subfigure}
+  \begin{subfigure}{0.30\textwidth}
+    \includegraphics[width=\linewidth]{figures/downstream.png}
+    \caption{Downstream} \label{fig:downstream}
+  \end{subfigure}
+
+  \caption{Monte Carlo simulation of the possible MuCS trajectories the three different MuCS setups used in this analysis. Brown tracks correspond to cosmic rays hitting both panels and the TPC, while red tracks go through the MuCS but miss the TPC.} \label{fig:mucs}
+\end{figure}
+
 \begin{table}[htbp]
-\centering
-\ra{1.2}
-\begin{tabular}{lcrrrccccc}
-\toprule
-\textbf{Box} & \phantom{abc}& \multicolumn{2}{c}{x [cm]} & \phantom{abc} & \multicolumn{2}{c}{y [cm]} & \phantom{abc} & \multicolumn{2}{c}{z [cm]}\\
-\cmidrule{3-4} \cmidrule{6-7} \cmidrule{9-10}
- & & start & end & & start & end & & start & end\\
-\midrule
+  \centering
+  \ra{1.2}
+  \begin{tabular}{lcrrrccccc}
+    \toprule
+    \textbf{Box} & \phantom{abc}& \multicolumn{2}{c}{x [cm]} & \phantom{abc} & \multicolumn{2}{c}{y [cm]} & \phantom{abc} & \multicolumn{2}{c}{z [cm]}\\
+    \cmidrule{3-4} \cmidrule{6-7} \cmidrule{9-10}
+    & & start & end & & start & end & & start & end\\
+    \midrule
 
-\textbf{Upstream} & & & & & & & & & \\
-Top box & & -75 & -27 & & 392 & 393 & & 224 & 272\\
-Bottom box & & -27 & 21 & & 320 & 321 & & 224 & 272\\
+    \textbf{Upstream} & & & & & & & & & \\
+    Top box & & -75 & -27 & & 392 & 393 & & 224 & 272\\
+    Bottom box & & -27 & 21 & & 320 & 321 & & 224 & 272\\
 
-\midrule
-\textbf{Center} & & & & & & & & & \\
-Top box & & -72 & -24 & & 397 & 398 & & 579 & 627\\
-Bottom box & & -27 & 21 & & 320 & 321 & & 581 & 629\\
-\midrule
-\textbf{Downstream} & & & & & & & & & \\
-Top box & & -75 & -27 & & 392 & 393 & & 971 & 1019\\
-Bottom box & & -27 & 21 & & 320 & 321 & & 971 & 1019\\
-\bottomrule
+    \midrule
+    \textbf{Center} & & & & & & & & & \\
+    Top box & & -72 & -24 & & 397 & 398 & & 579 & 627\\
+    Bottom box & & -27 & 21 & & 320 & 321 & & 581 & 629\\
+    \midrule
+    \textbf{Downstream} & & & & & & & & & \\
+    Top box & & -75 & -27 & & 392 & 393 & & 971 & 1019\\
+    Bottom box & & -27 & 21 & & 320 & 321 & & 971 & 1019\\
+    \bottomrule
 
-\end{tabular}
-\caption{Coordinates of the top and bottom box of the MuCS detector}\label{tab:mucs}
+  \end{tabular}
+  \caption{Coordinates of the top and bottom box of the MuCS detector for three geometrical setups.}\label{tab:mucs}
 \end{table}
 
-\begin{figure}[htbp]
-\includegraphics[width=\linewidth]{figures/mucs.png}
-\caption{Monte Carlo simulation of the possible MuCS trajectories in the current configuration of the boxes. The brown tracks are those that intersect the TPC while the red tracks miss the TPC.} \label{fig:mucs}
-\end{figure}
 
 \section{MuCS merging}
 The MuCS is designed to provide a trigger on through-going muons that intersect two planes of scintillator strips. The trigger is propagated to the MicroBooNE trigger system to record a full TPC and PMT readout. With the MuCS trigger in place, the $t_0$ for a track associated with the MuCS is known and these tracks are useful for various detector physics and reconstruction studies.
@@ -123,124 +136,73 @@ The dataset used for this study has been collected with the DAQ configured in th
 The MuCS triggers at a rate of nearly 3 Hz and this rate is prescaled by 100 before sending the signal to trigger readout. In the general data stream then, a MuCS trigger is issued at a rate of 0.02 Hz (lower than 0.03 Hz because the MuCS trigger is often vetoed by beam triggers), or roughly one per minute.
 Given a DAQ integration window of 100 ns, the accidental coincidental rate is negligible for our study. The probability that, during the same readout window (4.8 ms), another cosmic ray hits the MuCS is, given a trigger rate of 3 Hz, 0.01\% and it has also been considered negligible.
 
-The data then follows a processing path that merges the MuCS hit patterns and reconstructed trajectory information with the TPC and PMT data stream to form a MuCS-merged dataset\cite{mucsmerge}.
-The TPC hits are fed to the reconstruction chain: then, the reconstructed track with the closest starting point to the extrapolated MuCS trajectory is stored in the dataset and it is tagged as a MuCS-reconstructed track (Figure ). The PMT flash in time with the MuCS signal, if present, is also stored and associated to the MuCS-reconstructed track.
- \begin{figure}[htbp]
- \includegraphics[width=\linewidth]{figures/scheme.pdf}
+The data then follows a processing path that merges the MuCS hit patterns and reconstructed trajectory information with the TPC and PMT data stream to form a MuCS-merged dataset. A flowchart of the procedure is shown in Fig. \ref{fig:scheme}.
 
- \caption{Flowchart showing the procedure used to generate the dataset used in this analysis. We end up with two data products: one with extrapolated coordinates obtained using MuCS-only data and one with reconstructed data information.} \label{fig:scheme}
- \end{figure}
+\begin{figure}[htbp]
+  \includegraphics[width=\linewidth]{figures/scheme.pdf}
+  \caption{Flowchart showing the procedure used to generate the dataset used in this analysis. We end up with two data products: one with extrapolated coordinates obtained using MuCS-only data and one with reconstructed data information.} \label{fig:scheme}
+\end{figure}
+
+The hits in the MuCS are used to obtain a bi-dimensional point in each panel and extrapolate a three-dimensional track (MuCS-extrapolated track). The TPC hits, instead, are fed to the reconstruction chain: then, the reconstructed track with the closest starting point to the MuCS-extrapolated track is stored in the dataset and it is tagged as a MuCS-reconstructed track. The PMT flash in time with the MuCS signal, if present, is also stored and associated to the MuCS-reconstructed track.  Fig. \ref{fig:evd} shows a diagram with the MuCS-reconstructed track, the MuCS-extrapolated track and the other reconstructed tracks in the same readout window.
+
+\begin{figure}[htbp]
+  \begin{center}
+  \includegraphics[width=0.45\linewidth]{figures/evd.pdf}  \vspace{1.5em}\includegraphics[width=0.35\linewidth]{figures/evd_display.png}
+
+  \caption{Bi-dimensinal view of a MuCS event (left) and corresponding portion of the event display of the collection plane, showing the MuCS-reconstructed track (right). The black line shows the MuCS-extrapolated tracks, while the green line correspond to the MuCS-reconstructed track. The distance between the two lines is represented by the red arrow.} \label{fig:evd}
+\end{center}
+\end{figure}
 
 Our dataset will then include two different sets of information, with a one-to-one correspondence:
 \begin{itemize}
-\item MuCS-extrapolated information: using the two 2D points given by the MuCS (one for each box) we extrapolate a 3D line crossing the entire TPC. In this way we obtain two extrapolated starting angles ($\theta_{\textrm{MuCS}}$ and $\phi_{\textrm{MuCS}}$), an extrapolated track length $L-{\textrm{MuCS}}$ and extrapolated start/end points, using only MuCS information.
-\item Reconstructed TPC data information: for each event, we store the reconstructed spatial information of the MuCS-reconstructed track and of the in-time PMT flash, if present (starting angles $\theta_{\textrm{data}}$ and $\phi_{\textrm{data}}$, track length $L_{\textrm{data}}$, start/end points).
+  \item MuCS-extrapolated information: using the two 2D points given by the MuCS (one for each box) we extrapolate a 3D line crossing the entire TPC. In this way we obtain two extrapolated starting angles ($\theta_{\textrm{MuCS}}$ and $\phi_{\textrm{MuCS}}$), an extrapolated track length $L-{\textrm{MuCS}}$ and extrapolated start/end points, using only MuCS information.
+  \item Reconstructed TPC data information: for each event, we store the reconstructed spatial information of the MuCS-reconstructed track and of the in-time PMT flash, if present (starting angles $\theta_{\textrm{data}}$ and $\phi_{\textrm{data}}$, track length $L_{\textrm{data}}$, start/end points).
 \end{itemize}
 
 
-As Monte Carlo sample we used a complete cosmic-ray simulation, as described in \cite{mcdata}. The cosmic rays have ben generated using CORSIKA \cite{corsika},  propagated using GEANT4 \cite{geant}, and then passed through the detector simulation stage. The detector simulation attempts to simulate the detector response as precisely as possible, meaning that the current state of the detector is reflected, including known missing wires. Other known effects, such as the space charge effect \cite{spacecharge}, are not currently modeled in the simulation.
+As Monte Carlo sample we used a complete cosmic-ray simulation, as described in \cite{cosmic}. The cosmic rays have ben generated using CORSIKA \cite{corsika},  propagated using GEANT4 \cite{geant}, and then passed through the detector simulation stage. The detector simulation attempts to simulate the detector response as precisely as possible, meaning that the current state of the detector is reflected, including known missing wires. Other known effects, such as the space charge effect \cite{sce}, are not currently modeled in the simulation.
 
-From this complete Monte Carlo simulation, we selected only the cosmic rays with a starting angle $(\theta,\phi)$ within the geometrical acceptance of the MuCS.
+From this complete Monte Carlo simulation, then, we selected only the cosmic rays with a starting angle $(\theta,\phi)$ within the geometrical acceptance of the MuCS.
 
 Our aim is to show that the reconstruction efficiency of simulated cosmic rays, generated all over the TPC, can be succesfully compared to the data reconstruction efficiency, obtained placing a small muon counter system in three different places.
 
 \section{MuCS-triggered cosmic rays angular distributions}\label{sec:flux}
-Before comparing the MuCS-extrapolated information with the reconstructed information from Monte Carlo and data, a study on the angular distribution of the MuCS-triggered cosmic rays has been performed.
-Fig. \ref{fig:mucs_angles} shows the number of MuCS-triggered events as a function of the starting angles $\theta_{xy}$ and $\theta_{yz}$, defined as:
-\begin{equation}
-\begin{aligned}
-\theta_{xy} = \arctan(\Delta y/\Delta x)\\
-\theta_{yz} = \arctan(\Delta y/\Delta z),
-\label{eq:angles}
-\end{aligned}
-\end{equation}
-where $\Delta y$ ($\Delta z$) is defined as difference between the $y_{\mathrm{top}}$ ($z_{\mathrm{top}}$) coordinate detected by top box and the $y_{\mathrm{bottom}}$ ($z_{\mathrm{bottom}}$) coordinate detected by bottom box. Therefore, these distributions use only MuCS information and are independent from the TPC reconstruction algorithms.
+Before measuring the reconstruction efficiency we performed a survey of the position of the MuCS panels in each configuration. Taking the starting point and starting direction of the MuCS-reconstructed tracks it is possible to extrapolate their trajectory up to the height of the boxes and check if they went through both panels. However, the build-up of positive argon ions in the TPC causes a distortion in the electric field and consequently in the reconstruction of the tracks. Thus, before measuring the starting angles and extrapolating the paths, the starting position and direction of the reconstructed tracks in the TPC have been corrected with the data-driven procedure described in \cite{sce}.
+
+The two-dimensional plots of the extrapolated positions are reported in Fig. \ref{fig:alignment}. As we can see, some tracks are extrapolated outside the panels, because of multiple Coulomb scattering or impurity of the sample, but the majority of the points are well within the panels' borders.
 
 \begin{figure}[htbp]
-\begin{subfigure}{0.52\textwidth}
-\includegraphics[width=\linewidth]{figures/xy_mucs.pdf}
-\caption{$\theta_{xy}$ Data/Monte Carlo distribution.} \label{fig:xy_mucs}
-\end{subfigure}
-\begin{subfigure}{0.52\textwidth}
-\includegraphics[width=\linewidth]{figures/yz_mucs.pdf}
-\caption{$\theta_{yz}$ Data/Monte Carlo distribution.} \label{fig:yzmucs}
-\end{subfigure}
-\caption{Data/Monte Carlo distributions of the angles of the cosmic rays hitting the MuCS, obtained extrapolating the MuCS hits. Errors are statistical only.} \label{fig:mucs_angles}
+  \begin{subfigure}{0.32\textwidth}
+    \includegraphics[width=\linewidth]{figures/upstream.pdf}
+    \caption{Upstream} \label{fig:upstream_align}
+  \end{subfigure}
+  \begin{subfigure}{0.32\textwidth}
+    \includegraphics[width=\linewidth]{figures/centre.pdf}
+    \caption{Center} \label{fig:centre_align}
+  \end{subfigure}
+  \begin{subfigure}{0.32\textwidth}
+    \includegraphics[width=\linewidth]{figures/downstream.pdf}
+    \caption{Downstream} \label{fig:downstream_align}
+  \end{subfigure}
+
+  \caption{Monte Carlo simulation of the possible MuCS trajectories the three different MuCS setups used in this analysis. Brown tracks correspond to cosmic rays hitting both panels and the TPC, while red tracks go through the MuCS but miss the TPC.} \label{fig:alignment}
+\end{figure}
+
+The angular distribution of the MuCS-triggering cosmic rays, obtained extrapolating a line from the MuCS hits, has also been measured and compared with an independent Monte Carlo simulation, used only to check that the angular distribution of the cosmic rays was the same.  In this case, the Monte Carlo samples have been obtained generating a sample of cosmic rays within the top box borders. Each event is stored only if the cosmic ray crosses also the bottom box. This Monte Carlo information must not be confused with the reconstructed Monte Carlo information described above, which is obtained reconstructing a simulated cosmic ray in the TPC. Fig. \ref{fig:mucs_angles} shows that the distributions of the spherical angles have a good data/Monte Carlo agreement.
+
+\begin{figure}[htbp]
+  \begin{subfigure}{0.52\textwidth}
+    \includegraphics[width=\linewidth]{figures/theta.pdf}
+    \caption{$\theta$ Data/Monte Carlo distribution.} \label{fig:xy_mucs}
+  \end{subfigure}
+  \begin{subfigure}{0.52\textwidth}
+    \includegraphics[width=\linewidth]{figures/phi.pdf}
+    \caption{$\phi$ Data/Monte Carlo distribution.} \label{fig:yzmucs}
+  \end{subfigure}
+  \caption{Data/Monte Carlo distributions of the spherical angles of the cosmic rays hitting the MuCS. Data angles have been obtained extrapolating the MuCS hits. Errors are statistical only.} \label{fig:mucs_angles}
 
 
 \end{figure}
-
-Monte Carlo distributions, in this case, have been obtained generating a CRY \cite{cry} sample of cosmic rays within the top box borders. Each event is stored only if the cosmic ray crosses also the bottom box. This Monte Carlo information must not be confused with the reconstructed Monte Carlo information described above, which is obtained reconstructing a simulated cosmic ray in the TPC.
-
-
-
-The $\theta_{xy}$ distribution is peaked around -60$^{\circ}$ because of the relative shift of the two boxes in the $x$ direction, as seen in Fig. \ref{fig:mucs}. The $\theta_{yz}$, instead, is symmetrical around -90$^{\circ}$ because the two boxes are aligned on the $z$ axis. The drop at $\theta_{yz}=-90^{\circ}$ is caused by of the staggered arrangement of the strips in each MuCS bi-layer: vertical cosmic rays will cause a signal in two strips relatively shifted by 2 cm, causing a bias in the extrapolation of the trajectory  \cite{mucsextra}.
-
-
-
-\section{Minimum-ionizing particles discrimination} \label{sec:mip}
-
-Since both MuCS boxes are positioned above the TPC, the MuCS-triggered events will correspond both to muons crossing the TPC entirely (minimum ionizing particles, MIPs) and, to a lesser extent, to muons stopping in the liquid argon. For each MuCS-triggered event, the corresponding Monte Carlo event is obtained generating a 4 GeV muon with a starting position and direction given by the hits of the data in the MuCS strips. A 4 GeV muon has a negligible probability to stop in few meters of liquid argon: thus, in order to get a fair Monte Carlo/data comparison, it is necessary to remove the stopping muon events from the data.
-
-\begin{figure}[htbp]
-\includegraphics[width=0.36\linewidth]{figures/3devd.png}\includegraphics[width=0.6\linewidth]{figures/mipcut.pdf}
-\caption{Left: 2D event display ($x-y$ projection) of a MIP event showing the extrapolated starting $x$ coordinate ($x^{\mathrm{MuCS}}$). Right: number of measured photoelectrons divided by the extrapolated length $L^{\textrm{MuCS}}$ as a function of the extrapolated started $x$ coordinate ($x^{\textrm{MuCS}}$). The shaded region correspond to the excluded events. $L^{\textrm{MuCS}}$ and $x^{\textrm{MuCS}}$ have been extrapolated from the MuCS hits coordinates.} \label{fig:3dmipcut}
-\end{figure}
-
-It is possible to distinguish between MIPs and stopping muons using only the MicroBooNE optical system and the MuCS. For each event, the track length $L^{\mathrm{MuCS}}$ is calculated extrapolating a straight line from the coordinates given by the MuCS. Then, the track length $L^{\mathrm{MuCS}}$, which correspond to extrapolated path length of the muon through the detector (assuming it is through-going), is divided by the number of photoelectrons p.e., measured by the optical system.
-
-The stopping muon events are expected to have a lower p.e.$/L^{\mathrm{MuCS}}$ ratio than the MIP events, since their track length will be lower than the extrapolated $L^{\mathrm{MuCS}}$. This ratio is plotted as a function of the extrapolated starting coordinate $x^{\mathrm{MuCS}}$, to take into account the light attenuation. Since the PMTs are located at $x=0$, cosmic rays that cross the TPC at high $x$ coordinates will correspond to less photoelectrons in the optical system, because of smaller solid angle and light self-absorption in the liquid argon. Fig. \ref{fig:3dmipcut} (left) shows a 2D event display with the MuCS extrapolated track and the starting coordinate $x^{\mathrm{MuCS}}$ .
-
-The profile of the 2-dimensional histogram of the data points is fitted by a polynomial function.
-The events with a p.e.$/L^{\mathrm{MuCS}}$ ratio below the fitting function have less light than expected for a MIP event and they are tagged as stopping muon events, corresponding to the shaded region in Fig. \ref{fig:3dmipcut} (right). %Events with a high $p.e./L_{MuCS}$ ratio, instead,
-
-The cut used to distinguish between MIPs and stopping muons depends on the chosen trade-off between the size and the purity of our MIP dataset. The shaded region of Fig. \ref{fig:3dmipcut} (right) corresponds to events with at least 0.45 p.e./cm less than the expected value, given by the fitting function.
-
-
-
-Our dataset contains 18704 MuCS-triggered events, acquired during run 3702 (November 12, 2015) and run 7106 (August 8, 2016). The MIP-selection cut tags 3158 events as stopping muons, reducing the size of the dataset by 17\%.
-%In our dataset of 11040 MuCS-triggered events of run 3702, the MIP selection cut corresponds to 2641 events tagged as stopping muons, reducing the size of the dataset by 24\%.
-However, as the plot shows, it is not possible to discriminate between MIPs and stopping muons that hit the TPC further than 150 cm the anode, which correspond to very tilted cosmic rays ($\theta_{xy}<-60^{\circ}$) and very short tracks. Our dataset will then include an irreducible set of stopping muons.
-
-\section{Residual distributions}
-After removing the stopping muon events from the data it is possible to study the residual distributions between the data/Monte Carlo and the corresponding MuCS variables. In this study we will focus on the angular residual distributions of the starting angles $\theta_{xy}$ and $\theta_{yz}$. The residual distributions are defined, for data and Monte Carlo, as:
-\begin{align*}
-\Delta \theta_{xy}^{\mathrm{data/MC}} = \theta_{xy}^{\mathrm{MuCS}} - \theta_{xy}^{\mathrm{data/MC}}\\
-\Delta \theta_{yz}^{\mathrm{data/MC}} = \theta_{yz}^{\mathrm{MuCS}} -  \theta_{yz}^{\mathrm{data/MC}},
-\end{align*}
-where the $\theta_{yz}^{\mathrm{MuCS}}$ and $\theta_{xy}^{\mathrm{MuCS}}$ angles are obtained extrapolating a line from the MuCS hits \eqref{eq:angles}, while $\theta_{xy}^{\mathrm{data/MC}}$ and $\theta_{yz}^{\mathrm{data/MC}}$ are obtained reconstructing the hits in the TPC and measuring the starting angle of the track.
-The space-charge effect (SCE) in the data distributions has been corrected with the procedure described in \cite{sce}.
-
-
-\begin{figure}[htbp]
-\begin{subfigure}{0.52\textwidth}
-\includegraphics[width=\linewidth]{figures/xy_res.pdf}
-\caption{Residual distributions for $\theta_{xy}$.} \label{fig:res_xy}
-\end{subfigure}
-\hspace*{\fill}
-\begin{subfigure}{0.52\textwidth}
-\includegraphics[width=\linewidth]{figures/yz_res.pdf}
-\caption{Residual distributions for $\theta_{yz}$.} \label{fig:res_yz}
-\end{subfigure}
-\caption{Monte Carlo (solid lines) and data (points) residuals distributions of $\theta_{xy}$ and $\theta_{yz}$ for \texttt{track\-kal\-man\-hit}, \texttt{pan\-do\-ra\-Co\-smic} and \texttt{pan\-do\-ra\-Co\-smicKHit} reconstruction algorithms.} \label{fig:res}
-\end{figure}
-
-For each MuCS-merged event we have simulated all the possible cosmic rays that can have the same geometrical hit pattern in the MuCS boxes. %, taking into account the effect of the MuCS strips finite width (4~cm), as shown in \cite{mucsextra}.
-We introduced the effects of the MuCS strip widths (4~cm) into the Monte Carlo residual distributions with a Gaussian smearing. The $\sigma$ parameter of the smearing Gaussian is different for each event and it corresponds to the standard deviation of the possible angles of the event hit pattern in the MuCS scintillator strips \cite{mucsextra}. The mean $\sigma$ are $0.6^{\circ}$ and $0.7^{\circ}$ for $\theta_{xy}$ and $\theta_{yz}$, respectively.%, computed by a Monte Carlo simulation.
-
-The three different reconstruction algorithms used in this study are:
-\begin{itemize}
-\item \texttt{track\-kal\-man\-hit}, which performs a Kalman filter \cite{trackkalmanhit} on the hits of 2D clusters, one for each wire plane (U, V and Y), and then merges the three 2D tracks to form a 3D track object \cite{kalmanhit};
-\item \texttt{pan\-do\-ra\-Co\-smic}, which uses the Pandora framework \cite{pandora} to reconstruct the tracks generated by cosmic rays: first, it creates three 2D clusters using a linear fit and then merges the clusters to create 3D space points. A linear fit is then performed on the space points to obtain a smooth 3D track object \cite{pandoracosmic};
-\item \texttt{pan\-do\-ra\-Co\-smicKHit}, which shares the same procedure of \texttt{pan\-do\-ra\-Co\-smic}, but instead of a linear fit on the 3D space points, it performs a Kalman filter to obtain the final 3D track object \cite{pandoracosmic}.
-\end{itemize}
-
-They all give very similar residual distributions, as shown in Fig. \ref{fig:res}. In order to normalize the data/Monte Carlo histograms, each entry correspond to an event with both a data reconstructed track and a Monte Carlo reconstructed track.
-The larger width of the data distributions is caused by two factors:
-\begin{itemize}
-\item multiple Coulomb scattering in the MuCS boxes, which are not included in the GEANT4 stage of the Monte Carlo simulation;
-\item different energy between the Monte Carlo and the data cosmic ray. Since we generate a 4 GeV Monte Carlo cosmic ray, corresponding data events with a less energetic cosmic ray will scatter more in the liquid argon, increasing the width of the residual distributions.
-\end{itemize}
 
 
 \section{Reconstruction efficiencies}\label{sec:reco}
@@ -250,7 +212,7 @@ The following efficiencies have been measured comparing the number of MuCS-merge
 
 In this analysis, the reconstruction efficiency $\epsilon$ is defined as the ratio between the number of MuCS-tagged reconstructed events and the number of MuCS-triggered events. We will study it as a function of the starting angles, $\theta_{xy}^{\textrm{MuCS}}$ and $\theta_{yz}^{\textrm{MuCS}}$, and of the extrapolated cosmic-ray path length in the TPC, $L^{\textrm{MuCS}}$ (from now on we will omit the $^{\textrm{MuCS}}$ for brevity):
 \begin{equation}
-\epsilon(\theta_{xy}, \theta_{yz}, L) = \frac{\mathrm{N.~of~reco.~events}}{\mathrm{N.~of~MuCS\mymathhyphen triggered~events}}.
+  \epsilon(\theta_{xy}, \theta_{yz}, L) = \frac{\mathrm{N.~of~reco.~events}}{\mathrm{N.~of~MuCS\mymathhyphen triggered~events}}.
 \end{equation}
 Being a function of three parameters, the reconstruction efficiency can be represented by a 3D plot, as shown in Fig. \ref{fig:3Deff}, where larger boxes correspond to bigger efficiencies. Each box correspond to a particular bin in the $\theta_{xy}, \theta_{yz}, L$ parameter space.
 
@@ -264,28 +226,28 @@ The reconstruction efficiency, both for Monte Carlo and data, can be affected by
 
 However, while the Monte Carlo efficiency is very close to 1 for the entire parameter space, the corresponding data efficiency is significantly lower, even after the removal of the stopping muons with the procedure described in Sec. \ref{sec:mip}. So far, we identified two main factors that can contribute to this difference:
 \begin{itemize}
-\item{stopping muons in the dataset that are not removed by the p.e./$L^{\mathrm{MuCS}}$ cut;}
-%\item{overlay of cosmic rays in the data sample. The Monte Carlo event is generated as a single cosmic ray in the entire TPC. The reconstruction of the data cosmic ray, instead, can be affected by the presence of other cosmic rays in the proximity of the MuCS one\footnote{A Monte Carlo sample with other cosmic rays overlayed is being generated to study this effect.};}
-\item{different energy between the Monte Carlo and the cosmic-ray data. Cosmic ray with a lower energy are scattered more in the TPC and then can be more difficult to reconstruct.}
+  \item{stopping muons in the dataset that are not removed by the p.e./$L^{\mathrm{MuCS}}$ cut;}
+  %\item{overlay of cosmic rays in the data sample. The Monte Carlo event is generated as a single cosmic ray in the entire TPC. The reconstruction of the data cosmic ray, instead, can be affected by the presence of other cosmic rays in the proximity of the MuCS one\footnote{A Monte Carlo sample with other cosmic rays overlayed is being generated to study this effect.};}
+  \item{different energy between the Monte Carlo and the cosmic-ray data. Cosmic ray with a lower energy are scattered more in the TPC and then can be more difficult to reconstruct.}
 \end{itemize}
 
 Appendix \ref{sec:500mev} shows Monte Carlo reconstruction efficiencies using 500 MeV cosmic rays. The overall efficiency in this case is $(81.4\pm0.4)\%$: we can safely assume that the reconstruction efficiency is proportional to the cosmic-ray energy. The Monte Carlo study described in Sec. \ref{sec:cry} addresses this discrepancy, using a complete energy spectrum of cosmic rays instead of a fixed-energy sample.
 
 \begin{table}[htbp]
-\centering
-\ra{1.2}
-\begin{tabular}{lcrrrcc}
-\toprule
-Reconstruction algorithm & \phantom{abc}& \multicolumn{2}{c}{Data [\%]} & \phantom{abc} & \multicolumn{2}{c}{4 GeV Monte Carlo [\%]}\\
-\cmidrule{3-4} \cmidrule{6-7}
- & & avg. & err. & & avg. & err. \\
-\midrule
-\texttt{pan\-do\-ra\-Co\-smic} & & 84.6 & 0.4 & & 96.5& 0.2 \\
-\texttt{pandoraCosmicKHit} & & 64.8 & 0.5 & & 93.8& 0.2 \\
-\texttt{trackkalmanhit} & & 76.0 & 0.5 & & 90.9& 0.3 \\
-\bottomrule
-\end{tabular}
-\caption{Data and Monte Carlo overall efficiencies for three reconstruction algorithms. Errors are statistical only.}\label{tab:eff}
+  \centering
+  \ra{1.2}
+  \begin{tabular}{lcrrrcc}
+    \toprule
+    Reconstruction algorithm & \phantom{abc}& \multicolumn{2}{c}{Data [\%]} & \phantom{abc} & \multicolumn{2}{c}{4 GeV Monte Carlo [\%]}\\
+    \cmidrule{3-4} \cmidrule{6-7}
+    & & avg. & err. & & avg. & err. \\
+    \midrule
+    \texttt{pan\-do\-ra\-Co\-smic} & & 84.6 & 0.4 & & 96.5& 0.2 \\
+    \texttt{pandoraCosmicKHit} & & 64.8 & 0.5 & & 93.8& 0.2 \\
+    \texttt{trackkalmanhit} & & 76.0 & 0.5 & & 90.9& 0.3 \\
+    \bottomrule
+  \end{tabular}
+  \caption{Data and Monte Carlo overall efficiencies for three reconstruction algorithms. Errors are statistical only.}\label{tab:eff}
 \end{table}
 
 
@@ -316,126 +278,126 @@ The overall reconstruction efficiencies, obtained integrating the 3D plots, are 
 
 %Comparing the efficiencies of all three reconstruction algorithms after the MIP selection cut (Fig. \ref{fig:eff}), the best-performing one is \texttt{pan\-do\-ra\-Co\-smic} with an overall efficiency for data of $(82.2\pm0.4)\%$, followed by \texttt{track\-kal\-man\-hit} with $(71.9\pm0.5)\%$ and \texttt{pan\-do\-ra\-Co\-smic\-KHit} with $(64.3\pm0.5)\%$. The Monte Carlo overall efficiencies are, respectively, $(98.2\pm0.2)\%$, $(90.4\pm0.3)\%$ and $(94.0\pm0.3)\%$ (Tab. \ref{tab:eff}).
 \begin{figure}[htbp]
-\begin{subfigure}{0.5\textwidth}
-\caption{3D data efficiency with \texttt{pandoraCosmic}.} \label{fig:pandora_3D}
-\end{subfigure}
-\hspace*{\fill}
-\begin{subfigure}{0.5\textwidth}
-\caption{3D Monte Carlo efficiency with \texttt{pandoraCosmic}.}\label{fig:pandora_3D_mc}
-\end{subfigure}
-\begin{subfigure}{0.5\textwidth}
-\caption{3D data efficiency with \texttt{pandoraCosmicKHit}.} \label{fig:pandoraKHit_3D}
-\end{subfigure}
-\hspace*{\fill}
-\begin{subfigure}{0.5\textwidth}
-\caption{3D Monte Carlo efficiency with \texttt{pandoraCosmicKHit}.}\label{fig:pandoraKHit_3D_mc}
-\end{subfigure}
-\begin{subfigure}{0.5\textwidth}
-\caption{3D data efficiency with \texttt{trackkalmanhit}.} \label{fig:tk_3D}
-\end{subfigure}
-\hspace*{\fill}
-\begin{subfigure}{0.5\textwidth}
-\caption{3D Monte Carlo efficiency with \texttt{trackkalmanhit}.}\label{fig:tk_3D_mc}
-\end{subfigure}
-\caption{Data (left) and Monte Carlo (right) 3D efficiencies  as a function of $\theta_{xy}$, $\theta_{yz}$ and $L$ for \texttt{track\-kal\-man\-hit}, \texttt{pan\-do\-ra\-Co\-smic} and \texttt{pan\-do\-ra\-Co\-smicKHit} reconstruction algorithms. Each box correspond to a particular combination of $\theta_{xy}, \theta_{yz}$ and $L$. Larger boxes correspond to larger efficiencies.} \label{fig:3Deff}
+  \begin{subfigure}{0.5\textwidth}
+    \caption{3D data efficiency with \texttt{pandoraCosmic}.} \label{fig:pandora_3D}
+  \end{subfigure}
+  \hspace*{\fill}
+  \begin{subfigure}{0.5\textwidth}
+    \caption{3D Monte Carlo efficiency with \texttt{pandoraCosmic}.}\label{fig:pandora_3D_mc}
+  \end{subfigure}
+  \begin{subfigure}{0.5\textwidth}
+    \caption{3D data efficiency with \texttt{pandoraCosmicKHit}.} \label{fig:pandoraKHit_3D}
+  \end{subfigure}
+  \hspace*{\fill}
+  \begin{subfigure}{0.5\textwidth}
+    \caption{3D Monte Carlo efficiency with \texttt{pandoraCosmicKHit}.}\label{fig:pandoraKHit_3D_mc}
+  \end{subfigure}
+  \begin{subfigure}{0.5\textwidth}
+    \caption{3D data efficiency with \texttt{trackkalmanhit}.} \label{fig:tk_3D}
+  \end{subfigure}
+  \hspace*{\fill}
+  \begin{subfigure}{0.5\textwidth}
+    \caption{3D Monte Carlo efficiency with \texttt{trackkalmanhit}.}\label{fig:tk_3D_mc}
+  \end{subfigure}
+  \caption{Data (left) and Monte Carlo (right) 3D efficiencies  as a function of $\theta_{xy}$, $\theta_{yz}$ and $L$ for \texttt{track\-kal\-man\-hit}, \texttt{pan\-do\-ra\-Co\-smic} and \texttt{pan\-do\-ra\-Co\-smicKHit} reconstruction algorithms. Each box correspond to a particular combination of $\theta_{xy}, \theta_{yz}$ and $L$. Larger boxes correspond to larger efficiencies.} \label{fig:3Deff}
 \end{figure}
 
 
 
 \begin{figure}[htbp]
-\begin{subfigure}{0.52\textwidth}
-\caption{$\theta_{xy} - \theta_{yz}$, \texttt{pan\-do\-ra\-Co\-smic} - data} \label{fig:2d_pc1}
-\end{subfigure}
-\begin{subfigure}{0.52\textwidth}
-\caption{$\theta_{xy} - \theta_{yz}$, \texttt{pan\-do\-ra\-Co\-smic} - Monte Carlo}\label{fig:2d_pc1_mc}
-\end{subfigure}
-\begin{subfigure}{0.52\textwidth}
-\caption{$\theta_{xy} - L$, \texttt{pan\-do\-ra\-Co\-smic} - data}\label{fig:2d_pc2}
-\end{subfigure}
-\begin{subfigure}{0.52\textwidth}
-\caption{$\theta_{xy} - L$, \texttt{pan\-do\-ra\-Co\-smic} - Monte Carlo}\label{fig:2d_pc2_mc}
-\end{subfigure}
-\begin{subfigure}{0.52\textwidth}
-\caption{$\theta_{yz} - L$, \texttt{pan\-do\-ra\-Co\-smic} - data}\label{fig:2d_pc3}
-\end{subfigure}
-\begin{subfigure}{0.52\textwidth}
-\caption{$\theta_{yz} - L$, \texttt{pan\-do\-ra\-Co\-smic} - Monte Carlo}\label{fig:2d_pc3_mc}
-\end{subfigure}
-\caption{2D scatter-plot of the reconstruction efficiencies for data (left) and Monte Carlo (right) for $\theta_{xy} - \theta_{yz}$, $\theta_{xy} - L$ and $\theta_{yz} - L$ 2D projections with the \texttt{pandoraCosmic} algorithm. Regions with lower data efficiency correspond to cosmic ray with a small path length in the TPC.} \label{fig:2deff_pandora}
+  \begin{subfigure}{0.52\textwidth}
+    \caption{$\theta_{xy} - \theta_{yz}$, \texttt{pan\-do\-ra\-Co\-smic} - data} \label{fig:2d_pc1}
+  \end{subfigure}
+  \begin{subfigure}{0.52\textwidth}
+    \caption{$\theta_{xy} - \theta_{yz}$, \texttt{pan\-do\-ra\-Co\-smic} - Monte Carlo}\label{fig:2d_pc1_mc}
+  \end{subfigure}
+  \begin{subfigure}{0.52\textwidth}
+    \caption{$\theta_{xy} - L$, \texttt{pan\-do\-ra\-Co\-smic} - data}\label{fig:2d_pc2}
+  \end{subfigure}
+  \begin{subfigure}{0.52\textwidth}
+    \caption{$\theta_{xy} - L$, \texttt{pan\-do\-ra\-Co\-smic} - Monte Carlo}\label{fig:2d_pc2_mc}
+  \end{subfigure}
+  \begin{subfigure}{0.52\textwidth}
+    \caption{$\theta_{yz} - L$, \texttt{pan\-do\-ra\-Co\-smic} - data}\label{fig:2d_pc3}
+  \end{subfigure}
+  \begin{subfigure}{0.52\textwidth}
+    \caption{$\theta_{yz} - L$, \texttt{pan\-do\-ra\-Co\-smic} - Monte Carlo}\label{fig:2d_pc3_mc}
+  \end{subfigure}
+  \caption{2D scatter-plot of the reconstruction efficiencies for data (left) and Monte Carlo (right) for $\theta_{xy} - \theta_{yz}$, $\theta_{xy} - L$ and $\theta_{yz} - L$ 2D projections with the \texttt{pandoraCosmic} algorithm. Regions with lower data efficiency correspond to cosmic ray with a small path length in the TPC.} \label{fig:2deff_pandora}
 \end{figure}
 
 \begin{figure}[htbp]
-\begin{subfigure}{0.52\textwidth}
-\caption{$\theta_{xy} - \theta_{yz}$, \texttt{pan\-do\-ra\-Co\-smicKHit} - data} \label{fig:2d_pk1}
-\end{subfigure}
-\begin{subfigure}{0.52\textwidth}
-\caption{$\theta_{xy} - \theta_{yz}$, \texttt{pan\-do\-ra\-Co\-smicKHit} - Monte Carlo}\label{fig:2d_pk1_mc}
-\end{subfigure}
-\begin{subfigure}{0.52\textwidth}
-\caption{$\theta_{xy} - L$, \texttt{pan\-do\-ra\-Co\-smicKHit} - data}\label{fig:2d_pk2}
-\end{subfigure}
-\begin{subfigure}{0.52\textwidth}
-\caption{$\theta_{xy} - L$, \texttt{pan\-do\-ra\-Co\-smicKHit} - Monte Carlo}\label{fig:2d_pk2_mc}
-\end{subfigure}
-\begin{subfigure}{0.52\textwidth}
-\caption{$\theta_{yz} - L$, \texttt{pan\-do\-ra\-Co\-smicKHit} - data}\label{fig:2d_pk3}
-\end{subfigure}
-\begin{subfigure}{0.52\textwidth}
-\caption{$\theta_{yz} - L$, \texttt{pan\-do\-ra\-Co\-smicKHit} - Monte Carlo}\label{fig:2d_pk3_mc}
-\end{subfigure}
-\caption{2D scatter-plot of the reconstruction efficiencies for data (left) and Monte Carlo (right) for $\theta_{xy} - \theta_{yz}$, $\theta_{xy} - L$ and $\theta_{yz} - L$ 2D projections with the \texttt{pandoraCosmicKHit} algorithm. Regions with lower data efficiency correspond to cosmic ray with a small path length in the TPC.} \label{fig:2deff_pandorak}
+  \begin{subfigure}{0.52\textwidth}
+    \caption{$\theta_{xy} - \theta_{yz}$, \texttt{pan\-do\-ra\-Co\-smicKHit} - data} \label{fig:2d_pk1}
+  \end{subfigure}
+  \begin{subfigure}{0.52\textwidth}
+    \caption{$\theta_{xy} - \theta_{yz}$, \texttt{pan\-do\-ra\-Co\-smicKHit} - Monte Carlo}\label{fig:2d_pk1_mc}
+  \end{subfigure}
+  \begin{subfigure}{0.52\textwidth}
+    \caption{$\theta_{xy} - L$, \texttt{pan\-do\-ra\-Co\-smicKHit} - data}\label{fig:2d_pk2}
+  \end{subfigure}
+  \begin{subfigure}{0.52\textwidth}
+    \caption{$\theta_{xy} - L$, \texttt{pan\-do\-ra\-Co\-smicKHit} - Monte Carlo}\label{fig:2d_pk2_mc}
+  \end{subfigure}
+  \begin{subfigure}{0.52\textwidth}
+    \caption{$\theta_{yz} - L$, \texttt{pan\-do\-ra\-Co\-smicKHit} - data}\label{fig:2d_pk3}
+  \end{subfigure}
+  \begin{subfigure}{0.52\textwidth}
+    \caption{$\theta_{yz} - L$, \texttt{pan\-do\-ra\-Co\-smicKHit} - Monte Carlo}\label{fig:2d_pk3_mc}
+  \end{subfigure}
+  \caption{2D scatter-plot of the reconstruction efficiencies for data (left) and Monte Carlo (right) for $\theta_{xy} - \theta_{yz}$, $\theta_{xy} - L$ and $\theta_{yz} - L$ 2D projections with the \texttt{pandoraCosmicKHit} algorithm. Regions with lower data efficiency correspond to cosmic ray with a small path length in the TPC.} \label{fig:2deff_pandorak}
 \end{figure}
 
 \begin{figure}[htbp]
-\begin{subfigure}{0.52\textwidth}
-\caption{$\theta_{xy} - \theta_{yz}$, \texttt{trackkalmanhit} - data} \label{fig:2d_tk1}
-\end{subfigure}
-\begin{subfigure}{0.52\textwidth}
-\caption{$\theta_{xy} - \theta_{yz}$, \texttt{trackkalmanhit} - Monte Carlo}\label{fig:2d_tk1_mc}
-\end{subfigure}
-\begin{subfigure}{0.52\textwidth}
-\caption{$\theta_{xy} - L$, \texttt{trackkalmanhit} - data}\label{fig:2d_tk2}
-\end{subfigure}
-\begin{subfigure}{0.52\textwidth}
-\caption{$\theta_{xy} - L$, \texttt{trackkalmanhit} - Monte Carlo}\label{fig:2d_tk2_mc}
-\end{subfigure}
-\begin{subfigure}{0.52\textwidth}
-\caption{$\theta_{yz} - L$, \texttt{trackkalmanhit} - data}\label{fig:2d_tk3}
-\end{subfigure}
-\begin{subfigure}{0.52\textwidth}
-\caption{$\theta_{yz} - L$, \texttt{trackkalmanhit} - Monte Carlo}\label{fig:2d_tk3_mc}
-\end{subfigure}
-\caption{2D scatter-plot of the reconstruction efficiencies for data (left) and Monte Carlo (right) for $\theta_{xy} - \theta_{yz}$, $\theta_{xy} - L$ and $\theta_{yz} - L$ 2D projections with the \texttt{trackkalmanhit} algorithm. Regions with lower data efficiency correspond to cosmic ray with a small path length in the TPC. In general, this algorithm has lower data/Monte Carlo efficiencies w.r.t. to the ones using the Pandora framework.} \label{fig:2deff_trk}
+  \begin{subfigure}{0.52\textwidth}
+    \caption{$\theta_{xy} - \theta_{yz}$, \texttt{trackkalmanhit} - data} \label{fig:2d_tk1}
+  \end{subfigure}
+  \begin{subfigure}{0.52\textwidth}
+    \caption{$\theta_{xy} - \theta_{yz}$, \texttt{trackkalmanhit} - Monte Carlo}\label{fig:2d_tk1_mc}
+  \end{subfigure}
+  \begin{subfigure}{0.52\textwidth}
+    \caption{$\theta_{xy} - L$, \texttt{trackkalmanhit} - data}\label{fig:2d_tk2}
+  \end{subfigure}
+  \begin{subfigure}{0.52\textwidth}
+    \caption{$\theta_{xy} - L$, \texttt{trackkalmanhit} - Monte Carlo}\label{fig:2d_tk2_mc}
+  \end{subfigure}
+  \begin{subfigure}{0.52\textwidth}
+    \caption{$\theta_{yz} - L$, \texttt{trackkalmanhit} - data}\label{fig:2d_tk3}
+  \end{subfigure}
+  \begin{subfigure}{0.52\textwidth}
+    \caption{$\theta_{yz} - L$, \texttt{trackkalmanhit} - Monte Carlo}\label{fig:2d_tk3_mc}
+  \end{subfigure}
+  \caption{2D scatter-plot of the reconstruction efficiencies for data (left) and Monte Carlo (right) for $\theta_{xy} - \theta_{yz}$, $\theta_{xy} - L$ and $\theta_{yz} - L$ 2D projections with the \texttt{trackkalmanhit} algorithm. Regions with lower data efficiency correspond to cosmic ray with a small path length in the TPC. In general, this algorithm has lower data/Monte Carlo efficiencies w.r.t. to the ones using the Pandora framework.} \label{fig:2deff_trk}
 \end{figure}
 
 \begin{figure}[htbp]
-\begin{center}
-\begin{subfigure}{0.55\textwidth}
-\caption{Efficiency as a function of $\theta_{xy}$.} \label{fig:xy}
-\end{subfigure}\begin{subfigure}{0.55\textwidth}
-\caption{Efficiency as a function of $\theta_{yz}$}\label{fig:yz}
-\end{subfigure}
-\begin{subfigure}{0.55\textwidth}
-\caption{Efficiency as a function of $L$}\label{fig:l}
-\end{subfigure}
-\caption{Monte Carlo (boxes) and data (points) efficiencies  as a function of $\theta_{xy}$, $\theta_{yz}$ and $L$ for \texttt{track\-kal\-man\-hit} (red), \texttt{pan\-do\-ra\-Co\-smic} (blue) and \texttt{pan\-do\-ra\-Co\-smicKHit} (green) reconstruction algorithms. In general, data efficiency is always lower than the Monte Carlo one. In the case of the $L$ projection, the efficiency is proportional to the cosmic-ray path because a longer track has a larger number of hits in the TPC. The efficiency decreases when  $\theta_{xy}> -40^{\circ}$, because this angle corresponds to cosmic ray with a short path length.} \label{fig:eff}
+  \begin{center}
+    \begin{subfigure}{0.55\textwidth}
+      \caption{Efficiency as a function of $\theta_{xy}$.} \label{fig:xy}
+    \end{subfigure}\begin{subfigure}{0.55\textwidth}
+    \caption{Efficiency as a function of $\theta_{yz}$}\label{fig:yz}
+  \end{subfigure}
+  \begin{subfigure}{0.55\textwidth}
+    \caption{Efficiency as a function of $L$}\label{fig:l}
+  \end{subfigure}
+  \caption{Monte Carlo (boxes) and data (points) efficiencies  as a function of $\theta_{xy}$, $\theta_{yz}$ and $L$ for \texttt{track\-kal\-man\-hit} (red), \texttt{pan\-do\-ra\-Co\-smic} (blue) and \texttt{pan\-do\-ra\-Co\-smicKHit} (green) reconstruction algorithms. In general, data efficiency is always lower than the Monte Carlo one. In the case of the $L$ projection, the efficiency is proportional to the cosmic-ray path because a longer track has a larger number of hits in the TPC. The efficiency decreases when  $\theta_{xy}> -40^{\circ}$, because this angle corresponds to cosmic ray with a short path length.} \label{fig:eff}
 \end{center}
 \end{figure}
 
 \begin{figure}[htbp]
-\begin{subfigure}{1\textwidth}
-\begin{center}
+  \begin{subfigure}{1\textwidth}
+    \begin{center}
 
-\end{center}
-\caption{Short length of the cosmic ray.}\label{fig:short}
-\vspace{1em}
-\end{subfigure}
-\begin{subfigure}{1\textwidth}
-\begin{center}
-\caption{Missing wires in the expected region of the cosmic ray.}\label{fig:wire}
-\end{center}
-\end{subfigure}
-\caption{3D event reconstruction and corresponding event display for two MuCS-triggered events without tagged tracks. The red box (cross) in the 3D event corresponds to the data (Monte Carlo) flash. In the event on the top, the track was not reconstructed because the cosmic ray length in the TPC was too small. In the event on the bottom, the cosmic ray path was expected to be in a region with missing wires. The red boxes on the event display show the expected region for the cosmic ray tracks.} \label{fig:ineff}
+    \end{center}
+    \caption{Short length of the cosmic ray.}\label{fig:short}
+    \vspace{1em}
+  \end{subfigure}
+  \begin{subfigure}{1\textwidth}
+    \begin{center}
+      \caption{Missing wires in the expected region of the cosmic ray.}\label{fig:wire}
+    \end{center}
+  \end{subfigure}
+  \caption{3D event reconstruction and corresponding event display for two MuCS-triggered events without tagged tracks. The red box (cross) in the 3D event corresponds to the data (Monte Carlo) flash. In the event on the top, the track was not reconstructed because the cosmic ray length in the TPC was too small. In the event on the bottom, the cosmic ray path was expected to be in a region with missing wires. The red boxes on the event display show the expected region for the cosmic ray tracks.} \label{fig:ineff}
 \end{figure}
 \clearpage{}
 
@@ -447,11 +409,11 @@ Thus, in order to obtain a better Data/MC agreement we generated a new Monte Car
 
 In this section, since our target is to obtain an efficiency-corrected cosmic-ray flux measurement, we will use the $\theta$ and $\phi$ angular coordinates, as defined in the MicroBooNE coordinate system \cite{datamc}:
 \begin{equation}
-\begin{aligned}
-r &= \sqrt{x^2+y^2+z^2}\\
-\theta &= \mathrm{arccos}\frac{z}{r}\\
-\phi &= \arctan \frac{y}{x}.
-\end{aligned}
+  \begin{aligned}
+    r &= \sqrt{x^2+y^2+z^2}\\
+    \theta &= \mathrm{arccos}\frac{z}{r}\\
+    \phi &= \arctan \frac{y}{x}.
+  \end{aligned}
 \end{equation}
 
 In our procedure, we generate a complete CRY simulation with 1000 events (1 cosmic ray per event) for each bin of the $\theta$, $\phi$ parameter space, while the separation of the events on the $L$ axis is given automatically by the geometry. In order to account for the angular dependence of the cosmic-ray flux, each three-dimensional bin is normalized by the number of MuCS-triggered events in the same bin, given by the data (Sec. \ref{sec:flux}). In this way, it is possible to incorporate the effects of the energy dependence in the measurement of the Monte Carlo efficiency.
@@ -459,7 +421,7 @@ In our procedure, we generate a complete CRY simulation with 1000 events (1 cosm
 For each event, we check if there is a reconstructed track that, extrapolated up to the MuCS box heights, crosses both boxes, with the same procedure used for data and described in Sec. \ref{sec:proc}.
 Since with this procedure we don't have a one-to-one correspondence between a MuCS-triggered event and a Monte Carlo event, the Monte Carlo efficiency is defined as:
 \begin{equation}
-\epsilon(\theta,\phi,L) = \frac{\mathrm{N.~of~reco.~events}}{\mathrm{N.~of~generated~events}}.
+  \epsilon(\theta,\phi,L) = \frac{\mathrm{N.~of~reco.~events}}{\mathrm{N.~of~generated~events}}.
 \end{equation}
 In order to remove stopping muon events, the same cut described in Sec. \ref{sec:mip} is applied to the generated events.
 
@@ -469,103 +431,103 @@ Figg. \ref{fig:cry_mc_2d}, \ref{fig:cry_mc_2d_2} and \ref{fig:cry_mc_2d_3} show 
 Tab. \ref{tab:mc} reports the overall efficiencies for data, fixed-energy Monte Carlo samples (4 GeV and 500 MeV) and CRY sample. As we can see, this procedure sensibly improves the data/Monte Carlo agreement: the overall efficiency for Monte Carlo is $(85.0\pm0.1)\%$, compared with the $(96.5\pm0.2)\%$ obtained with the 4 GeV fixed-energy sample.
 
 \begin{table}[htbp]
-\centering
-\ra{1.2}
-\begin{tabular}{lcrrrcccccccc}
-\toprule
- & \phantom{a}& \multicolumn{2}{c}{Data} & \phantom{a} & \multicolumn{2}{c}{4 GeV MC} & \phantom{a} & \multicolumn{2}{c}{500 MeV MC} & \phantom{a} & \multicolumn{2}{c}{CRY MC}\\
-\cmidrule{3-4} \cmidrule{6-7} \cmidrule{9-10} \cmidrule{12-13}
- & & avg. & err. & & avg. & err. & & avg. & err. & & avg. & err.\\
-\midrule
-Efficiency & & 84.6 & 0.4 & & 96.5 & 0.2 & & 81.4 & 0.4 & & 85.0 & 0.1\\
-\bottomrule
-\end{tabular}
-\caption{Overall efficiencies for data, 4 GeV Monte Carlo, 500 MeV Monte Carlo and CRY Monte Carlo. Errors are statistical only.}\label{tab:mc}
+  \centering
+  \ra{1.2}
+  \begin{tabular}{lcrrrcccccccc}
+    \toprule
+    & \phantom{a}& \multicolumn{2}{c}{Data} & \phantom{a} & \multicolumn{2}{c}{4 GeV MC} & \phantom{a} & \multicolumn{2}{c}{500 MeV MC} & \phantom{a} & \multicolumn{2}{c}{CRY MC}\\
+    \cmidrule{3-4} \cmidrule{6-7} \cmidrule{9-10} \cmidrule{12-13}
+    & & avg. & err. & & avg. & err. & & avg. & err. & & avg. & err.\\
+    \midrule
+    Efficiency & & 84.6 & 0.4 & & 96.5 & 0.2 & & 81.4 & 0.4 & & 85.0 & 0.1\\
+    \bottomrule
+  \end{tabular}
+  \caption{Overall efficiencies for data, 4 GeV Monte Carlo, 500 MeV Monte Carlo and CRY Monte Carlo. Errors are statistical only.}\label{tab:mc}
 \end{table}
 
 \begin{figure}[htbp]
-\begin{center}
-\begin{subfigure}{0.52\textwidth}
-\includegraphics[width=\linewidth]{figures/theta_phi_l_data.png}
-\caption{$\theta - \phi - L$, data} \label{fig:3d_cry}
-\end{subfigure}\begin{subfigure}{0.52\textwidth}
-\includegraphics[width=\linewidth]{figures/theta_phi_l_mc.png}
-\caption{$\theta - \phi - L$, Monte Carlo}\label{fig:3d_cry_mc}
-\end{subfigure}
-\begin{subfigure}{0.52\textwidth}
-\includegraphics[width=\linewidth]{figures/ratio_theta_phi_l.png}
-\caption{$\theta - \phi - L$, data/Monte Carlo}\label{fig:3d_cry_ratio}
-\end{subfigure}
-\caption{3D $\theta - \phi - L$ efficiency with th \texttt{pandoraCosmic} algorithm for data, Monte Carlo and data/Monte Carlo ratio.} \label{fig:cry_mc_3d}
+  \begin{center}
+    \begin{subfigure}{0.52\textwidth}
+      \includegraphics[width=\linewidth]{figures/theta_phi_l_data.png}
+      \caption{$\theta - \phi - L$, data} \label{fig:3d_cry}
+    \end{subfigure}\begin{subfigure}{0.52\textwidth}
+    \includegraphics[width=\linewidth]{figures/theta_phi_l_mc.png}
+    \caption{$\theta - \phi - L$, Monte Carlo}\label{fig:3d_cry_mc}
+  \end{subfigure}
+  \begin{subfigure}{0.52\textwidth}
+    \includegraphics[width=\linewidth]{figures/ratio_theta_phi_l.png}
+    \caption{$\theta - \phi - L$, data/Monte Carlo}\label{fig:3d_cry_ratio}
+  \end{subfigure}
+  \caption{3D $\theta - \phi - L$ efficiency with th \texttt{pandoraCosmic} algorithm for data, Monte Carlo and data/Monte Carlo ratio.} \label{fig:cry_mc_3d}
 \end{center}
 \end{figure}
 
 \begin{figure}[htbp]
-\begin{center}
-\begin{subfigure}{0.52\textwidth}
-\includegraphics[width=\linewidth]{figures/theta_phi_data.pdf}
-\caption{$\theta - \phi$, data} \label{fig:2d_cry}
-\end{subfigure}\begin{subfigure}{0.52\textwidth}
-\includegraphics[width=\linewidth]{figures/theta_phi_mc.pdf}
-\caption{$\theta - \phi$, Monte Carlo}\label{fig:2d_cry_mc}
-\end{subfigure}
-\begin{subfigure}{0.52\textwidth}
-\includegraphics[width=\linewidth]{figures/ratio_theta_phi.pdf}
-\caption{$\theta - \phi$, data/Monte Carlo}\label{fig:2d_cry_ratio}
-\end{subfigure}
-\caption{2D $\theta - \phi$ efficiency with the \texttt{pandoraCosmic} algorithm for data, Monte Carlo and data/Monte Carlo ratio.} \label{fig:cry_mc_2d}
+  \begin{center}
+    \begin{subfigure}{0.52\textwidth}
+      \includegraphics[width=\linewidth]{figures/theta_phi_data.pdf}
+      \caption{$\theta - \phi$, data} \label{fig:2d_cry}
+    \end{subfigure}\begin{subfigure}{0.52\textwidth}
+    \includegraphics[width=\linewidth]{figures/theta_phi_mc.pdf}
+    \caption{$\theta - \phi$, Monte Carlo}\label{fig:2d_cry_mc}
+  \end{subfigure}
+  \begin{subfigure}{0.52\textwidth}
+    \includegraphics[width=\linewidth]{figures/ratio_theta_phi.pdf}
+    \caption{$\theta - \phi$, data/Monte Carlo}\label{fig:2d_cry_ratio}
+  \end{subfigure}
+  \caption{2D $\theta - \phi$ efficiency with the \texttt{pandoraCosmic} algorithm for data, Monte Carlo and data/Monte Carlo ratio.} \label{fig:cry_mc_2d}
 \end{center}
 \end{figure}
 
 \begin{figure}[htbp]
-\begin{center}
-\begin{subfigure}{0.52\textwidth}
-\includegraphics[width=\linewidth]{figures/theta_l_data.pdf}
-\caption{$\theta - L$, data} \label{fig:2d_cry_2}
-\end{subfigure}\begin{subfigure}{0.52\textwidth}
-\includegraphics[width=\linewidth]{figures/theta_l_mc.pdf}
-\caption{$\theta - L$, Monte Carlo}\label{fig:2d_cry_mc_2}
-\end{subfigure}
-\begin{subfigure}{0.52\textwidth}
-\includegraphics[width=\linewidth]{figures/ratio_theta_l.pdf}
-\caption{$\theta - L$, data/Monte Carlo}\label{fig:2d_cry_ratio_2}
-\end{subfigure}
-\caption{2D $\theta - L$ efficiency with the \texttt{pandoraCosmic} algorithm for data, Monte Carlo and data/Monte Carlo ratio.} \label{fig:cry_mc_2d_2}
+  \begin{center}
+    \begin{subfigure}{0.52\textwidth}
+      \includegraphics[width=\linewidth]{figures/theta_l_data.pdf}
+      \caption{$\theta - L$, data} \label{fig:2d_cry_2}
+    \end{subfigure}\begin{subfigure}{0.52\textwidth}
+    \includegraphics[width=\linewidth]{figures/theta_l_mc.pdf}
+    \caption{$\theta - L$, Monte Carlo}\label{fig:2d_cry_mc_2}
+  \end{subfigure}
+  \begin{subfigure}{0.52\textwidth}
+    \includegraphics[width=\linewidth]{figures/ratio_theta_l.pdf}
+    \caption{$\theta - L$, data/Monte Carlo}\label{fig:2d_cry_ratio_2}
+  \end{subfigure}
+  \caption{2D $\theta - L$ efficiency with the \texttt{pandoraCosmic} algorithm for data, Monte Carlo and data/Monte Carlo ratio.} \label{fig:cry_mc_2d_2}
 \end{center}
 \end{figure}
 
 \begin{figure}[htbp]
-\begin{center}
-\begin{subfigure}{0.52\textwidth}
-\includegraphics[width=\linewidth]{figures/phi_l_data.pdf}
-\caption{$\phi - L$, data} \label{fig:2d_cry_3}
-\end{subfigure}\begin{subfigure}{0.52\textwidth}
-\includegraphics[width=\linewidth]{figures/phi_l_mc.pdf}
-\caption{$\phi - L$, Monte Carlo}\label{fig:2d_cry_mc_3}
-\end{subfigure}
-\begin{subfigure}{0.52\textwidth}
-\includegraphics[width=\linewidth]{figures/ratio_phi_l.pdf}
-\caption{$\phi - L$, data/Monte Carlo}\label{fig:2d_cry_ratio_3}
-\end{subfigure}
-\caption{2D $\phi - L$ efficiency with the \texttt{pandoraCosmic} algorithm for data, Monte Carlo and data/Monte Carlo ratio.} \label{fig:cry_mc_2d_3}
+  \begin{center}
+    \begin{subfigure}{0.52\textwidth}
+      \includegraphics[width=\linewidth]{figures/phi_l_data.pdf}
+      \caption{$\phi - L$, data} \label{fig:2d_cry_3}
+    \end{subfigure}\begin{subfigure}{0.52\textwidth}
+    \includegraphics[width=\linewidth]{figures/phi_l_mc.pdf}
+    \caption{$\phi - L$, Monte Carlo}\label{fig:2d_cry_mc_3}
+  \end{subfigure}
+  \begin{subfigure}{0.52\textwidth}
+    \includegraphics[width=\linewidth]{figures/ratio_phi_l.pdf}
+    \caption{$\phi - L$, data/Monte Carlo}\label{fig:2d_cry_ratio_3}
+  \end{subfigure}
+  \caption{2D $\phi - L$ efficiency with the \texttt{pandoraCosmic} algorithm for data, Monte Carlo and data/Monte Carlo ratio.} \label{fig:cry_mc_2d_3}
 \end{center}
 \end{figure}
 
 
 \begin{figure}[htbp]
-\begin{center}
-\begin{subfigure}{0.52\textwidth}
-\includegraphics[width=\linewidth]{figures/theta_cry.pdf}
-\caption{$\theta$, data and Monte Carlo} \label{fig:1d_cry}
-\end{subfigure}\begin{subfigure}{0.52\textwidth}
-\includegraphics[width=\linewidth]{figures/phi_cry.pdf}
-\caption{$\phi$, data and Monte Carlo}\label{fig:1d_cry_mc}
-\end{subfigure}
-\begin{subfigure}{0.52\textwidth}
-\includegraphics[width=\linewidth]{figures/l_cry.pdf}
-\caption{$L$, data and Monte Carlo}\label{fig:1d_cry_ratio}
-\end{subfigure}
-\caption{1D efficiencies with the \texttt{pandoraCosmic} algorithm for data and Monte Carlo.} \label{fig:cry_mc_1d}
+  \begin{center}
+    \begin{subfigure}{0.52\textwidth}
+      \includegraphics[width=\linewidth]{figures/theta_cry.pdf}
+      \caption{$\theta$, data and Monte Carlo} \label{fig:1d_cry}
+    \end{subfigure}\begin{subfigure}{0.52\textwidth}
+    \includegraphics[width=\linewidth]{figures/phi_cry.pdf}
+    \caption{$\phi$, data and Monte Carlo}\label{fig:1d_cry_mc}
+  \end{subfigure}
+  \begin{subfigure}{0.52\textwidth}
+    \includegraphics[width=\linewidth]{figures/l_cry.pdf}
+    \caption{$L$, data and Monte Carlo}\label{fig:1d_cry_ratio}
+  \end{subfigure}
+  \caption{1D efficiencies with the \texttt{pandoraCosmic} algorithm for data and Monte Carlo.} \label{fig:cry_mc_1d}
 \end{center}
 \end{figure}
 
@@ -578,10 +540,10 @@ By moving the MuCS boxes it is possible to increase the coverage of $(\theta_{xy
 Our plan is to move the boxes at the center of the TPC on the $z$ axis. Then, the boxes will be aligned in the $x$ direction and their distance in the $y$ will be reduced, in order to cover the region with $\theta_{xy} = 90^{\circ}$, $\theta_{yz} < -120^{\circ}$ and $\theta_{yz} > -60^{\circ}$, as shown in Fig. \ref{fig:plans}.
 
 \begin{figure}[htbp]
-\begin{center}
-\includegraphics[width=0.3\linewidth]{figures/image.png}\includegraphics[width=0.65\linewidth]{figures/image2.png}
-\end{center}
-\caption{Monte Carlo simulation of the planned new positioning of the MuCS. Red lines show cosmic rays that trigger the MuCS but don't hit the TPC.}\label{fig:plans}
+  \begin{center}
+    \includegraphics[width=0.3\linewidth]{figures/image.png}\includegraphics[width=0.65\linewidth]{figures/image2.png}
+  \end{center}
+  \caption{Monte Carlo simulation of the planned new positioning of the MuCS. Red lines show cosmic rays that trigger the MuCS but don't hit the TPC.}\label{fig:plans}
 \end{figure}
 
 Once we have obtained a larger coverage of the $(\theta_{xy}, \theta_{yz}, L)$ parameter space, it will be possible to measure the efficiency-corrected cosmic-ray flux on the top of the TPC, both for data and Monte Carlo. Moreover, testing different regions of the TPC will allow us to measure eventual systematic errors caused by detector non-uniformity.
@@ -594,39 +556,39 @@ In order to check if the differences observed between data and Monte Carlo are c
 We can then safely assume that the reconstruction efficiency is proportional to the cosmic-ray energy, since cosmic rays with lower energy scatter more in the liquid argon and their track then more difficult to reconstruct.
 
 \begin{figure}[htbp]
-\begin{subfigure}{0.52\textwidth}
-\includegraphics[width=\linewidth]{figures/pandora_500mev_mc.png}
-\caption{3D Monte Carlo efficiency with \texttt{pandoraCosmic}.}\label{fig:pandora_3D_mc_500}
-\end{subfigure}
-\begin{subfigure}{0.52\textwidth}
-\includegraphics[width=\linewidth]{figures/e_xy_yz_500mev_mc.pdf}
-\caption{$\theta_{xy} - \theta_{yz}$, \texttt{pandoraCosmic} - Monte Carlo}\label{fig:5001d_pc1_mc}
-\end{subfigure}
-\begin{subfigure}{0.52\textwidth}
-\includegraphics[width=\linewidth]{figures/e_xy_l_500mev_mc.pdf}
-\caption{$\theta_{xy} - L$, \texttt{pandoraCosmic} - Monte Carlo}\label{fig:5001d_pc2_mc}
-\end{subfigure}
-\begin{subfigure}{0.52\textwidth}
-\includegraphics[width=\linewidth]{figures/e_yz_l_500mev_mc.pdf}
-\caption{$\theta_{yz} - L$, \texttt{pandoraCosmic} - Monte Carlo}\label{fig:5001d_pc3_mc}
-\end{subfigure}
-\caption{3D reconstruction efficiency (top-left) and 2D scatter-plots for the 500 MeV Monte Carlo \texttt{pandoraCosmic} algorithm.} \label{fig:500mev2d}
+  \begin{subfigure}{0.52\textwidth}
+    \includegraphics[width=\linewidth]{figures/pandora_500mev_mc.png}
+    \caption{3D Monte Carlo efficiency with \texttt{pandoraCosmic}.}\label{fig:pandora_3D_mc_500}
+  \end{subfigure}
+  \begin{subfigure}{0.52\textwidth}
+    \includegraphics[width=\linewidth]{figures/e_xy_yz_500mev_mc.pdf}
+    \caption{$\theta_{xy} - \theta_{yz}$, \texttt{pandoraCosmic} - Monte Carlo}\label{fig:5001d_pc1_mc}
+  \end{subfigure}
+  \begin{subfigure}{0.52\textwidth}
+    \includegraphics[width=\linewidth]{figures/e_xy_l_500mev_mc.pdf}
+    \caption{$\theta_{xy} - L$, \texttt{pandoraCosmic} - Monte Carlo}\label{fig:5001d_pc2_mc}
+  \end{subfigure}
+  \begin{subfigure}{0.52\textwidth}
+    \includegraphics[width=\linewidth]{figures/e_yz_l_500mev_mc.pdf}
+    \caption{$\theta_{yz} - L$, \texttt{pandoraCosmic} - Monte Carlo}\label{fig:5001d_pc3_mc}
+  \end{subfigure}
+  \caption{3D reconstruction efficiency (top-left) and 2D scatter-plots for the 500 MeV Monte Carlo \texttt{pandoraCosmic} algorithm.} \label{fig:500mev2d}
 \end{figure}
 
 \begin{figure}[htbp]
-\begin{center}
-\begin{subfigure}{0.55\textwidth}
-\includegraphics[width=\linewidth]{figures/xy_500.pdf}
-\caption{Efficiency as a function of $\theta_{xy}$.} \label{fig:xy_500}
-\end{subfigure}\begin{subfigure}{0.55\textwidth}
-\includegraphics[width=\linewidth]{figures/yz_500.pdf}
-\caption{Efficiency as a function of $\theta_{yz}$}\label{fig:yz_500}
-\end{subfigure}
-\begin{subfigure}{0.55\textwidth}
-\includegraphics[width=\linewidth]{figures/l_500.pdf}
-\caption{Efficiency as a function of $L$}\label{fig:l_500}
-\end{subfigure}
-\caption{Monte Carlo efficiencies with the 500 MeV (black) and 4 GeV (red) samples, as a function of $\theta_{xy}$, $\theta_{yz}$ and $L$ for the \texttt{pan\-do\-ra\-Co\-smic} reconstruction algorithms.} \label{fig:500mev1d}
+  \begin{center}
+    \begin{subfigure}{0.55\textwidth}
+      \includegraphics[width=\linewidth]{figures/xy_500.pdf}
+      \caption{Efficiency as a function of $\theta_{xy}$.} \label{fig:xy_500}
+    \end{subfigure}\begin{subfigure}{0.55\textwidth}
+    \includegraphics[width=\linewidth]{figures/yz_500.pdf}
+    \caption{Efficiency as a function of $\theta_{yz}$}\label{fig:yz_500}
+  \end{subfigure}
+  \begin{subfigure}{0.55\textwidth}
+    \includegraphics[width=\linewidth]{figures/l_500.pdf}
+    \caption{Efficiency as a function of $L$}\label{fig:l_500}
+  \end{subfigure}
+  \caption{Monte Carlo efficiencies with the 500 MeV (black) and 4 GeV (red) samples, as a function of $\theta_{xy}$, $\theta_{yz}$ and $L$ for the \texttt{pan\-do\-ra\-Co\-smic} reconstruction algorithms.} \label{fig:500mev1d}
 \end{center}
 \end{figure}
 
@@ -638,35 +600,28 @@ The dataset with the merged MuCS, Monte Carlo and data information are stored in
 
 
 \begin{thebibliography}{9}
-\bibitem{mucsintro} M. Bass, R. An, and L. Kalousis, \textit{Muon Counter System Commissioning Review}, MicroBooNE docdb-4871.
 
-\bibitem{sce} M. Bass, M. Mooney, and S.R. Soleti, \textit{Space-Charge Effect Measurements and Correction}, MicroBooNE docdb-5860.
+  \bibitem{pandoracosmic} R. Acciarri, et al. [MicroBooNE Collaboration], \textit{The Pandora multi-algorithm approach to automated pattern recognition in LAr TPC detectors}. \texttt{MICROBOONE- NOTE-1015-PUB}, 2016. \url{http://www-microboone.fnal.gov/publications/publicnotes/index.html}.
 
-\bibitem{kalmanhit} H. Greenlee, \textit{A Proposed C++ Toolkit for Kalman Filtering in Larsoft}, MicroBooNE docdb-3516.
-\bibitem{trackkalmanhit} R. Fruhwirth, \textit{Application of Kalman filtering to track and vertex fitting}, Nucl.Instrum.Meth. A262 (1987) 444-450
+  \bibitem{pandora} J.~S.~Marshall and M.~A.~Thomson, \textit{The Pandora Software Development Kit for Pattern Recognition}, Eur.\ Phys.\ J.\ C 75, no. 9, 439 (2015) \texttt{doi:10.1140/epjc/s10052\-015-3659-3} \texttt{[arXiv:1506.05348 [physics.data-an]]}.
 
-\bibitem{mucsmerge} M. Bass, and L. Kalousis, \textit{MuCS Merger Update}, MicroBooNE docdb-5178.
+  \bibitem{cosmic} R. Acciarri, et al. [MicroBooNE Collaboration], \textit{Cosmic Shielding Studies at MicroBooNE}. \texttt{MICROBOONE-NOTE-1005-PUB}, 2016. \url{http:// www-microboone.fnal.gov/publications/publicnotes/index.html}.
 
-\bibitem{mucsextra} M. Bass, L. Kalousis, and R. An, \textit{MuCS Data/MC update}, MicroBooNE docdb-5025.
-\bibitem{pandoracosmic} T. Usher, and E. Snider, \textit{Summary of Reconstruction Updates}, MicroBooNE docdb-5723.
-\bibitem{cry} C. Hagmann, et al., \textit{Cosmic-ray Shower Library (CRY)},  Lawrence Livermore National Laboratory, \texttt{UCRL-TM-229453}, 2012.
-\bibitem{corsika} D.~Heck, et al.,
+  \bibitem{crt} M. Auger, et al., \textit{A Novel Cosmic Ray Tagger System for Liquid Argon TPC Neutrino Detectors}, Instruments 2016, 1, 1.
+
+  \bibitem{mcdata} R. Acciarri, et al. [MicroBooNE Collaboration], \textit{A Comparison of Monte-Carlo Simulations and Data from MicroBooNE}, \texttt{MICROBOONE-NOTE-1014-PUB}.
+
+  \bibitem{corsika} D.~Heck, et al.,
   \textit{CORSIKA: A Monte Carlo code to simulate extensive air showers},
   \texttt{FZKA-6019}, 1998.
-  %%CITATION = FZKA-6019;%%
-  %243 citations counted in INSPIRE as of 29 Sep 2016
-\bibitem{crt} M. Auger, et al., \textit{A Novel Cosmic Ray Tagger System for Liquid Argon TPC Neutrino Detectors}, Instruments 2016, 1, 1.
-\bibitem{pandora}
-J.~S.~Marshall and M.~A.~Thomson,
-  \textit{The Pandora Software Development Kit for Pattern Recognition},
-  Eur.\ Phys.\ J.\ C 75, no. 9, 439 (2015)
-  \texttt{doi:10.1140/epjc/s10052\-015-3659-3}
-  \texttt{[arXiv:1506.05348 [physics.data-an]]}.
-  %%CITATION = doi:10.1140/epjc/s10052-015-3659-3;%%
-  %4 citations counted in INSPIRE as of 06 Oct 2016
 
-  \bibitem{datamc}
-R. Acciarri, et al. [MicroBooNE Collaboration], \textit{A Comparison of Monte-Carlo Simulations and Data from MicroBooNE}, \texttt{MICROBOONE-NOTE-1014-PUB}.
+  \bibitem{geant} S.~Agostinelli, et al. [GEANT4 Collaboration], \textit{GEANT4: A Simulation toolkit}, Nucl.\ Instrum.\ Meth.\ A {506}, 250 (2003).
+
+  \bibitem{sce} R. Acciarri, et al. [MicroBooNE Collaboration], \textit{Space Charge Effect Measurements and Corrections}. \texttt{MICROBOONE-NOTE-1018-PUB}, 2016. \url{http: //www-microboone.fnal.gov/publications/publicnotes/index.html}.
+
+  \bibitem{cry} C. Hagmann, et al., \textit{Cosmic-ray Shower Library (CRY)},  Lawrence Livermore National Laboratory, \texttt{UCRL-TM-229453}, 2012.
+
+
 \end{thebibliography}
 
 \end{document}
