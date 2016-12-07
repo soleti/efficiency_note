@@ -129,7 +129,7 @@ A three-dimensional schematics of the three MuCS setups is shown in Fig. \ref{fi
 \end{table}
 
 
-\section{MuCS merging}
+\section{MuCS merging}\label{sec:merging}
 The MuCS is designed to provide a trigger on through-going muons that intersect two planes of scintillator strips. The trigger is propagated to the MicroBooNE trigger system to record a full TPC and PMT readout. With the MuCS trigger in place, the $t_0$ for a track associated with the MuCS is known and these tracks are useful for various detector physics and reconstruction studies.
 
 The dataset used for this study has been collected with the DAQ configured in the trigger-readout mode: the MuCS trigger is sent to the TPC readout, while the MuCS DAQ saves the hit patterns seen in the scintillator strips.
@@ -144,15 +144,13 @@ The data then follows a processing path that merges the MuCS hit patterns and re
 \end{figure}
 
 The hits in the MuCS are used to obtain a bi-dimensional point in each panel and extrapolate a three-dimensional track (MuCS-extrapolated track). The TPC hits, instead, are fed to the reconstruction chain: then, the reconstructed track with the closest starting point to the MuCS-extrapolated track is stored in the dataset and it is tagged as a MuCS-reconstructed track. The PMT flash in time with the MuCS signal, if present, is also stored and associated to the MuCS-reconstructed track.  Fig. \ref{fig:evd} shows a diagram with the MuCS-reconstructed track, the MuCS-extrapolated track and the other reconstructed tracks in the same readout window.
-
 \begin{figure}[htbp]
   \begin{center}
-  \includegraphics[width=0.45\linewidth]{figures/evd.pdf}  \vspace{1.8em}\includegraphics[width=0.35\linewidth]{figures/evd_display.png}
+  \includegraphics[width=0.50\linewidth]{figures/evd.pdf}  \vspace{1.8em}\includegraphics[width=0.40\linewidth]{figures/evd_display.png}
 
-  \caption{Bi-dimensinal view of a MuCS event (left) and corresponding portion of the event display of the collection plane, showing the MuCS-reconstructed track (right). The black line shows the MuCS-extrapolated tracks, while the green line correspond to the MuCS-reconstructed track. The distance between the two lines is represented by the red arrow.} \label{fig:evd}
+  \caption{Bi-dimensional view of a MuCS event (left) and corresponding portion of the event display of the collection plane, showing the MuCS-reconstructed track (right). The black line shows the MuCS-extrapolated tracks, while the green line correspond to the MuCS-reconstructed track.} \label{fig:evd}
 \end{center}
 \end{figure}
-
 Our dataset will then include two different sets of information, with a one-to-one correspondence:
 \begin{itemize}
   \item MuCS-extrapolated information: using the two 2D points given by the MuCS (one for each box) we extrapolate a 3D line crossing the entire TPC. In this way we obtain two extrapolated starting angles ($\theta_{\textrm{MuCS}}$ and $\phi_{\textrm{MuCS}}$), an extrapolated track length $L_{\textrm{MuCS}}$ and extrapolated start/end points, using only MuCS information.
@@ -221,13 +219,18 @@ The purity of our sample will be defined as the ratio between the number of even
 
 Fig. \ref{fig:purity} shows the purity and the reconstruction efficiency as a function of the tolerance. Their product (the ratio between real MuCS-reconstructed tracks and MuCS-triggered events) will reach the ideal reconstruction efficiency at infinite and it is also shown. As we can see from the plot, the optimal value for the tolerance in our case is 32 cm.
 
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[width=0.7\linewidth]{figures/tolerance.pdf}
+    \caption{Purity (blue), efficiency (red) and their product (green) as a function of the tolerance. The dashed line shows the ideal reconstruction efficiency.} \label{fig:purity}
+  \end{center}
+\end{figure}
 
+Once we fixed the value of the minimum distance between a MuCS-extrapolated track and a reconstructed track, we can express the reconstruction efficiency as a function of the spherical starting angles $\theta$, $\phi$ and the expected track length in the TPC $L$, obtained from the MuCS hits. In an ideal TPC, in fact, the reconstruction efficiency for a MIP depends only on the number of hit wires, which is given univocally by the direction and the length of the track in the TPC.
 
-In this analysis, the reconstruction efficiency $\epsilon$ is defined as the ratio between the number of MuCS-tagged reconstructed events and the number of MuCS-triggered events. We will study it as a function of the starting angles, $\theta_{xy}^{\textrm{MuCS}}$ and $\theta_{yz}^{\textrm{MuCS}}$, and of the extrapolated cosmic-ray path length in the TPC, $L^{\textrm{MuCS}}$ (from now on we will omit the $^{\textrm{MuCS}}$ for brevity):
-\begin{equation}
-  \epsilon(\theta_{xy}, \theta_{yz}, L) = \frac{\mathrm{N.~of~reco.~events}}{\mathrm{N.~of~MuCS\mymathhyphen triggered~events}}.
-\end{equation}
-Being a function of three parameters, the reconstruction efficiency can be represented by a 3D plot, as shown in Fig. \ref{fig:3Deff}, where larger boxes correspond to bigger efficiencies. Each box correspond to a particular bin in the $\theta_{xy}, \theta_{yz}, L$ parameter space.
+Our efficiency can then be plotted
+
+\subsection{Detector}
 
 In order to better understand the reconstruction efficiency features, we are also reporting the 2D and 1D projections of the three-dimensional plot.
 
