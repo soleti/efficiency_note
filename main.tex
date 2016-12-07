@@ -55,7 +55,7 @@ The goal is to provide data and Monte Carlo reconstruction efficiencies that can
 We measured the data reconstruction efficiency comparing the number of events triggered by the MuCS and the number of events with a MuCS-compatible reconstructed track.
 The Monte Carlo reconstruction efficiency, instead, was measured by comparing the number of generated cosmic rays with the number of reconstructed tracks.
 
-The reconstruction efficiency expressed as a function of the cosmic-ray starting angle (given by the spherical angles $\theta$ and $\phi$) and of the length $L$ of its path in the TPC.
+The reconstruction efficiency is expressed as a function of the cosmic-ray starting angle (given by the spherical angles $\theta$ and $\phi$) and of the expected length $L$ of its path in the TPC, assuming it is a minimum-ionizing particle (MIP).
 
 Using the \texttt{pan\-do\-ra\-Co\-smic} algorithm \cite{pandoracosmic} provided by the Pandora framework \cite{pandora}, the overall reconstruction efficiency is $96.1\pm0.1\thinspace(\mathrm{stat}) \pm 1.1\thinspace(\mathrm{sys})\thinspace\%$ for data and $96.3\pm0.1\thinspace\%$ for Monte Carlo.
 
@@ -66,6 +66,12 @@ The MuCS consists of two sets of planar modules made up of scintillator strips p
 
 Each planar module is made up of two sets of 24 scintillator strips, 4 cm wide, arranged into bi-layers oriented perpendicular to each other. This configuration provides two coordinates ($z$ and $x$ in the MicroBooNE TPC coordinate system, shown in Fig. \ref{fig:coord}) of the crossing points of the cosmic rays. Combining these two coordinates with the height of the modules (corresponding to the $y$ coordinate in the MicroBooNE TPC coordinate system), it is possible to extrapolate the 3D trajectory of the cosmic ray.
 
+The starting angle of the cosmic ray, in spherical coordinates, will be given by:
+\begin{align}
+\theta_{\mathrm{MuCS}} = \mathrm{acos}\left(\frac{z_{\mathrm{top}}-z_{\mathrm{bottom}}}{r}\right) \\
+\phi_{\mathrm{MuCS}} = \mathrm{atan}\left(\frac{y_{\mathrm{top}}-y_{\mathrm{bottom}}}{x_{\mathrm{top}}-x_{\mathrm{bottom}}}\right),
+\end{align}
+where $r = \sqrt{(x_{\mathrm{top}}-x_{\mathrm{bottom}})^2+(y_{\mathrm{top}}-y_{\mathrm{bottom}})^2+(z_{\mathrm{top}}-z_{\mathrm{bottom}})^2}$ and the top (bottom) coordinates are given by the hits in the top (bottom) MuCS panel.
  \begin{figure}[htbp]
  \begin{center}
  \includegraphics[width=0.8\linewidth]{figures/coord.pdf}
@@ -132,11 +138,11 @@ Our dataset will then include two different sets of information, with a one-to-o
 \end{itemize}
 
 
-As Monte Carlo sample we used a complete cosmic-ray simulation, as described in \cite{mcdata}. The cosmic rays have ben generated using CORSIKA \cite{corsika},  propagated using GEANT4 \cite{geant}, and then passed through the detector simulation stage. The detector simulation attempts to simulate the detector response as precisely as possible, meaning that the current state of the detector is reflected, including known missing wires. Other known effects, such as the space charge effect \cite{spacecharge} and correlated noise \cite{noise} are not currently modeled in the simulation.
+As Monte Carlo sample we used a complete cosmic-ray simulation, as described in \cite{mcdata}. The cosmic rays have ben generated using CORSIKA \cite{corsika},  propagated using GEANT4 \cite{geant}, and then passed through the detector simulation stage. The detector simulation attempts to simulate the detector response as precisely as possible, meaning that the current state of the detector is reflected, including known missing wires. Other known effects, such as the space charge effect \cite{spacecharge}, are not currently modeled in the simulation.
 
 From this complete Monte Carlo simulation, we selected only the cosmic rays with a starting angle $(\theta,\phi)$ within the geometrical acceptance of the MuCS.
 
-Our aim is to show that, given the starting angle and the expected length, the reconstruction efficiency of simulated cosmic rays, generated all over the TPC, can be succesfully compared to the data reconstruction efficiency, obtained placing a small muon counter system in three different places. 
+Our aim is to show that the reconstruction efficiency of simulated cosmic rays, generated all over the TPC, can be succesfully compared to the data reconstruction efficiency, obtained placing a small muon counter system in three different places.
 
 \section{MuCS-triggered cosmic rays angular distributions}\label{sec:flux}
 Before comparing the MuCS-extrapolated information with the reconstructed information from Monte Carlo and data, a study on the angular distribution of the MuCS-triggered cosmic rays has been performed.
