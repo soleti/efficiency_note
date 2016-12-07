@@ -2,4 +2,7 @@
 *.log
 *.out
 *.gz
+*.key
+*.fls
+*.fdb*
 main.pdf
