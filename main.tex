@@ -147,7 +147,7 @@ The hits in the MuCS are used to obtain a bi-dimensional point in each panel and
 
 \begin{figure}[htbp]
   \begin{center}
-  \includegraphics[width=0.45\linewidth]{figures/evd.pdf}  \vspace{1.5em}\includegraphics[width=0.35\linewidth]{figures/evd_display.png}
+  \includegraphics[width=0.45\linewidth]{figures/evd.pdf}  \vspace{1.8em}\includegraphics[width=0.35\linewidth]{figures/evd_display.png}
 
   \caption{Bi-dimensinal view of a MuCS event (left) and corresponding portion of the event display of the collection plane, showing the MuCS-reconstructed track (right). The black line shows the MuCS-extrapolated tracks, while the green line correspond to the MuCS-reconstructed track. The distance between the two lines is represented by the red arrow.} \label{fig:evd}
 \end{center}
@@ -155,7 +155,7 @@ The hits in the MuCS are used to obtain a bi-dimensional point in each panel and
 
 Our dataset will then include two different sets of information, with a one-to-one correspondence:
 \begin{itemize}
-  \item MuCS-extrapolated information: using the two 2D points given by the MuCS (one for each box) we extrapolate a 3D line crossing the entire TPC. In this way we obtain two extrapolated starting angles ($\theta_{\textrm{MuCS}}$ and $\phi_{\textrm{MuCS}}$), an extrapolated track length $L-{\textrm{MuCS}}$ and extrapolated start/end points, using only MuCS information.
+  \item MuCS-extrapolated information: using the two 2D points given by the MuCS (one for each box) we extrapolate a 3D line crossing the entire TPC. In this way we obtain two extrapolated starting angles ($\theta_{\textrm{MuCS}}$ and $\phi_{\textrm{MuCS}}$), an extrapolated track length $L_{\textrm{MuCS}}$ and extrapolated start/end points, using only MuCS information.
   \item Reconstructed TPC data information: for each event, we store the reconstructed spatial information of the MuCS-reconstructed track and of the in-time PMT flash, if present (starting angles $\theta_{\textrm{data}}$ and $\phi_{\textrm{data}}$, track length $L_{\textrm{data}}$, start/end points).
 \end{itemize}
 
@@ -164,12 +164,12 @@ As Monte Carlo sample we used a complete cosmic-ray simulation, as described in 
 
 From this complete Monte Carlo simulation, then, we selected only the cosmic rays with a starting angle $(\theta,\phi)$ within the geometrical acceptance of the MuCS.
 
-Our aim is to show that the reconstruction efficiency of simulated cosmic rays, generated all over the TPC, can be succesfully compared to the data reconstruction efficiency, obtained placing a small muon counter system in three different places.
+Our aim is to show that the reconstruction efficiency of simulated cosmic rays, generated all over the TPC, can be successfully compared to the data reconstruction efficiency, obtained placing a small muon counter system in three different places.
 
 \section{MuCS-triggered cosmic rays angular distributions}\label{sec:flux}
 Before measuring the reconstruction efficiency we performed a survey of the position of the MuCS panels in each configuration. Taking the starting point and starting direction of the MuCS-reconstructed tracks it is possible to extrapolate their trajectory up to the height of the boxes and check if they went through both panels. However, the build-up of positive argon ions in the TPC causes a distortion in the electric field and consequently in the reconstruction of the tracks. Thus, before measuring the starting angles and extrapolating the paths, the starting position and direction of the reconstructed tracks in the TPC have been corrected with the data-driven procedure described in \cite{sce}.
 
-The two-dimensional plots of the extrapolated positions are reported in Fig. \ref{fig:alignment}. As we can see, some tracks are extrapolated outside the panels, because of multiple Coulomb scattering or impurity of the sample, but the majority of the points are well within the panels' borders.
+The two-dimensional plots of the extrapolated positions are reported in Fig. \ref{fig:alignment}. As we can see, some tracks are extrapolated outside the panels, because of multiple Coulomb scattering, but the majority of the points are well within the panels' borders.
 
 \begin{figure}[htbp]
   \begin{subfigure}{0.32\textwidth}
@@ -206,9 +206,22 @@ The angular distribution of the MuCS-triggering cosmic rays, obtained extrapolat
 
 
 \section{Reconstruction efficiencies}\label{sec:reco}
-In this analysis we will compare the reconstruction efficiencies and performances of three different reconstruction algorithms mentioned above.
+We define the data reconstruction efficiency $\epsilon$ as the ratio between the number events with a MuCS-reconstructed track and the number of MuCS-triggered events:
+\begin{equation}
+  \epsilon = \frac{\mathrm{N.~of~MuCS-reconstructed~events}}{\mathrm{N.~of~MuCS-triggered~events}}.
+\end{equation}
 
-The following efficiencies have been measured comparing the number of MuCS-merged events with the number of Monte Carlo and data reconstructed events. Also in this case, the SCE effect on the angular coordinates has been corrected.
+However, the number of events with a MuCS-reconstructed track depends on the cut on the minimum distance between the MuCS-extrapolated track and the closest reconstructed track. Choosing a value too large, in fact, would overestimate our reconstruction efficiency. In this way, we could select events that do not have a reconstructed MuCS cosmic ray, but they happen to have another cosmic ray whose starting point is close to the extrapolated MuCS track.
+
+On the other hand, with a tolerance too small we would underestimate the data reconstruction efficiency, since we would not count the events with a MuCS cosmic ray scattered more than the tolerance.
+
+In order to choose the optimal value of the tolerance, we generated a MuCS Monte Carlo simulation for each geometrical configuration. Each Monte Carlo event will have a cosmic ray going through both MuCS panels, overlaid with a standard cosmic-ray event. The Monte Carlo dataset allows us to have a one-to-one association between a reconstructed track and a generated cosmic ray. It is then possible to measure the ideal reconstruction efficiency by comparing the number of MuCS cosmic rays with the number of events with a reconstructed MuCS cosmic ray. This value will not depend on the minimum distance and can be used as a reference: the optimal value of the tolerance is obtained when the measured reconstruction efficiency reaches the ideal reconstruction efficiency.
+
+The purity of our sample will be defined as the ratio between the number of events with a real MuCS-reconstructed track within tolerance and the number of events with a reconstructed track within tolerance.
+
+Fig. \ref{fig:purity} shows the purity and the reconstruction efficiency as a function of the tolerance. Their product (the ratio between real MuCS-reconstructed tracks and MuCS-triggered events) will reach the ideal reconstruction efficiency at infinite and it is also shown. As we can see from the plot, the optimal value for the tolerance in our case is 32 cm.
+
+
 
 In this analysis, the reconstruction efficiency $\epsilon$ is defined as the ratio between the number of MuCS-tagged reconstructed events and the number of MuCS-triggered events. We will study it as a function of the starting angles, $\theta_{xy}^{\textrm{MuCS}}$ and $\theta_{yz}^{\textrm{MuCS}}$, and of the extrapolated cosmic-ray path length in the TPC, $L^{\textrm{MuCS}}$ (from now on we will omit the $^{\textrm{MuCS}}$ for brevity):
 \begin{equation}
@@ -227,7 +240,7 @@ The reconstruction efficiency, both for Monte Carlo and data, can be affected by
 However, while the Monte Carlo efficiency is very close to 1 for the entire parameter space, the corresponding data efficiency is significantly lower, even after the removal of the stopping muons with the procedure described in Sec. \ref{sec:mip}. So far, we identified two main factors that can contribute to this difference:
 \begin{itemize}
   \item{stopping muons in the dataset that are not removed by the p.e./$L^{\mathrm{MuCS}}$ cut;}
-  %\item{overlay of cosmic rays in the data sample. The Monte Carlo event is generated as a single cosmic ray in the entire TPC. The reconstruction of the data cosmic ray, instead, can be affected by the presence of other cosmic rays in the proximity of the MuCS one\footnote{A Monte Carlo sample with other cosmic rays overlayed is being generated to study this effect.};}
+  %\item{overlay of cosmic rays in the data sample. The Monte Carlo event is generated as a single cosmic ray in the entire TPC. The reconstruction of the data cosmic ray, instead, can be affected by the presence of other cosmic rays in the proximity of the MuCS one\footnote{A Monte Carlo sample with other cosmic rays overlaid is being generated to study this effect.};}
   \item{different energy between the Monte Carlo and the cosmic-ray data. Cosmic ray with a lower energy are scattered more in the TPC and then can be more difficult to reconstruct.}
 \end{itemize}
 
