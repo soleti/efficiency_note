@@ -23,8 +23,9 @@
 \title{Reconstruction Efficiencies for Data \& MC using the Muon Counter System \\ \vspace{1em} \small{\textbf{MICROBOONE-NOTE-XXXX-INT-vX}}}
 
 \author[1]{M. Bass\thanks{matthew.bass@physics.ox.ac.uk}}
+\author[1]{R. Guenette\thanks{roxanne.guenette@physics.ox.ac.uk}}
 \author[1]{S.R. Soleti\thanks{stefano.soleti@physics.ox.ac.uk}}
-\affil[1]{\emph{\small{University of Oxford, Oxford, United Kingdom}}}
+\affil[1]{\emph{\small{University of Oxford, Oxford OX1 3RH, United Kingdom}}}
 
 \date{\today}
 
@@ -143,18 +144,18 @@ The data then follows a processing path that merges the MuCS hit patterns and re
   \caption{Flowchart showing the procedure used to generate the dataset used in this analysis. We end up with two data products: one with extrapolated coordinates obtained using MuCS-only data and one with reconstructed data information.} \label{fig:scheme}
 \end{figure}
 
-The hits in the MuCS are used to obtain a bi-dimensional point in each panel and extrapolate a three-dimensional track (MuCS-extrapolated track). The TPC hits, instead, are fed to the reconstruction chain: then, the reconstructed track with the closest starting point to the MuCS-extrapolated track is stored in the dataset and it is tagged as a MuCS-reconstructed track. The PMT flash in time with the MuCS signal, if present, is also stored and associated to the MuCS-reconstructed track.  Fig. \ref{fig:evd} shows a diagram with the MuCS-reconstructed track, the MuCS-extrapolated track and the other reconstructed tracks in the same readout window.
+The hits in the MuCS are used to obtain a bi-dimensional point in each panel and extrapolate a three-dimensional track (MuCS-extrapolated track). The TPC hits, instead, are fed to the reconstruction chain: then, the reconstructed track with the closest starting point (within a tolerance) to the MuCS-extrapolated track is stored in the dataset and it is tagged as a MuCS-reconstructed track. The PMT flash in time with the MuCS signal, if present, is also stored and associated to the MuCS-reconstructed track.  Fig. \ref{fig:evd} shows a diagram with the MuCS-reconstructed track, the MuCS-extrapolated track and the other reconstructed tracks in the same readout window.
 \begin{figure}[htbp]
   \begin{center}
   \includegraphics[width=0.50\linewidth]{figures/evd.pdf}  \vspace{1.8em}\includegraphics[width=0.40\linewidth]{figures/evd_display.png}
 
-  \caption{Bi-dimensional view of a MuCS event (left) and corresponding portion of the event display of the collection plane, showing the MuCS-reconstructed track (right). The black line shows the MuCS-extrapolated tracks, while the green line correspond to the MuCS-reconstructed track.} \label{fig:evd}
+  \caption{Left: bi-dimensional view of a MuCS event. The black line shows the MuCS-extrapolated tracks, while the green line correspond to the MuCS-reconstructed track. Right: corresponding portion of the event display for the collection plane, showing the MuCS-reconstructed track. } \label{fig:evd}
 \end{center}
 \end{figure}
 Our dataset will then include two different sets of information, with a one-to-one correspondence:
 \begin{itemize}
-  \item MuCS-extrapolated information: using the two 2D points given by the MuCS (one for each box) we extrapolate a 3D line crossing the entire TPC. In this way we obtain two extrapolated starting angles ($\theta_{\textrm{MuCS}}$ and $\phi_{\textrm{MuCS}}$), an extrapolated track length $L_{\textrm{MuCS}}$ and extrapolated start/end points, using only MuCS information.
-  \item Reconstructed TPC data information: for each event, we store the reconstructed spatial information of the MuCS-reconstructed track and of the in-time PMT flash, if present (starting angles $\theta_{\textrm{data}}$ and $\phi_{\textrm{data}}$, track length $L_{\textrm{data}}$, start/end points).
+  \item MuCS-extrapolated information: using the two 2D points given by the MuCS (one for each box) we extrapolate a 3D line crossing the entire TPC. In this way we obtain two extrapolated starting angles ($\theta$ and $\phi$), an extrapolated track length $L$ and extrapolated start/end points, using only MuCS information.
+  \item Reconstructed TPC data information: for each event, we store the reconstructed spatial information of the MuCS-reconstructed track and of the in-time PMT flash, if present.
 \end{itemize}
 
 
@@ -209,7 +210,7 @@ We define the data reconstruction efficiency $\epsilon$ as the ratio between the
   \epsilon = \frac{\mathrm{N.~of~MuCS-reconstructed~events}}{\mathrm{N.~of~MuCS-triggered~events}}.
 \end{equation}
 
-However, the number of events with a MuCS-reconstructed track depends on the cut on the minimum distance between the MuCS-extrapolated track and the closest reconstructed track. Choosing a value too large, in fact, would overestimate our reconstruction efficiency. In this way, we could select events that do not have a reconstructed MuCS cosmic ray, but they happen to have another cosmic ray whose starting point is close to the extrapolated MuCS track.
+However, the number of events with a MuCS-reconstructed track depends on the cut on the minimum distance between the MuCS-extrapolated track and the closest reconstructed track. Choosing a value too large, in fact, would overestimate our reconstruction efficiency. In this way, we would select events that do not have a reconstructed MuCS cosmic ray, but they happen to have another cosmic ray whose starting point is close to the extrapolated MuCS track.
 
 On the other hand, with a tolerance too small we would underestimate the data reconstruction efficiency, since we would not count the events with a MuCS cosmic ray scattered more than the tolerance.
 
@@ -217,7 +218,7 @@ In order to choose the optimal value of the tolerance, we generated a MuCS Monte
 
 The purity of our sample will be defined as the ratio between the number of events with a real MuCS-reconstructed track within tolerance and the number of events with a reconstructed track within tolerance.
 
-Fig. \ref{fig:purity} shows the purity and the reconstruction efficiency as a function of the tolerance. Their product (the ratio between real MuCS-reconstructed tracks and MuCS-triggered events) will reach the ideal reconstruction efficiency at infinite and it is also shown. As we can see from the plot, the optimal value for the tolerance in our case is 32 cm.
+Fig. \ref{fig:purity} shows the purity and the reconstruction efficiency as a function of the tolerance. Their product (the ratio between real reconstructed MuCS tracks and MuCS-triggered events) will reach the ideal reconstruction efficiency at infinite and it is also shown. As we can see from the plot, the optimal value for the tolerance in our case is 32 cm, that corresponds to a purity of 98.9\%.
 
 \begin{figure}[htbp]
   \begin{center}
@@ -226,73 +227,72 @@ Fig. \ref{fig:purity} shows the purity and the reconstruction efficiency as a fu
   \end{center}
 \end{figure}
 
-Once we fixed the value of the minimum distance between a MuCS-extrapolated track and a reconstructed track, we can express the reconstruction efficiency as a function of the spherical starting angles $\theta$, $\phi$ and the expected track length in the TPC $L$, obtained from the MuCS hits. In an ideal TPC, in fact, the reconstruction efficiency for a MIP depends only on the number of hit wires, which is given univocally by the direction and the length of the track in the TPC.
+Once we fixed the value of the minimum distance between a MuCS-extrapolated track and a reconstructed track, we can express the reconstruction efficiency as a function of the spherical starting angles $\theta$, $\phi$ and the expected track length in the TPC $L$, obtained from the MuCS hits. In an ideal TPC, in fact, the reconstruction efficiency for a MIP depends only on the number of wires hit, which is given univocally by the direction and the length of the track in the TPC.
 
-Our efficiency can then be plotted
+Our efficiency can then be plotted as a three-dimensional histogram: each bin will correspond to a particular combination of the $\theta$, $\phi$, $L$ variables. Fig. \ref{fig:3d} shows both the data and the Monte Carlo reconstruction efficiency, generated as described in Sec. \ref{sec:merging}.
 
-\subsection{Detector}
+\begin{figure}[htbp]
+  \begin{subfigure}{0.52\textwidth}
+    \includegraphics[width=\linewidth]{figures/3d_mc.png}
+    \caption{Monte Carlo} \label{fig:3d_mc}
+  \end{subfigure}
+  \begin{subfigure}{0.52\textwidth}
+    \includegraphics[width=\linewidth]{figures/3d_data.png}
+    \caption{Data} \label{fig:3d_data}
+  \end{subfigure}
+  \caption{Monte Carlo and data three-dimensional reconstruction efficiency as a function of the starting angles $\theta$, $\phi$ and the extrapolated track length $L$.}
+\end{figure}
 
-In order to better understand the reconstruction efficiency features, we are also reporting the 2D and 1D projections of the three-dimensional plot.
+\subsection{Detector non-uniformities}
+The presence of detector non-uniformities can introduce a systematic error in the measurement of the reconstruction efficiency. In particular, the presence of missing wires in specific regions of the detector can lower the reconstruction efficiency in only one of our three dataset, since they cover different regions of the TPC.
 
-The three 2D projections, shown in Fig. \ref{fig:2deff_pandora}, \ref{fig:2deff_pandorak}, \ref{fig:2deff_trk}, allow to measure the efficiency as a function of two of the three parameters ($\theta_{xy}-\theta_{yz}$, $\theta_{xy}-L$ or $\theta_{yz}-L$).
+To check if these non-uniformities introduce a systematic effect we measured the significance $\sigma$ of the difference between the efficiency measured in two different configurations:
+\begin{equation}
+\sigma = \frac{\epsilon_a-\epsilon_b}{\sqrt{\Delta \epsilon_{a}^2 + \Delta \epsilon_b^2}},
+\end{equation}
+where $\epsilon_{a}$ ($\epsilon_{b}$) is the reconstruction efficiency in the $a$ ($b$) configuration and $\Delta \epsilon_{a}$ ($\Delta \epsilon_{b}$) is its statistical error. This significance has been measured for each $\theta,\phi,L$ bin and for each possible combination of central, downstream and upstream configuration (described in Sec. \ref{sec:proc}). If there is a systematic effect, the standard deviation of the significances distribution should be larger than the unity. In our case, as shown in Fig. \ref{fig:significance}, the Gaussian fit of the distribution gives $\sigma = 1.54\pm0.12$, so significantly larger than 1.
 
-Fig. \ref{fig:eff} shows the 1D projections of the 3D efficiency plot: in this case, it is possible to study the reconstruction efficiency as a function of the single parameter $\theta_{xy}, \theta_{yz}$ or $L$.
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[width=0.7\linewidth]{figures/significance.pdf}
+    \caption{Distribution of the significances of the reconstruction efficiency for each $\theta,\phi,L$ bin, measured for any combination of the three MuCS configuration.} \label{fig:significance}
+  \end{center}
+\end{figure}
 
-The reconstruction efficiency, both for Monte Carlo and data, can be affected by several factors, including a cosmic ray path in the TPC too small to be reconstructed (Fig. \ref{fig:short}) or a cosmic ray passing through a region of the TPC with missing wires. Fig. \ref{fig:short} and Fig. \ref{fig:wire} show two examples of a MuCS cosmic ray not reconstructed because of a too short path length or because of a missing wires region, respectively.
-
-However, while the Monte Carlo efficiency is very close to 1 for the entire parameter space, the corresponding data efficiency is significantly lower, even after the removal of the stopping muons with the procedure described in Sec. \ref{sec:mip}. So far, we identified two main factors that can contribute to this difference:
-\begin{itemize}
-  \item{stopping muons in the dataset that are not removed by the p.e./$L^{\mathrm{MuCS}}$ cut;}
-  %\item{overlay of cosmic rays in the data sample. The Monte Carlo event is generated as a single cosmic ray in the entire TPC. The reconstruction of the data cosmic ray, instead, can be affected by the presence of other cosmic rays in the proximity of the MuCS one\footnote{A Monte Carlo sample with other cosmic rays overlaid is being generated to study this effect.};}
-  \item{different energy between the Monte Carlo and the cosmic-ray data. Cosmic ray with a lower energy are scattered more in the TPC and then can be more difficult to reconstruct.}
-\end{itemize}
-
-Appendix \ref{sec:500mev} shows Monte Carlo reconstruction efficiencies using 500 MeV cosmic rays. The overall efficiency in this case is $(81.4\pm0.4)\%$: we can safely assume that the reconstruction efficiency is proportional to the cosmic-ray energy. The Monte Carlo study described in Sec. \ref{sec:cry} addresses this discrepancy, using a complete energy spectrum of cosmic rays instead of a fixed-energy sample.
+In order to understand if these discrepancies are caused by missing wires in specific parts of detector, the bins corresponding to significances larger than 3 have been reported in Tab. \ref{tab:significance}.
 
 \begin{table}[htbp]
   \centering
   \ra{1.2}
-  \begin{tabular}{lcrrrcc}
+  \begin{tabular}{cccccccccccc}
     \toprule
-    Reconstruction algorithm & \phantom{abc}& \multicolumn{2}{c}{Data [\%]} & \phantom{abc} & \multicolumn{2}{c}{4 GeV Monte Carlo [\%]}\\
-    \cmidrule{3-4} \cmidrule{6-7}
-    & & avg. & err. & & avg. & err. \\
+    $\theta\thinspace[^\circ]$ & $\phi\thinspace[^\circ]$ & $L\thinspace[\mathrm{cm}]$ & \phantom{a} & \multicolumn{2}{c}{Central} & \phantom{a} & \multicolumn{2}{c}{Upstream} & \phantom{a} & \multicolumn{2}{c}{Downstream}\\
+     \cmidrule{5-6} \cmidrule{8-9} \cmidrule{11-12}
+      &  &  & & avg. & err. & & avg. & err. & & avg. & err.   \\
     \midrule
-    \texttt{pan\-do\-ra\-Co\-smic} & & 84.6 & 0.4 & & 96.5& 0.2 \\
-    \texttt{pandoraCosmicKHit} & & 64.8 & 0.5 & & 93.8& 0.2 \\
-    \texttt{trackkalmanhit} & & 76.0 & 0.5 & & 90.9& 0.3 \\
+    75 & -60 & 20 & & \textbf{0.85} & \textbf{0.04} & & \textbf{0.85} & \textbf{0.02} & & 0.95 & 0.02\\
+    90 & -90 & 140 & & 0.97 & 0.03 & & \textbf{0.70} & \textbf{0.07} & & 0.93 & 0.04\\
+    90 & -90 & 200 & & 0.99 & 0.01 & & \textbf{0.96} & \textbf{0.01} & & 0.99 & 0.01\\
+    90 & -60 & 140 & & 0.98 & 0.01 & & \textbf{0.96} & \textbf{0.01} & & 0.99 & 0.01\\
+    90 & -60 & 200 & & 0.99 & 0.01 & & \textbf{0.96} & \textbf{0.01} & & 0.89 & 0.01\\
+
     \bottomrule
   \end{tabular}
-  \caption{Data and Monte Carlo overall efficiencies for three reconstruction algorithms. Errors are statistical only.}\label{tab:eff}
+  \caption{Reconstruction efficiency for each geometrical configuration with a difference significance larger than 3. The lowest value is reported in bold.}\label{tab:significance}
 \end{table}
 
+As we can see, the configuration with the lowest reconstruction efficiency in this cases is always the upstream one. The drawing of the extrapolated tracks that have those specific $\theta,\phi,L$ coordinates shows that, for the upstream configuration, the corresponding cosmic rays go through regions with missing wires in one of the induction planes (Fig. \ref{fig:wires}). Moreover, since their $\theta$ coordinate is close to $90^\circ$, they are also aligned with the wires of the collection plane. Thus, these cosmic rays have few hits in two out of three planes and the algorithm is not able to reconstruct a track.
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[width=1\linewidth]{figures/wire_tracks.png}
+    \caption{Bi-dimensional plot of the average $dE/dx$, showing the region with missing wires on one of the induction planes (left) and extrapolated tracks corresponding to the coordinates in Tab. \ref{tab:significance} (right). As we can see, the tracks in the upstream part of the detector (low $z$) go through a region with several missing wires.} \label{fig:wires}
+  \end{center}
+\end{figure}
 
 
-The low efficiency for $\theta_{xy} > -50^{\circ}$ (Fig. \ref{fig:eff}) is due both to the ineffectiveness of the MIP cut in this region and to the short path length of the very tilted cosmic rays. The short path length causes also the efficiency drops for $\theta_{yz} < -110^{\circ}$ and $\theta_{yz} > -70^{\circ}$. Also in the bi-dimensional efficiency plots (Fig. \ref{fig:2deff_pandora}, \ref{fig:2deff_pandorak}, \ref{fig:2deff_trk}) the regions with the lowest efficiency are the ones with $\theta_{xy} > -50^{\circ}$.
-
-The \texttt{track\-kal\-man\-hit} efficiency drop around $\theta_{yz}=-90^{\circ}$, both for data and Monte Carlo, is due to the track being aligned to the collection plane (Y) wires (Fig. \ref{fig:yz}). This geometrical configuration lowers the number of hits available by the Kalman Filter to reconstruct the cosmic ray track. The  \texttt{pan\-do\-ra\-Co\-smic} and \texttt{pan\-do\-ra\-Co\-smic\-KHit} reconstruction algorithms do not exhibit this behavior.
 
 
-The overall reconstruction efficiencies, obtained integrating the 3D plots, are reported in Table \ref{tab:eff}. The best reconstruction algorithm resulted to be \texttt{pan\-do\-ra\-Co\-smic}, with an overall reconstruction efficiency of $(84.6\pm0.4)\%$ ($(96.5\pm0.2)\%$) for data (Monte Carlo).
-
-%The reconstruction efficiency can also be affected by detector non-uniformity. In order to check the presence of systematic errors attributable to this effect, we divided the detector in two parts of the same size (one upstream and one downstream the beam) and measured the reconstruction efficiency separately.
-
-%As an example, the angular efficiencies with the \texttt{pan\-do\-ra\-Co\-smic} reconstruction algorithm before and after the MIP selection cut are reported (Fig. \ref{fig:eff_mip}). The overall efficiency increases from $(73.3\pm0.5)\%$ to $(82.2\pm0.4)\%$ (statistical error only). There is no improvement of the efficiency with $\theta_{xy} > -60^{\circ}$ because this region correspond to very tilted cosmic ray, where our cut is ineffective (Fig. \ref{fig:3dmipcut}).
-
-%\begin{figure}[htbp]
-%\begin{subfigure}{0.52\textwidth}
-%\includegraphics[width=\linewidth]{figures/xy_before.pdf}
-%\caption{Efficiency as a function of $\theta_{xy}$.} \label{ref:xy_before}
-%\end{subfigure}
-%\hspace*{\fill}
-%\begin{subfigure}{0.52\textwidth}
-%\includegraphics[width=\linewidth]{figures/yz_before.pdf}
-%\caption{Efficiency as a function of $\theta_{yz}$}\label{ref:yz_before}
-%\end{subfigure}
-%\caption{Reconstruction efficiencies with  \texttt{pan\-do\-ra\-Co\-smic} as a function of $\theta_{xy}$ (a) and $\theta_{yz}$ (b), before (white points) and after (black points) MIP selection cut. The error bars refer to statistical errors only} \label{fig:eff_mip}
-%\end{figure}
-
-%Comparing the efficiencies of all three reconstruction algorithms after the MIP selection cut (Fig. \ref{fig:eff}), the best-performing one is \texttt{pan\-do\-ra\-Co\-smic} with an overall efficiency for data of $(82.2\pm0.4)\%$, followed by \texttt{track\-kal\-man\-hit} with $(71.9\pm0.5)\%$ and \texttt{pan\-do\-ra\-Co\-smic\-KHit} with $(64.3\pm0.5)\%$. The Monte Carlo overall efficiencies are, respectively, $(98.2\pm0.2)\%$, $(90.4\pm0.3)\%$ and $(94.0\pm0.3)\%$ (Tab. \ref{tab:eff}).
 \begin{figure}[htbp]
   \begin{subfigure}{0.5\textwidth}
     \caption{3D data efficiency with \texttt{pandoraCosmic}.} \label{fig:pandora_3D}
