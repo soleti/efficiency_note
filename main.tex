@@ -47,7 +47,7 @@ The message of the public note based upon this document is as follows:
 
 \end{itemize}
 
-The figures that will be carried forward to the public note are Figg. \ref{fig:mucs}, \ref{fig:3dmipcut}, \ref{fig:res} (\texttt{pandoraCosmic} only), \ref{fig:pandora_3D}-\ref{fig:pandora_3D_mc}, \ref{fig:2d_pc1}-\ref{fig:2d_pc1_mc}-\ref{fig:2d_pc2}-\ref{fig:2d_pc2_mc}-\ref{fig:2d_pc3}-\ref{fig:2d_pc3_mc}, \ref{fig:xy}-\ref{fig:yz}-\ref{fig:l}  (\texttt{pandoraCosmic} only), \ref{fig:ineff}, \ref{fig:cry_mc_3d}, \ref{fig:cry_mc_2d}, \ref{fig:cry_mc_2d_2}, \ref{fig:cry_mc_2d_3}, \ref{fig:cry_mc_1d}, \ref{fig:plans} and \ref{fig:500mev1d}.
+The figures that will be carried forward to the public note are Figg. .
 
 \section{Introduction}
 This analysis note describes the work done to study the reconstruction efficiencies using a dataset of cosmic rays passing through the Muon Counter System (MuCS).
@@ -240,7 +240,7 @@ Our efficiency can then be plotted as a three-dimensional histogram: each bin wi
     \includegraphics[width=\linewidth]{figures/3d_data.png}
     \caption{Data} \label{fig:3d_data}
   \end{subfigure}
-  \caption{Monte Carlo and data three-dimensional reconstruction efficiency as a function of the starting angles $\theta$, $\phi$ and the extrapolated track length $L$.}\label{fig:3d}
+  \caption{Monte Carlo and data three-dimensional reconstruction efficiency as a function of the starting angles $\theta$, $\phi$ and the extrapolated track length $L$. A larger box correspond to a larger efficiency. The empty region in the upper part of the plot correspond to a region of the parameter space not covered by our dataset.}\label{fig:3d}
 \end{figure}
 
 \subsection{Detector non-uniformities}\label{sec:wires}
@@ -305,8 +305,65 @@ The multiple Coulomb scattering depends on the energy of the cosmic ray, with lo
 In order to verify if this sampling introduces a systematic effect, we choose the bin with the lowest number of MuCS-triggered data events, in our case 19. We then performed a Monte Carlo simulation, generating one thousand pseudo-experiments with 19 MuCS-triggered events with the same starting angles and length of our chosen bin. We filled an histogram with the value of the reconstruction efficiency for each pseudo-experiment and fitted the distribution with a Gaussian (Fig. \ref{fig:sampling}). The $\sigma$ of the fit is $0.084$, compatible with the statistical error of the same bin which is $0.083$. Thus, we conclude that the energy sampling of the cosmic rays does not introduce a systematic effect.
 
 \subsection{Data/Monte Carlo comparison}
-It is now possible to compare the data and Monte Carlo reconstruction efficiencies. The three-dimensional efficiency plots shown in Fig. \ref{fig:3d} can be projected on the bi-dimensional planes ($\theta,\phi$), ($\theta,L$), ($\phi,L$), shown in Fig. \ref{fig:2d} and on the single axis $\theta$, $\phi$, $L$, shown in Fig. \ref{fig:1d}. Taking into account the systematic error given by the detector non-uniformities, as described in Sec. \ref{sec:wires}, the obtained data/Monte Carlo agreement is very good, with a ratio of 1 within 2 sigma for every bin.
+It is now possible to compare the data and Monte Carlo reconstruction efficiencies. The three-dimensional efficiency plots shown in Fig. \ref{fig:3d} can be projected on the bi-dimensional planes ($\theta,\phi$), ($\theta,L$), ($\phi,L$), shown in Fig. \ref{fig:2d} and on the single axis $\theta$, $\phi$, $L$, shown in Fig. \ref{fig:1d}.
 
+\begin{figure}[htbp]
+  \begin{subfigure}{0.33\textwidth}
+    \includegraphics[width=\linewidth]{figures/theta.pdf}
+    \caption{$\theta$} \label{fig:theta}
+  \end{subfigure}\begin{subfigure}{0.33\textwidth}
+    \includegraphics[width=\linewidth]{figures/phi.pdf}
+    \caption{$\phi$} \label{fig:phi}
+  \end{subfigure}\begin{subfigure}{0.33\textwidth}
+    \includegraphics[width=\linewidth]{figures/l.pdf}
+    \caption{$L$} \label{fig:l}
+  \end{subfigure}
+  \caption{Monte Carlo (red line) and data (black points) reconstruction efficiency as a function of the starting angles $\theta$, $\phi$ and the extrapolated track length $L$. Data statistical error are correspond to the grey boxes.}\label{fig:1d}
+\end{figure}
+
+Taking into account the systematic error given by the detector non-uniformities, as described in Sec. \ref{sec:wires}, the obtained data/Monte Carlo agreement is satisfactory, with almost every bin in agreement within 2$\sigma$.
+
+The overall reconstruction efficiency, obtained integrating the three-dimensional plot, is:
+\begin{align*}
+\epsilon_{data} &= 96.1 \pm 0.1\thinspace\mathrm{(stat)} \pm 1.1\thinspace\mathrm{(sys)} \\
+\epsilon_{MC} &= 96.3 \pm 0.1
+\end{align*} for data and Monte Carlo, respectively.
+
+
+
+\begin{figure}[htbp]
+  \begin{subfigure}{0.33\textwidth}
+    \includegraphics[width=\linewidth]{figures/e_theta_phi.pdf}
+    \caption{$(\theta,\phi)$ - Data}
+  \end{subfigure}\begin{subfigure}{0.33\textwidth}
+  \includegraphics[width=\linewidth]{figures/theta_phi_mc.pdf}
+  \caption{$(\theta,\phi)$ - Monte Carlo}
+  \end{subfigure}\begin{subfigure}{0.33\textwidth}
+  \includegraphics[width=\linewidth]{figures/theta_phi.pdf}
+  \caption{$(\theta,\phi)$ - Data/Monte Carlo}
+\end{subfigure}
+\begin{subfigure}{0.33\textwidth}
+  \includegraphics[width=\linewidth]{figures/e_theta_l.pdf}
+  \caption{$(\theta,L)$ - Data}
+\end{subfigure}\begin{subfigure}{0.33\textwidth}
+\includegraphics[width=\linewidth]{figures/theta_l_mc.pdf}
+\caption{$(\theta,L)$ - Monte Carlo}
+\end{subfigure}\begin{subfigure}{0.33\textwidth}
+\includegraphics[width=\linewidth]{figures/theta_l.pdf}
+\caption{$(\theta,L)$ - Data/Monte Carlo}
+\end{subfigure}
+\begin{subfigure}{0.33\textwidth}
+  \includegraphics[width=\linewidth]{figures/e_phi_l.pdf}
+  \caption{$(\phi,L)$ - Data}
+\end{subfigure}\begin{subfigure}{0.33\textwidth}
+\includegraphics[width=\linewidth]{figures/phi_l_mc.pdf}
+\caption{$(\phi,L)$ - Monte Carlo}
+\end{subfigure}\begin{subfigure}{0.33\textwidth}
+\includegraphics[width=\linewidth]{figures/phi_l.pdf}
+\caption{$(\phi,L)$ - Data/Monte Carlo}
+\end{subfigure}
+\caption{Two-dimensional reconstruction efficiencies for data (left), Monte Carlo (center) and their ratio (right).}\label{fig:2d}
+\end{figure}
 
 
 
@@ -315,8 +372,7 @@ It is now possible to compare the data and Monte Carlo reconstruction efficienci
 \section{Summary and plans}
 We compared the data/Monte Carlo reconstruction efficiencies for cosmic rays  with three different algorithms, as a function of the starting angle and the path length of the cosmic rays, using a dataset of events triggered by the MuCS. We showed that the Monte Carlo reconstruction efficiency is energy-dependent and, in particular, lower energy cosmic rays correspond to a lower reconstruction efficiency. The Monte Carlo efficiency obtained with a CRY sample is in good agreement with the data.  Leftover discrepancies can be caused by (1) differences between the CRY energy spectrum and data energy spectrum and (2) absence of not-MuCS cosmic rays in the Monte Carlo sample.
 
-By moving the MuCS boxes it is possible to increase the coverage of $(\theta_{xy}, \theta_{yz}, L)$ parameter space.
-Our plan is to move the boxes at the center of the TPC on the $z$ axis. Then, the boxes will be aligned in the $x$ direction and their distance in the $y$ will be reduced, in order to cover the region with $\theta_{xy} = 90^{\circ}$, $\theta_{yz} < -120^{\circ}$ and $\theta_{yz} > -60^{\circ}$, as shown in Fig. \ref{fig:plans}.
+
 
 Once we have obtained a larger coverage of the $(\theta_{xy}, \theta_{yz}, L)$ parameter space, it will be possible to measure the efficiency-corrected cosmic-ray flux on the top of the TPC, both for data and Monte Carlo. Moreover, testing different regions of the TPC will allow us to measure eventual systematic errors caused by detector non-uniformity.
 
@@ -327,6 +383,7 @@ The dataset used in this analysis correspond to run 3702, for the central config
 
 The dataset with the merged MuCS, Monte Carlo and data information are stored in \texttt{/uboone/data/users/mibass/MuCS/MuCS/v05\_08\_00/MergedOuttree/}.
 
+\clearpage{}
 
 \begin{thebibliography}{9}
 
