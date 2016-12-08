@@ -191,12 +191,12 @@ The angular distribution of the MuCS-triggering cosmic rays, obtained extrapolat
 
 \begin{figure}[htbp]
   \begin{subfigure}{0.52\textwidth}
-    \includegraphics[width=\linewidth]{figures/theta.pdf}
-    \caption{$\theta$ Data/Monte Carlo distribution.} \label{fig:xy_mucs}
+    \includegraphics[width=\linewidth]{figures/theta_mucs.pdf}
+    \caption{$\theta$ Data/Monte Carlo distribution.} \label{fig:theta_mucs}
   \end{subfigure}
   \begin{subfigure}{0.52\textwidth}
-    \includegraphics[width=\linewidth]{figures/phi.pdf}
-    \caption{$\phi$ Data/Monte Carlo distribution.} \label{fig:yzmucs}
+    \includegraphics[width=\linewidth]{figures/phi_mucs.pdf}
+    \caption{$\phi$ Data/Monte Carlo distribution.} \label{fig:phi_mucs}
   \end{subfigure}
   \caption{Data/Monte Carlo distributions of the spherical angles of the cosmic rays hitting the MuCS. Data angles have been obtained extrapolating the MuCS hits. Errors are statistical only.} \label{fig:mucs_angles}
 
@@ -240,10 +240,10 @@ Our efficiency can then be plotted as a three-dimensional histogram: each bin wi
     \includegraphics[width=\linewidth]{figures/3d_data.png}
     \caption{Data} \label{fig:3d_data}
   \end{subfigure}
-  \caption{Monte Carlo and data three-dimensional reconstruction efficiency as a function of the starting angles $\theta$, $\phi$ and the extrapolated track length $L$.}
+  \caption{Monte Carlo and data three-dimensional reconstruction efficiency as a function of the starting angles $\theta$, $\phi$ and the extrapolated track length $L$.}\label{fig:3d}
 \end{figure}
 
-\subsection{Detector non-uniformities}
+\subsection{Detector non-uniformities}\label{sec:wires}
 The presence of detector non-uniformities can introduce a systematic error in the measurement of the reconstruction efficiency. In particular, the presence of missing wires in specific regions of the detector can lower the reconstruction efficiency in only one of our three dataset, since they cover different regions of the TPC.
 
 To check if these non-uniformities introduce a systematic effect we measured the significance $\sigma$ of the difference between the efficiency measured in two different configurations:
@@ -305,6 +305,10 @@ The multiple Coulomb scattering depends on the energy of the cosmic ray, with lo
 In order to verify if this sampling introduces a systematic effect, we choose the bin with the lowest number of MuCS-triggered data events, in our case 19. We then performed a Monte Carlo simulation, generating one thousand pseudo-experiments with 19 MuCS-triggered events with the same starting angles and length of our chosen bin. We filled an histogram with the value of the reconstruction efficiency for each pseudo-experiment and fitted the distribution with a Gaussian (Fig. \ref{fig:sampling}). The $\sigma$ of the fit is $0.084$, compatible with the statistical error of the same bin which is $0.083$. Thus, we conclude that the energy sampling of the cosmic rays does not introduce a systematic effect.
 
 \subsection{Data/Monte Carlo comparison}
+It is now possible to compare the data and Monte Carlo reconstruction efficiencies. The three-dimensional efficiency plots shown in Fig. \ref{fig:3d} can be projected on the bi-dimensional planes ($\theta,\phi$), ($\theta,L$), ($\phi,L$), shown in Fig. \ref{fig:2d} and on the single axis $\theta$, $\phi$, $L$, shown in Fig. \ref{fig:1d}. Taking into account the systematic error given by the detector non-uniformities, as described in Sec. \ref{sec:wires}, the obtained data/Monte Carlo agreement is very good, with a ratio of 1 within 2 sigma for every bin.
+
+
+
 
 \clearpage{}
 
@@ -314,23 +318,10 @@ We compared the data/Monte Carlo reconstruction efficiencies for cosmic rays  wi
 By moving the MuCS boxes it is possible to increase the coverage of $(\theta_{xy}, \theta_{yz}, L)$ parameter space.
 Our plan is to move the boxes at the center of the TPC on the $z$ axis. Then, the boxes will be aligned in the $x$ direction and their distance in the $y$ will be reduced, in order to cover the region with $\theta_{xy} = 90^{\circ}$, $\theta_{yz} < -120^{\circ}$ and $\theta_{yz} > -60^{\circ}$, as shown in Fig. \ref{fig:plans}.
 
-\begin{figure}[htbp]
-  \begin{center}
-    \includegraphics[width=0.3\linewidth]{figures/image.png}\includegraphics[width=0.65\linewidth]{figures/image2.png}
-  \end{center}
-  \caption{Monte Carlo simulation of the planned new positioning of the MuCS. Red lines show cosmic rays that trigger the MuCS but don't hit the TPC.}\label{fig:plans}
-\end{figure}
-
 Once we have obtained a larger coverage of the $(\theta_{xy}, \theta_{yz}, L)$ parameter space, it will be possible to measure the efficiency-corrected cosmic-ray flux on the top of the TPC, both for data and Monte Carlo. Moreover, testing different regions of the TPC will allow us to measure eventual systematic errors caused by detector non-uniformity.
 
 \appendix
 
-\section{500 MeV Monte Carlo sample}\label{sec:500mev}
-In order to check if the differences observed between data and Monte Carlo are caused by the energy of the Monte Carlo cosmic rays, we generated a sample of 500 MeV cosmic muons and measured the efficiency in the same way described in Sec. \ref{sec:proc}. The efficiency plots, for \texttt{pandoraCosmic} only, are shown in Fig. \ref{fig:500mev2d} and \ref{fig:500mev1d}. The integrated efficiency in this case is $(81.4 \pm 0.4) \%$, to be compared with $(96.5 \pm 0.2) \%$, obtained with the 4 GeV sample.
-
-We can then safely assume that the reconstruction efficiency is proportional to the cosmic-ray energy, since cosmic rays with lower energy scatter more in the liquid argon and their track then more difficult to reconstruct.
-
-\clearpage{}
 \section{Technical details}
 The dataset used in this analysis correspond to run 3702, for the central configuration, run 7347 for the downstream configuration and run 7702, 7703 for the upstream configuration. The reconstruction stages \texttt{reco1} and \texttt{reco2} use \texttt{uboonecode v05\_08\_00}. Their configuration is provided by the standard fcl files \texttt{reco\_uboone\_mcc7\_driver\_stage1.fcl} and \texttt{reco\_uboone\_mcc7\_driver\_stage2.fcl}. The source code of the \texttt{MuCSMerger} and \texttt{MuCSTagger} modules is available on the \texttt{uboonecode} repository.
 
