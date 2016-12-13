@@ -30,10 +30,21 @@
 
 \begin{document}
 \maketitle
+\begin{abstract}
+  The MicroBooNE experiment is a liquid argon TPC experiment designed for short-baseline neutrino physics, currently running at Fermilab. Due to its location near the surface, cosmic muons can be a source of backgrounds to many analyses and a good understanding of them is of fundamental importance for the experiment. This study presents a method of using an external muon counter system to determine the cosmic-ray reconstruction efficiency in MicroBooNE.
 
-\setcounter{section}{-1}
+  The reconstruction of the tracks is performed using the multi-algorithm Pandora framework and its efficiency. The data reconstruction efficiency is $\epsilon_{\mathrm{data}}=96.1\pm0.1\thinspace(\mathrm{stat}) \pm 1.1\thinspace(\mathrm{sys})\thinspace\%$, in good agreement with the Monte Carlo reconstruction efficiency $\epsilon_{MC} = 96.3\pm0.1\thinspace\%$.
 
-\section{Purpose of Forthcoming Public Note}
+  Data has been acquired with three different geometrical configurations of the the external muon counter system, corresponding to different parts of the LArTPC. We show that the presence of detector non-uniformities, caused by regions with missing wires, leads to a systematic error in the measurement of the data reconstruction efficiency.
+
+  This analysis is a small-scale demonstration of the method that can be used with the data coming from the Cosmic Ray Tagger, which is able to tag $\sim80\%$ of the cosmic rays hitting the LArTPC and covers the entire detector.
+\end{abstract}
+
+\tableofcontents
+
+\clearpage{}
+
+\section*{0. Purpose of Forthcoming Public Note}
 
 The message of the public note based upon this document is as follows:
 
@@ -46,16 +57,16 @@ The message of the public note based upon this document is as follows:
 
 \end{itemize}
 
-The figures that will be carried forward to the public note are Figg. .
+The figures that will be carried forward to the public note are Figg. \ref{fig:coord}, \ref{fig:mucs}, \ref{fig:evd}, \ref{fig:alignment}, \ref{fig:mucs_angles}, \ref{fig:purity}, \ref{fig:3d}, \ref{fig:significance}, \ref{fig:wires}, \ref{fig:example}, \ref{fig:sampling}, \ref{fig:1d}, \ref{fig:2d}.
 
 \section{Introduction}
 This analysis note describes the work done to study the reconstruction efficiencies using a dataset of cosmic rays passing through the Muon Counter System (MuCS).
 The goal is to provide data and Monte Carlo reconstruction efficiencies that can be used to compare reconstruction performances and to show that an external cosmic-ray counter can be used to measure the data reconstruction efficiency in the LArTPC.
 
 We measured the data reconstruction efficiency comparing the number of events triggered by the MuCS and the number of events with a MuCS-compatible reconstructed track.
-The Monte Carlo reconstruction efficiency, instead, was measured by comparing the number of generated cosmic rays with the number of reconstructed tracks.
+The Monte Carlo reconstruction efficiency, instead, was measured by comparing the number of generated cosmic rays with the number of reconstructed tracks, using simulated cosmic rays hitting the entire TPC.
 
-The reconstruction efficiency is expressed as a function of the cosmic-ray starting angle (given by the spherical angles $\theta$ and $\phi$) and of the expected length $L$ of its path in the TPC, assuming it is a minimum-ionizing particle (MIP).
+The reconstruction efficiency is expressed as a function of the cosmic-ray starting angle (given by the spherical angles $\theta$ and $\phi$) and of the expected length $L$ of its path in the TPC.%, assuming it is a minimum-ionizing particle (MIP).
 
 Using the \texttt{pan\-do\-ra\-Co\-smic} algorithm \cite{pandoracosmic} provided by the Pandora framework \cite{pandora}, the overall reconstruction efficiency is $96.1\pm0.1\thinspace(\mathrm{stat}) \pm 1.1\thinspace(\mathrm{sys})\thinspace\%$ for data and $96.3\pm0.1\thinspace\%$ for Monte Carlo.
 
@@ -97,7 +108,7 @@ A three-dimensional schematics of the three MuCS setups is shown in Fig. \ref{fi
     \caption{Downstream} \label{fig:downstream}
   \end{subfigure}
 
-  \caption{Monte Carlo simulation of the possible MuCS trajectories the three different MuCS setups used in this analysis. Brown tracks correspond to cosmic rays hitting both panels and the TPC, while red tracks go through the MuCS but miss the TPC.} \label{fig:mucs}
+  \caption{Monte Carlo simulation of the possible MuCS trajectories in the three different MuCS setups used in this analysis. Brown tracks correspond to cosmic rays hitting both panels and the TPC, while red tracks go through the MuCS but miss the TPC.} \label{fig:mucs}
 \end{figure}
 
 \begin{table}[htbp]
@@ -125,7 +136,7 @@ A three-dimensional schematics of the three MuCS setups is shown in Fig. \ref{fi
     \bottomrule
 
   \end{tabular}
-  \caption{Coordinates of the top and bottom panel of the MuCS detector for three geometrical setups.}\label{tab:mucs}
+  \caption{Coordinates of the top and bottom panels of the MuCS detector for three geometrical configurations.}\label{tab:mucs}
 \end{table}
 
 
@@ -136,35 +147,37 @@ The dataset used for this study has been collected with the DAQ configured in th
 The MuCS triggers at a rate of nearly 3 Hz and this rate is prescaled by 100 before sending the signal to trigger readout. In the general data stream, a MuCS trigger is issued at a rate of 0.02 Hz (lower than 0.03 Hz because the MuCS trigger is often vetoed by beam triggers), or roughly one per minute.
 Given a DAQ integration window of 100 ns, the accidental coincidental rate is negligible for our study. The probability that, during the same readout window (4.8 ms), another cosmic ray hits the MuCS is, given a trigger rate of 3 Hz, 0.01\% and it has also been considered negligible.
 
-The data then follows a processing path that merges the MuCS hit patterns and reconstructed trajectory information with the TPC and PMT data stream to form a MuCS-merged dataset. A flowchart of the procedure is shown in Fig. \ref{fig:scheme}.
+The data then follows a processing path that merges the MuCS hit patterns and extrapolated trajectory information with the TPC and PMT data stream to form a MuCS-merged dataset. A flowchart of the procedure is shown in Fig. \ref{fig:scheme}.
 
 \begin{figure}[htbp]
   \includegraphics[width=\linewidth]{figures/scheme.pdf}
   \caption{Flowchart showing the procedure used to generate the dataset used in this analysis. We end up with two data products: one with extrapolated coordinates obtained using MuCS-only data and one with reconstructed data information.} \label{fig:scheme}
 \end{figure}
 
-The hits in the MuCS are used to obtain a bi-dimensional point in each panel and extrapolate a three-dimensional track (MuCS-extrapolated track). The TPC hits, instead, are fed to the reconstruction chain: the reconstructed track with the closest starting point to the intersection of the MuCS-extrapolated track with the TPC is stored in the dataset and it is defined as a MuCS-tagged track. The distance $d$ between these two points is defined as:
+The hits in the MuCS are used to obtain a point for each panel and extrapolate a track (MuCS-extrapolated track). The TPC hits, instead, are fed to the reconstruction chain: the reconstructed track with the closest starting point to the intersection of the MuCS-extrapolated track with the TPC is stored in the dataset and it is defined as a MuCS-tagged track. The distance $d$ between these two points is defined as:
 \begin{equation}\label{eq:d}
 d = \sqrt{(x_{\mathrm{MuCS}}-x_{\mathrm{reco}})^2+(y_{\mathrm{MuCS}}-y_{\mathrm{reco}})^2+(z_{\mathrm{MuCS}}-z_{\mathrm{reco}})^2},
 \end{equation}
 where $(x_{\mathrm{MuCS}},y_{\mathrm{MuCS}},z_{\mathrm{MuCS}})$ and $(x_{\mathrm{reco}},y_{\mathrm{reco}},z_{\mathrm{reco}})$ are the coordinates of the intersection of the MuCS-extrapolated track with the TPC and of the closest reconstructed track, respectively.
 
 The PMT flash in time with the MuCS signal, if present, is also stored and associated to the MuCS-tagged track.  Fig. \ref{fig:evd} shows a diagram with the MuCS-tagged track, the MuCS-extrapolated track and the other reconstructed tracks in the same readout window.
+
 \begin{figure}[htbp]
   \begin{center}
   \includegraphics[width=0.50\linewidth]{figures/evd.pdf}  \vspace{1.8em}\includegraphics[width=0.40\linewidth]{figures/evd_display.png}
 
-  \caption{Left: bi-dimensional view of a MuCS event. The black line shows the MuCS-extrapolated track, while the green line correspond to the MuCS-tagged track. Right: corresponding portion of the event display for the collection plane, showing the MuCS-tagged track. } \label{fig:evd}
+  \caption{Left: bi-dimensional view of a MuCS event. The black line shows the MuCS-extrapolated track, while the green line correspond to the MuCS-tagged track. The black and green points correspond to the $(x_{\mathrm{MuCS}},y_{\mathrm{MuCS}},z_{\mathrm{MuCS}})$ and $(x_{\mathrm{reco}},y_{\mathrm{reco}},z_{\mathrm{reco}})$ coordinates, respectively. Right: corresponding portion of the event display for the collection plane, showing the MuCS-tagged track.} \label{fig:evd}
 \end{center}
 \end{figure}
+
 Our dataset will then include two different sets of information, with a one-to-one correspondence:
 \begin{itemize}
-  \item MuCS-extrapolated information: using the two 2D points given by the MuCS (one for each panel) we extrapolate a 3D line crossing the entire TPC. In this way we obtain two extrapolated starting angles ($\theta$ and $\phi$), an extrapolated track length $L$ and extrapolated start/end points, using only MuCS information.
+  \item MuCS-extrapolated information: using the two points given by the MuCS (one for each panel) we extrapolate a line crossing the entire TPC. In this way we obtain two extrapolated starting angles ($\theta$ and $\phi$), an extrapolated track length $L$ and extrapolated start/end points, using only MuCS information.
   \item Reconstructed TPC data information: for each event, we store the reconstructed spatial information of the MuCS-tagged track and of the in-time PMT flash, if present.
 \end{itemize}
 
 
-As Monte Carlo sample we used a complete cosmic-ray simulation, as described in \cite{cosmic}. The cosmic rays have ben generated using CORSIKA \cite{corsika},  propagated with GEANT4 \cite{geant}, and then passed through the detector simulation stage. The spherical angles $\theta$ and $\phi$ are measured using the starting point and direction of the generated cosmic ray, while the expected track length $L$ is measured extrapolating a three-dimensional line through the TPC.
+As Monte Carlo sample we used a complete cosmic-ray simulation, as described in \cite{cosmic}. The cosmic rays have ben generated using CORSIKA \cite{corsika},  propagated with GEANT4 \cite{geant}, and then passed through the detector simulation stage. The spherical angles $\theta$ and $\phi$ are measured using the starting point and direction of the generated cosmic ray, while the expected track length $L$ is measured extrapolating a line through the TPC.
 The distance $d$ is defined in this case as:
 \begin{equation}\label{eq:d_mc}
 d = \sqrt{(x_{\mathrm{sim}}-x_{\mathrm{reco}})^2+(y_{\mathrm{sim}}-y_{\mathrm{reco}})^2+(z_{\mathrm{sim}}-z_{\mathrm{reco}})^2},
@@ -201,7 +214,7 @@ Before measuring the reconstruction efficiency we performed a survey of the posi
 The two-dimensional plots of the extrapolated positions are reported in Fig. \ref{fig:alignment}. As we can see, some tracks are extrapolated outside the panels, because of multiple Coulomb scattering, but the majority of the points are well within the panels' borders.
 
 
-The angular distribution of the MuCS-triggering cosmic rays, obtained extrapolating a three-dimensional line from the MuCS hits, has also been measured and compared with an independent Monte Carlo simulation, used only to check that the angular distribution of the cosmic rays was the same.  In this case, the Monte Carlo samples have been obtained generating a sample of cosmic rays within the top panel borders. Each event is stored only if the cosmic ray crosses also the bottom panel. This Monte Carlo information must not be confused with the reconstructed Monte Carlo information described in Sec. \ref{sec:merging}, which is obtained reconstructing a simulated cosmic-ray event in the TPC. Fig. \ref{fig:mucs_angles} shows that the distributions of the spherical angles have a good data/Monte Carlo agreement.
+The angular distribution of the MuCS-triggering cosmic rays, obtained extrapolating a line from the MuCS hits, has also been measured and compared with an independent Monte Carlo simulation, used only to check that the angular distribution of the cosmic rays was the same.  In this case, the Monte Carlo samples have been obtained generating a sample of cosmic rays within the top panel borders. Each event is stored only if the cosmic ray crosses also the bottom panel. This Monte Carlo information must not be confused with the reconstructed Monte Carlo information described in Sec. \ref{sec:merging}, which is obtained reconstructing a simulated cosmic-ray event in the TPC. Fig. \ref{fig:mucs_angles} shows that the distributions of the spherical angles have a good data/Monte Carlo agreement.
 
 \begin{figure}[htbp]
   \begin{subfigure}{0.52\textwidth}
@@ -343,11 +356,11 @@ Moreover, since their $\theta$ coordinate is close to $90^\circ$, they are also 
 We quote the systematic error related to the detector non-uniformities for each $\theta,\phi,L$ bin as the difference between the best reconstructing efficiency of the three configurations and the overall reconstruction efficiency (obtained merging the three dataset), as also described in \cite{besiii}.
 
 \subsection{Energy sampling}
-The multiple Coulomb scattering depends on the energy of the cosmic ray: the angular dispersion $\theta_{0}$ of a cosmic muon can be in fact calculated by the relation:
+The multiple Coulomb scattering depends on the energy of the cosmic ray. The angular dispersion $\theta_{0}$ of a cosmic muon can be, in fact, calculated by the relation:
 \begin{equation}
 \theta_{0} = \frac{13.6}{\beta c p}\sqrt{x/X_{0}}\left[1+0.038\thinspace\mathrm{ln}(x/X_0)\right],
 \end{equation}
-where $p$ is the momentum of the muon, $x$ is the distance traveled, and $X_0$ is the radiation length of the material.  Thus, low-energy cosmic rays scatter more than high-energy ones. In the bins where the data reconstruction efficiency has been measured with low statistics, it can happen to have cosmic rays distributed in a small region of the energy spectrum, biasing the measurement of the reconstruction efficiency.
+where $p$ is the momentum of the muon, $x$ is the distance traveled, and $X_0$ is the radiation length of the material.  Thus, low-energy cosmic rays scatter more than high-energy ones and they have then an higher probability to be further than $d_{\mathrm{max}}$ from the extrapolated starting point of the MuCS cosmic ray. In the bins where the data reconstruction efficiency has been measured with low statistics, then, it can happen to have MuCS cosmic rays distributed in a small region of the energy spectrum, biasing the measurement of the reconstruction efficiency.
 
 \begin{figure}[htbp]
   \begin{center}
@@ -422,13 +435,13 @@ The overall reconstruction efficiency, obtained integrating the three-dimensiona
 \section{Summary and plans}
 This analysis showed that it is possible to match hits in a muon counter system to a track in the LArTPC and that comparing the number of events triggered by the MuCS with the number of events with MuCS-tagged tracks we can measure the data reconstruction efficiency.
 
-The efficiency, obtained with the procedure described in Sec. \ref{sec:reco}, has been measured as a function of the starting angles $\theta$, $\phi$ and the expected length in the TPC, $L$. These coordinates have been measured using the spatial information provided by the hits in the MuCS.
+This efficiency, obtained with the procedure described in Sec. \ref{sec:reco}, has been measured as a function of the starting angles $\theta$, $\phi$ and the expected length in the TPC, $L$. These coordinates have been measured using the spatial information provided by the hits in the MuCS.
 
 The data reconstruction efficiency is in agreement, within the errors, with the Monte Carlo reconstruction efficiency, measured using a simulation of cosmic rays all over the LArTPC.
 
 We have also shown that the detector non-uniformities must be taken into account in the measurement of the reconstruction efficiency and the related systematic error is 1.1\%.
 
-However, the coverage of the ($\theta, \phi, L$) parameter space by the MuCS is limited and it is not possible to measure efficiency-corrected quantities such as the cosmic-ray flux. The Cosmic Ray Tagger (CRT), assembled last October, will be able instead to tag $\sim$80\% of the cosmic rays hitting the TPC and check the presence of non-uniformities in other parts of the detector. Fig. \ref{fig:crt} shows the coverage on the ($\theta,\phi$) plane of both the MuCS and the CRT, obtained with a Monte Carlo simulation.
+However, the coverage of the ($\theta, \phi, L$) parameter space provided by the MuCS is limited and it is not possible to measure efficiency-corrected quantities, such as the cosmic-ray flux. The Cosmic Ray Tagger (CRT), assembled last October, will be able, instead, to tag $\sim$80\% of the cosmic rays hitting the TPC and check the presence of non-uniformities in every part of the detector. Fig. \ref{fig:crt} shows the coverage on the ($\theta,\phi$) plane of both the MuCS and the CRT, obtained with a Monte Carlo simulation.
 
 \begin{figure}[htbp]
   \begin{center}
@@ -456,7 +469,7 @@ The dataset with the merged MuCS, Monte Carlo and data information are stored in
 
   \bibitem{crt} M. Auger, et al., \textit{A Novel Cosmic Ray Tagger System for Liquid Argon TPC Neutrino Detectors}, submitted to Instruments.
 
-  \bibitem{mcdata} R. Acciarri, et al. [MicroBooNE Collaboration], \textit{A Comparison of Monte-Carlo Simulations and Data from MicroBooNE}, \texttt{MICROBOONE-NOTE-1014-PUB}.
+  \bibitem{mcdata} R. Acciarri, et al. [MicroBooNE Collaboration], \textit{A Comparison of Monte-Carlo Simulations and Data from MicroBooNE}, \texttt{MICROBOONE-NOTE-1014-PUB}, 2016. \url{http:// www-microboone.fnal.gov/publications/publicnotes/index.html}.
 
   \bibitem{cosmic} R. Acciarri, et al. [MicroBooNE Collaboration], \textit{Cosmic Shielding Studies at MicroBooNE}. \texttt{MICROBOONE-NOTE-1005-PUB}, 2016. \url{http:// www-microboone.fnal.gov/publications/publicnotes/index.html}.
 
