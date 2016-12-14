@@ -235,15 +235,15 @@ The angular distribution of the MuCS-triggering cosmic rays, obtained extrapolat
 
 \section{Reconstruction efficiencies}\label{sec:reco}
 
-We define the MuCS reconstruction efficiency $\epsilon$ as the ratio between the number of reconstructed MuCS cosmic-rays and the number of MuCS-triggered events:
+We define the MuCS reconstruction efficiency $\epsilon$ as the ratio between the number of events with a reconstructed MuCS cosmic ray and the number of MuCS-triggered events:
 \begin{equation}\label{eq:eff}
   \epsilon = \frac{\mathrm{N.~of~reco.~MuCS~cosmic-ray~events}}{\mathrm{N.~of~MuCS-triggered~events}}.
 \end{equation}
-In a data sample it is not possible to distinguish a MuCS cosmic ray from a normal cosmic ray and we define the MuCS-tagged track as the reconstructed track with the closest starting point to the extrapolated MuCS starting point $(x_{\mathrm{MuCS}},y_{\mathrm{MuCS}},z_{\mathrm{MuCS}})$. However, events without a reconstructed MuCS cosmic ray will always have at least another reconstructed cosmic ray, so it is necessary to set a maximum distance $d_{\mathrm{max}}$ between the two points. The number of our events with a MuCS-tagged track will then depend on $d_{\mathrm{max}}$. The efficiency $\epsilon_{\mathrm{tag}}$ of the cut on the $d_{\mathrm{max}}$ is defined as:
+In a data sample it is not possible to distinguish a MuCS cosmic ray from a normal cosmic ray and we define the MuCS-tagged track as the reconstructed track with the closest starting point to the extrapolated MuCS starting point $(x_{\mathrm{MuCS}},y_{\mathrm{MuCS}},z_{\mathrm{MuCS}})$. However, events without a reconstructed MuCS cosmic ray will always have at least another reconstructed cosmic ray, so it is necessary to set a maximum distance $d_{\mathrm{max}}$ between the two points, $(x_{\mathrm{reco}},y_{\mathrm{reco}},z_{\mathrm{reco}})$ and $(x_{\mathrm{MuCS}},y_{\mathrm{MuCS}},z_{\mathrm{MuCS}})$. The number of our events with a MuCS-tagged track will then depend on $d_{\mathrm{max}}$. The efficiency $\epsilon_{\mathrm{tag}}$ of the cut on the $d_{\mathrm{max}}$ is defined as:
 \begin{equation}
   \epsilon_{\mathrm{tag}}=\frac{\mathrm{N.~of~reco.~events~within~}d_{\mathrm{max}}}{\mathrm{N.~of~MuCS-triggered~events}}
 \end{equation}
-and can be measured both for our data sample and for our general Monte Carlo simulation.
+and can be measured both for our data sample and for our general Monte Carlo simulation, replacing $(x_{\mathrm{MuCS}},y_{\mathrm{MuCS}},z_{\mathrm{MuCS}})$ with $(x_{\mathrm{sim}},y_{\mathrm{sim}},z_{\mathrm{sim}})$.
 
 
 \begin{figure}[htbp]
@@ -269,7 +269,7 @@ The MuCS reconstruction efficiency, as defined in \eqref{eq:eff}, can then be ob
 \begin{equation}
   \epsilon = \epsilon_{\mathrm{tag}} \times p / a.
 \end{equation}
-Using this formula our data and Monte Carlo reconstruction efficiencies will not depend on the chosen value of $d_{\mathrm{max}}$. For convenience's sake, we chose a value of $d_{\mathrm{max}}$ that correspond to $p/a = 1$, which in our case resulted to be 32 cm.
+Using this formula, our data and Monte Carlo reconstruction efficiencies will not depend on the chosen value of $d_{\mathrm{max}}$. For convenience's sake, we chose a value of $d_{\mathrm{max}}$ that corresponds to $p/a = 1$, which in our case resulted to be 32 cm.
 
 \begin{figure}[htbp]
   \begin{subfigure}{0.52\textwidth}
