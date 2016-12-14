@@ -15,9 +15,9 @@
 \addtokomafont{disposition}{\rmfamily}
 \usepackage{appendix}
 \usepackage{hyperref}
+\usepackage{textcomp}
 
-\renewcommand{\arraystretch}{1.2}
-\newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
+
 
 \title{Reconstruction Efficiencies for Data \& MC using the Muon Counter System \\ \vspace{1em} \small{\textbf{MICROBOONE-NOTE-XXXX-INT-vX}}}
 
@@ -57,7 +57,7 @@ The message of the public note based upon this document is as follows:
 
 \end{itemize}
 
-The figures that will be carried forward to the public note are Figg. \ref{fig:coord}, \ref{fig:mucs}, \ref{fig:evd}, \ref{fig:alignment}, \ref{fig:mucs_angles}, \ref{fig:purity}, \ref{fig:3d}, \ref{fig:significance}, \ref{fig:wires}, \ref{fig:example}, \ref{fig:sampling}, \ref{fig:1d}, \ref{fig:2d}.
+The figures that will be carried forward to the public note are Figs. \ref{fig:coord}, \ref{fig:mucs}, \ref{fig:evd}, \ref{fig:alignment}, \ref{fig:mucs_angles}, \ref{fig:purity}, \ref{fig:3d}, \ref{fig:significance}, \ref{fig:wires}, \ref{fig:example}, \ref{fig:sampling}, \ref{fig:1d}, \ref{fig:2d}.
 \clearpage{}
 \section{Introduction}
 This analysis note describes the work done to study the reconstruction efficiencies using a dataset of cosmic rays passing through the Muon Counter System (MuCS).
@@ -87,13 +87,13 @@ where $r = \sqrt{(x_{\mathrm{top}}-x_{\mathrm{bottom}})^2+(y_{\mathrm{top}}-y_{\
   \begin{center}
     \includegraphics[width=0.8\linewidth]{figures/coord.pdf}
 
-    \caption{The MicroBooNE coordinate system. The three wire planes are vertical (collection plane) and at  $\pm60^{\circ}$ to the vertical (induction planes). The dimensions of the TPC are 256.35 cm $\times$ 233 cm $\times$ 1036.8 cm (x $\times$ y $\times$ z). The fiducial volume of the detector is 236.35 cm $\times$ 203 cm $\times$ 1026.8 cm. The coordinate system is explained in detail in \cite{mcdata}} \label{fig:coord}
+    \caption{The MicroBooNE coordinate system. The three wire planes are vertical (collection plane) and at  $\pm60^{\circ}$ to the vertical (induction planes). The dimensions of the TPC are 256.35 cm $\times$ 233 cm $\times$ 1036.8 cm (x $\times$ y $\times$ z). The fiducial volume of the detector is 236.35 cm $\times$ 203 cm $\times$ 1026.8 cm. The coordinate system is explained in detail in \cite{mcdata}.} \label{fig:coord}
   \end{center}
 \end{figure}
 
-This analysis has been performed on three merged dataset, acquired with different geometrical configurations. In each configuration, the two panels have been placed at the upstream end, at the center and at the downstream end of the LArTPC, respectively.
+This analysis has been performed on three merged datasets, acquired with different geometrical configurations. In each configuration, the two panels have been placed at the upstream end, at the center and at the downstream end of the LArTPC, respectively.
 
-A three-dimensional schematics of the three MuCS setups is shown in Fig. \ref{fig:mucs} and the coordinates of the two panels for each configuration are reported in Tab. \ref{tab:mucs}.
+A three-dimensional schematic of the three MuCS setups is shown in Fig. \ref{fig:mucs} and the coordinates of the two panels for each configuration are reported in Tab. \ref{tab:mucs}.
 \begin{figure}[htbp]
   \begin{subfigure}{0.30\textwidth}
     \includegraphics[width=\linewidth]{figures/upstream.png}
@@ -113,7 +113,6 @@ A three-dimensional schematics of the three MuCS setups is shown in Fig. \ref{fi
 
 \begin{table}[htbp]
   \centering
-  \ra{1.2}
   \begin{tabular}{lcrrrccccc}
     \toprule
     \textbf{Configuration} & \phantom{abc}& \multicolumn{2}{c}{x [cm]} & \phantom{abc} & \multicolumn{2}{c}{y [cm]} & \phantom{abc} & \multicolumn{2}{c}{z [cm]}\\
@@ -140,27 +139,27 @@ A three-dimensional schematics of the three MuCS setups is shown in Fig. \ref{fi
 \end{table}
 
 
-\section{MuCS merging}\label{sec:merging}
-The MuCS is designed to provide a trigger on through-going muons that intersect two planes of scintillator strips. The trigger is propagated to the MicroBooNE trigger system to record a full TPC and PMT readout. With the MuCS trigger in place, the $t_0$ for a track associated with the MuCS is known and these tracks are useful for various detector physics and reconstruction studies.
+\section{MuCS Merging}\label{sec:merging}
+The MuCS is designed to provide a trigger on through-going muons that intersect two planes of scintillator strips. The trigger is propagated to the MicroBooNE trigger board to record a full TPC and PMT readout. With the MuCS trigger in place, the $t_0$ for a track associated with the MuCS is known and these tracks are useful for various detector physics and reconstruction studies.
 
 The dataset used for this study has been collected with the DAQ configured in the trigger-readout mode: the MuCS trigger is sent to the TPC readout, while the MuCS DAQ saves the hit patterns seen in the scintillator strips.
-The MuCS triggers at a rate of nearly 3 Hz and this rate is prescaled by 100 before sending the signal to trigger readout. In the general data stream, a MuCS trigger is issued at a rate of 0.02 Hz (lower than 0.03 Hz because the MuCS trigger is often vetoed by beam triggers), or roughly one per minute.
+The MuCS triggers at a rate of nearly 3 Hz.
 Given a DAQ integration window of 100 ns, the accidental coincidental rate is negligible for our study. The probability that, during the same readout window (4.8 ms), another cosmic ray hits the MuCS is, given a trigger rate of 3 Hz, 0.01\% and it has also been considered negligible.
 
 The data then follows a processing path that merges the MuCS hit patterns and extrapolated trajectory information with the TPC and PMT data stream to form a MuCS-merged dataset. A flowchart of the procedure is shown in Fig. \ref{fig:scheme}.
 
 \begin{figure}[htbp]
   \includegraphics[width=\linewidth]{figures/scheme.pdf}
-  \caption{Flowchart showing the procedure used to generate the dataset used in this analysis. We end up with two data products: one with extrapolated coordinates obtained using MuCS-only data and one with reconstructed data information.} \label{fig:scheme}
+  \caption{Flowchart showing the procedure used to generate the dataset used in this analysis. We end up with two data products: one with extrapolated coordinates obtained using MuCS-only data and one with reconstructed TPC tracks and PMT flashes, if present.} \label{fig:scheme}
 \end{figure}
 
 The hits in the MuCS are used to obtain a point for each panel and extrapolate a track (MuCS-extrapolated track). The TPC hits, instead, are fed to the reconstruction chain: the reconstructed track with the closest starting point to the intersection of the MuCS-extrapolated track with the TPC is stored in the dataset and it is defined as a MuCS-tagged track. The distance $d$ between these two points is defined as:
 \begin{equation}\label{eq:d}
 d = \sqrt{(x_{\mathrm{MuCS}}-x_{\mathrm{reco}})^2+(y_{\mathrm{MuCS}}-y_{\mathrm{reco}})^2+(z_{\mathrm{MuCS}}-z_{\mathrm{reco}})^2},
 \end{equation}
-where $(x_{\mathrm{MuCS}},y_{\mathrm{MuCS}},z_{\mathrm{MuCS}})$ and $(x_{\mathrm{reco}},y_{\mathrm{reco}},z_{\mathrm{reco}})$ are the coordinates of the intersection of the MuCS-extrapolated track with the TPC and of the closest reconstructed track, respectively.
-
-The PMT flash in time with the MuCS signal, if present, is also stored and associated to the MuCS-tagged track.  Fig. \ref{fig:evd} shows a diagram with the MuCS-tagged track, the MuCS-extrapolated track and the other reconstructed tracks in the same readout window.
+where $(x_{\mathrm{MuCS}},y_{\mathrm{MuCS}},z_{\mathrm{MuCS}})$ and $(x_{\mathrm{reco}},y_{\mathrm{reco}},z_{\mathrm{reco}})$ are the coordinates of the intersection of the MuCS-extrapolated track with the TPC and of the start of the closest reconstructed track, respectively.
+A PMT flash is associated with the MuCS signal if it falls between -1.0 and -0.8 \textmu s, where $t=0$ is given by the MuCS signal.
+Fig. \ref{fig:evd} shows a diagram with the MuCS-tagged track, the MuCS-extrapolated track and the other reconstructed tracks in the same readout window.
 
 \begin{figure}[htbp]
   \begin{center}
@@ -192,8 +191,8 @@ From this complete Monte Carlo simulation, then, we selected only the cosmic ray
 
 Our aim is to show that the reconstruction efficiency of simulated cosmic rays, generated all over the TPC, can be successfully compared to the data reconstruction efficiency, obtained placing a small muon counter system in three different places.
 
-\section{MuCS-triggered cosmic-rays angular distributions}\label{sec:flux}
-Before measuring the reconstruction efficiency we performed a survey of the position of the MuCS panels in each configuration. Taking the starting point and starting direction of the MuCS-tagged tracks it is possible to extrapolate their trajectory up to the height of the panels and check if they went through their borders. However, the build-up of positive argon ions in the TPC causes a distortion in the electric field and consequently in the reconstruction of the tracks. Thus, before measuring the starting angles and extrapolating the trajectories, the starting position and direction of the reconstructed tracks in the TPC have been corrected with the data-driven procedure described in \cite{sce}.
+\section{MuCS alignment and angular checks}\label{sec:flux}
+Before measuring the reconstruction efficiency we performed a calibration of the position of the MuCS panels in each configuration. Taking the starting point and starting direction of the MuCS-tagged tracks it is possible to extrapolate their trajectory up to the height of the panels and check if they went through their borders. However, the build-up of positive argon ions in the TPC causes a distortion in the electric field and consequently in the reconstruction of the tracks. Thus, before measuring the starting angles and extrapolating the trajectories, the starting position and direction of the reconstructed tracks in the TPC have been corrected with the data-driven procedure described in \cite{sce}.
 
 \begin{figure}[htbp]
   \begin{subfigure}{0.32\textwidth}
@@ -237,22 +236,22 @@ The angular distribution of the MuCS-triggering cosmic rays, obtained extrapolat
 
 We define the MuCS reconstruction efficiency $\epsilon$ as the ratio between the number of events with a reconstructed MuCS cosmic ray and the number of MuCS-triggered events:
 \begin{equation}\label{eq:eff}
-  \epsilon = \frac{\mathrm{N.~of~reco.~MuCS~cosmic-ray~events}}{\mathrm{N.~of~MuCS-triggered~events}}.
+  \epsilon = \frac{\mathrm{N.~of~reco.~MuCS~cosmic~ray~events}}{\mathrm{N.~of~MuCS~triggered~events}}.
 \end{equation}
 In a data sample it is not possible to distinguish a MuCS cosmic ray from a normal cosmic ray and we define the MuCS-tagged track as the reconstructed track with the closest starting point $(x_{\mathrm{reco}},y_{\mathrm{reco}},z_{\mathrm{reco}})$ to the extrapolated MuCS starting point $(x_{\mathrm{MuCS}},y_{\mathrm{MuCS}},z_{\mathrm{MuCS}})$. However, events without a reconstructed MuCS cosmic ray will always have at least another reconstructed cosmic ray, so it is necessary to set a maximum distance $d_{\mathrm{max}}$ between the two points, $(x_{\mathrm{reco}},y_{\mathrm{reco}},z_{\mathrm{reco}})$ and $(x_{\mathrm{MuCS}},y_{\mathrm{MuCS}},z_{\mathrm{MuCS}})$. The number of our events with a MuCS-tagged track will then depend on $d_{\mathrm{max}}$. The efficiency $\epsilon_{\mathrm{tag}}$ of the cut on the $d_{\mathrm{max}}$ is defined as:
 \begin{equation}
-  \epsilon_{\mathrm{tag}}=\frac{\mathrm{N.~of~reco.~events~within~}d_{\mathrm{max}}}{\mathrm{N.~of~MuCS-triggered~events}}
+  \epsilon_{\mathrm{tag}}=\frac{\mathrm{N.~of~reco.~events~within~}d_{\mathrm{max}}}{\mathrm{N.~of~MuCS~triggered~events}}
 \end{equation}
 and can be measured both for our data sample and for our general Monte Carlo simulation, replacing $(x_{\mathrm{MuCS}},y_{\mathrm{MuCS}},z_{\mathrm{MuCS}})$ with $(x_{\mathrm{sim}},y_{\mathrm{sim}},z_{\mathrm{sim}})$.
 
 In a Monte Carlo simulation of a MuCS run, instead, it is possible to verify if the MuCS-tagged cosmic ray is a real MuCS cosmic ray, or if it is another reconstructed cosmic ray, which happens to be closer than $d_{\mathrm{max}}$ to the extrapolated MuCS starting point.
 The purity $p$ of our Monte Carlo MuCS sample will be defined as the ratio between the number of events with a reconstructed MuCS cosmic ray closer than $d_{\mathrm{max}}$ and the number of events with a reconstructed cosmic ray closer than $d_{\mathrm{max}}$ (MuCS-tagged cosmic rays):
 \begin{equation}
-  p=\frac{\mathrm{N.~of~reco.~MuCS~cosmic-ray~events~within~}d_{\mathrm{max}}}{\mathrm{N.~of~reco.~events~within~}d_{\mathrm{max}}}.
+  p=\frac{\mathrm{N.~of~reco.~MuCS~cosmic~ray~events~within~}d_{\mathrm{max}}}{\mathrm{N.~of~reco.~events~within~}d_{\mathrm{max}}}.
 \end{equation}
-The acceptance $a$ of our cut on $d_{\mathrm{max}}$, instead, will be defined as the ratio between the number of events with a reconstructed MuCS cosmic ray closer than $d_{\mathrm{max}}$ and the total number of events with a reconstructed MuCS cosmic ray:
+The acceptance $a$ of our cut on $d_{\mathrm{max}}$ will be defined as the ratio between the number of events with a reconstructed MuCS cosmic ray closer than $d_{\mathrm{max}}$ and the total number of events with a reconstructed MuCS cosmic ray:
 \begin{equation}
-  a=\frac{\mathrm{N.~of~reco.~MuCS~cosmic-ray~events~within~}d_{\mathrm{max}}}{\mathrm{N.~of~reco.~MuCS~cosmic-ray~events}}.
+  a=\frac{\mathrm{N.~of~reco.~MuCS~cosmic~ray~events~within~}d_{\mathrm{max}}}{\mathrm{N.~of~reco.~MuCS~cosmic~ray~events}}.
 \end{equation}
 
 Fig. \ref{fig:purity} shows the tagging efficiency $\epsilon_{\mathrm{tag}}$, the purity $p$ and the acceptance $a$ as a function of $d_{\mathrm{max}}$. The reconstruction efficiency $\epsilon$, which does not depend on $d_{\mathrm{max}}$, is also shown as a reference.
@@ -266,13 +265,14 @@ Fig. \ref{fig:purity} shows the tagging efficiency $\epsilon_{\mathrm{tag}}$, th
 
 The MuCS reconstruction efficiency, as defined in \eqref{eq:eff}, can then be obtained by:
 \begin{equation}
-  \epsilon = \epsilon_{\mathrm{tag}} \times p / a.
+  \epsilon = \epsilon_{\mathrm{tag}} \times p / a,
 \end{equation}
+where the $p/a$ ratio will be taken from the MuCS Monte Carlo simulation, while $\epsilon_{\mathrm{tag}}$ can be measured with the data or with the general Monte Carlo simulation (described in Sec. \ref{sec:merging}).
 Using this formula, our data and Monte Carlo reconstruction efficiencies will not depend on the chosen value of $d_{\mathrm{max}}$. For convenience's sake, we chose a value of $d_{\mathrm{max}}$ that corresponds to $p/a = 1$, which in our case resulted to be 32 cm.
 
 It is now possible to measure the data and the Monte Carlo reconstruction efficiencies and express them as a function of the spherical starting angles $\theta$, $\phi$ and of the expected track length in the TPC $L$. In an ideal TPC, in fact, the reconstruction efficiency for a cosmic ray depends only on the number of hit wires, which is given univocally by the direction and the length of the track in the TPC.
 
-Our efficiency can then be plotted as a three-dimensional histogram: each bin will correspond to a particular combination of the $\theta$, $\phi$, $L$ variables. Fig. \ref{fig:3d} shows both the data and the Monte Carlo reconstruction efficiency, generated as described in Sec. \ref{sec:merging}.
+Our efficiency can then be plotted as a three-dimensional histogram: each bin will correspond to a particular combination of the $\theta$, $\phi$, $L$ variables. Bin width has been chosen large enough to have at least 15 MuCS triggered events for each ($\theta$, $\phi$, $L$) bin. The same $p/a$ correction factor has been applied to every bin. Fig. \ref{fig:3d} shows both the data and the Monte Carlo reconstruction efficiency, generated as described in Sec. \ref{sec:merging}.
 
 \begin{figure}[htbp]
   \begin{subfigure}{0.52\textwidth}
@@ -306,7 +306,6 @@ In order to understand if these discrepancies are caused by missing wires in spe
 
 \begin{table}[htbp]
   \centering
-  \ra{1.2}
   \begin{tabular}{cccccccccccc}
     \toprule
     $\theta\thinspace[^\circ]$ & $\phi\thinspace[^\circ]$ & $L\thinspace[\mathrm{cm}]$ & \phantom{a} & \multicolumn{2}{c}{Central} & \phantom{a} & \multicolumn{2}{c}{Upstream} & \phantom{a} & \multicolumn{2}{c}{Downstream}\\
@@ -392,7 +391,7 @@ It is now possible to compare the data and Monte Carlo reconstruction efficienci
   \caption{Monte Carlo (red line) and data (black points) reconstruction efficiency as a function of the starting angles $\theta$, $\phi$ and the extrapolated track length $L$.}\label{fig:1d}
 \end{figure}
 
-Taking into account the systematic error given by the detector non-uniformities, as described in Sec. \ref{sec:wires}, the obtained data/Monte Carlo agreement is satisfactory, with almost every bin with a data/Monte Carlo ratio within 2$\sigma$ the unity. As expected, the reconstruction efficiency is proportional to the expected track length $L$ in the TPC, since longer tracks correspond, in general, to a larger number of hit wires and they are then easier to reconstruct.
+Taking into account the systematic error given by the detector non-uniformities, as described in Sec. \ref{sec:wires}, the obtained data/Monte Carlo agreement is satisfactory, with almost every bin with a data/Monte Carlo ratio within 2$\sigma$ of unity. As expected, the reconstruction efficiency is proportional to the expected track length $L$ in the TPC, since longer tracks correspond, in general, to a larger number of hit wires and they are then easier to reconstruct.
 
 The overall reconstruction efficiency, obtained integrating the three-dimensional plot, is:
 \begin{align*}
@@ -461,7 +460,15 @@ However, the coverage of the ($\theta, \phi, L$) parameter space provided by the
 \section{Technical details}
 The dataset used in this analysis correspond to run 3702, for the central configuration, run 7347 for the downstream configuration and run 7702, 7703 for the upstream configuration. The reconstruction stages \texttt{reco1} and \texttt{reco2} use \texttt{uboonecode v05\_08\_00}. Their configuration is provided by the standard fcl files \texttt{reco\_uboone\_mcc7\_driver\_stage1.fcl} and \texttt{reco\_uboone\_mcc7\_driver\_stage2.fcl}. The source code of the \texttt{MuCSMerger} and \texttt{MuCSTagger} modules is available on the \texttt{uboonecode} repository.
 
-The dataset with the merged MuCS and data information are stored in \texttt{/uboone/data/users/mibass/MuCS/MuCS/v05\_08\_00/MergedOuttree/}.
+The dataset with the merged MuCS and data information are stored in \texttt{/uboone/\allowbreak data/\allowbreak users/\allowbreak mibass/MuCS/MuCS/v05\_08\_00/MergedOuttree/}.
+SAM dataset names for ArtRoot and anatree files are:
+\begin{itemize}
+  \item \texttt{MuCSRun3702\_Group158\_MuCSTaggedReco}(\texttt{\_ana}) for run 3702;
+  \item \texttt{MuCSRun7347\_Group181\_MuCSTaggedReco}(\texttt{\_ana}) for run 7347;
+  \item \texttt{MuCSRun7702\_Group182\_MuCSTaggedReco}(\texttt{\_ana}) for run 7702;
+  \item \texttt{MuCSRun7703\_Group183\_MuCSTaggedReco}(\texttt{\_ana}) for run 7703.
+
+\end{itemize}
 
 \clearpage{}
 
