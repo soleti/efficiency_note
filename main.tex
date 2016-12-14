@@ -227,7 +227,7 @@ The angular distribution of the MuCS-triggering cosmic rays, obtained extrapolat
     \includegraphics[width=\linewidth]{figures/phi_mucs.pdf}
     \caption{$\phi$ Data/Monte Carlo distribution.} \label{fig:phi_mucs}
   \end{subfigure}
-  \caption{Data/Monte Carlo distributions of the spherical angles of the cosmic rays hitting the MuCS. Data angles have been obtained extrapolating the MuCS hits. Errors are statistical only.} \label{fig:mucs_angles}
+  \caption{Data/Monte Carlo distributions of the spherical angles of the cosmic rays hitting the MuCS. Data angles have been obtained extrapolating the MuCS hits. Monte Carlo distributions have been shape-normalized to the data distributions. Errors are statistical only.} \label{fig:mucs_angles}
 
 
 \end{figure}
@@ -433,7 +433,7 @@ The overall reconstruction efficiency, obtained integrating the three-dimensiona
 \includegraphics[width=\linewidth]{figures/phi_l.pdf}
 \caption{$(\phi,L)$ - Data/Monte Carlo}
 \end{subfigure}
-\caption{Two-dimensional reconstruction efficiencies for data (left), Monte Carlo (center) and their ratio (right).}\label{fig:2d}
+\caption{Two-dimensional reconstruction efficiencies for data (left), Monte Carlo (center) and their ratio (right). Data errors include systematic effects.}\label{fig:2d}
 \end{figure}
 
 \section{Summary and plans}
@@ -461,7 +461,7 @@ However, the coverage of the ($\theta, \phi, L$) parameter space provided by the
 \section{Technical details}
 The dataset used in this analysis correspond to run 3702, for the central configuration, run 7347 for the downstream configuration and run 7702, 7703 for the upstream configuration. The reconstruction stages \texttt{reco1} and \texttt{reco2} use \texttt{uboonecode v05\_08\_00}. Their configuration is provided by the standard fcl files \texttt{reco\_uboone\_mcc7\_driver\_stage1.fcl} and \texttt{reco\_uboone\_mcc7\_driver\_stage2.fcl}. The source code of the \texttt{MuCSMerger} and \texttt{MuCSTagger} modules is available on the \texttt{uboonecode} repository.
 
-The dataset with the merged MuCS, Monte Carlo and data information are stored in \texttt{/uboone/data/users/mibass/MuCS/MuCS/v05\_08\_00/MergedOuttree/}.
+The dataset with the merged MuCS and data information are stored in \texttt{/uboone/data/users/mibass/MuCS/MuCS/v05\_08\_00/MergedOuttree/}.
 
 \clearpage{}
 
@@ -486,6 +486,7 @@ The dataset with the merged MuCS, Monte Carlo and data information are stored in
   \bibitem{sce} R. Acciarri, et al. [MicroBooNE Collaboration], \textit{Space Charge Effect Measurements and Corrections}. \texttt{MICROBOONE-NOTE-1018-PUB}, 2016. \url{http: //www-microboone.fnal.gov/publications/publicnotes/index.html}.
 
   \bibitem{besiii} W.~L.~Yuan, et al., \textit{Study of tracking efficiency and its systematic uncertainty from $J/\psi \to p \overline{p} \pi^+ \pi^-$ at BESIII}, Chin.\ Phys.\ C 40 (2016) no.2,  026201 \texttt{doi:10.1088/1674-1137/40/2/026201 [arXiv:1507.03453 [hep-ex]]}.
+
   \bibitem{pdg} C.~Patrignani, et al. [Particle Data Group Collaboration], \textit{Review of Particle Physics}, Chin.\ Phys.\ C 40 (2016) no.10,  100001 \texttt{doi:10.1088/1674-1137/40/10/100001}.
 
 
