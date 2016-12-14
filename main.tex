@@ -271,6 +271,10 @@ The MuCS reconstruction efficiency, as defined in \eqref{eq:eff}, can then be ob
 \end{equation}
 Using this formula, our data and Monte Carlo reconstruction efficiencies will not depend on the chosen value of $d_{\mathrm{max}}$. For convenience's sake, we chose a value of $d_{\mathrm{max}}$ that corresponds to $p/a = 1$, which in our case resulted to be 32 cm.
 
+It is now possible to measure the data and the Monte Carlo reconstruction efficiencies and express them as a function of the spherical starting angles $\theta$, $\phi$ and of the expected track length in the TPC $L$. In an ideal TPC, in fact, the reconstruction efficiency for a cosmic ray depends only on the number of hit wires, which is given univocally by the direction and the length of the track in the TPC.
+
+Our efficiency can then be plotted as a three-dimensional histogram: each bin will correspond to a particular combination of the $\theta$, $\phi$, $L$ variables. Fig. \ref{fig:3d} shows both the data and the Monte Carlo reconstruction efficiency, generated as described in Sec. \ref{sec:merging}.
+
 \begin{figure}[htbp]
   \begin{subfigure}{0.52\textwidth}
     \includegraphics[width=\linewidth]{figures/3d_mc.png}
@@ -282,12 +286,6 @@ Using this formula, our data and Monte Carlo reconstruction efficiencies will no
   \end{subfigure}
   \caption{Monte Carlo and data three-dimensional reconstruction efficiency as a function of the starting angles $\theta$, $\phi$ and the extrapolated track length $L$. A larger box corresponds to a larger efficiency. The empty region in the upper part of the plot corresponds to a region of the parameter space not covered by our dataset.}\label{fig:3d}
 \end{figure}
-
-It is now possible to measure the data and the Monte Carlo reconstruction efficiencies and express them as a function of the spherical starting angles $\theta$, $\phi$ and of the expected track length in the TPC $L$. In an ideal TPC, in fact, the reconstruction efficiency for a cosmic ray depends only on the number of hit wires, which is given univocally by the direction and the length of the track in the TPC.
-
-Our efficiency can then be plotted as a three-dimensional histogram: each bin will correspond to a particular combination of the $\theta$, $\phi$, $L$ variables. Fig. \ref{fig:3d} shows both the data and the Monte Carlo reconstruction efficiency, generated as described in Sec. \ref{sec:merging}.
-
-
 
 \subsection{Detector non-uniformities}\label{sec:wires}
 The presence of detector non-uniformities can introduce a systematic error in the measurement of the reconstruction efficiency. In particular, the presence of missing wires in specific regions of the detector can lower the reconstruction efficiency in only one of our three dataset, since they cover different regions of the TPC.
