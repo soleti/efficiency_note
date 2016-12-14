@@ -239,19 +239,11 @@ We define the MuCS reconstruction efficiency $\epsilon$ as the ratio between the
 \begin{equation}\label{eq:eff}
   \epsilon = \frac{\mathrm{N.~of~reco.~MuCS~cosmic-ray~events}}{\mathrm{N.~of~MuCS-triggered~events}}.
 \end{equation}
-In a data sample it is not possible to distinguish a MuCS cosmic ray from a normal cosmic ray and we define the MuCS-tagged track as the reconstructed track with the closest starting point to the extrapolated MuCS starting point $(x_{\mathrm{MuCS}},y_{\mathrm{MuCS}},z_{\mathrm{MuCS}})$. However, events without a reconstructed MuCS cosmic ray will always have at least another reconstructed cosmic ray, so it is necessary to set a maximum distance $d_{\mathrm{max}}$ between the two points, $(x_{\mathrm{reco}},y_{\mathrm{reco}},z_{\mathrm{reco}})$ and $(x_{\mathrm{MuCS}},y_{\mathrm{MuCS}},z_{\mathrm{MuCS}})$. The number of our events with a MuCS-tagged track will then depend on $d_{\mathrm{max}}$. The efficiency $\epsilon_{\mathrm{tag}}$ of the cut on the $d_{\mathrm{max}}$ is defined as:
+In a data sample it is not possible to distinguish a MuCS cosmic ray from a normal cosmic ray and we define the MuCS-tagged track as the reconstructed track with the closest starting point $(x_{\mathrm{reco}},y_{\mathrm{reco}},z_{\mathrm{reco}})$ to the extrapolated MuCS starting point $(x_{\mathrm{MuCS}},y_{\mathrm{MuCS}},z_{\mathrm{MuCS}})$. However, events without a reconstructed MuCS cosmic ray will always have at least another reconstructed cosmic ray, so it is necessary to set a maximum distance $d_{\mathrm{max}}$ between the two points, $(x_{\mathrm{reco}},y_{\mathrm{reco}},z_{\mathrm{reco}})$ and $(x_{\mathrm{MuCS}},y_{\mathrm{MuCS}},z_{\mathrm{MuCS}})$. The number of our events with a MuCS-tagged track will then depend on $d_{\mathrm{max}}$. The efficiency $\epsilon_{\mathrm{tag}}$ of the cut on the $d_{\mathrm{max}}$ is defined as:
 \begin{equation}
   \epsilon_{\mathrm{tag}}=\frac{\mathrm{N.~of~reco.~events~within~}d_{\mathrm{max}}}{\mathrm{N.~of~MuCS-triggered~events}}
 \end{equation}
 and can be measured both for our data sample and for our general Monte Carlo simulation, replacing $(x_{\mathrm{MuCS}},y_{\mathrm{MuCS}},z_{\mathrm{MuCS}})$ with $(x_{\mathrm{sim}},y_{\mathrm{sim}},z_{\mathrm{sim}})$.
-
-
-\begin{figure}[htbp]
-  \begin{center}
-    \includegraphics[width=0.7\linewidth]{figures/purity.pdf}
-    \caption{Tagging efficiency $\epsilon_{\mathrm{tag}}$ (red), purity $p$ (blue) and acceptance $a$ (green) as a function of $d_{\mathrm{max}}$. The reconstruction efficiency $\epsilon$, which does not depend on $d_{\mathrm{max}}$, is also shown as a reference (dashed line).} \label{fig:purity}
-  \end{center}
-\end{figure}
 
 In a Monte Carlo simulation of a MuCS run, instead, it is possible to verify if the MuCS-tagged cosmic ray is a real MuCS cosmic ray, or if it is another reconstructed cosmic ray, which happens to be closer than $d_{\mathrm{max}}$ to the extrapolated MuCS starting point.
 The purity $p$ of our Monte Carlo MuCS sample will be defined as the ratio between the number of events with a reconstructed MuCS cosmic ray closer than $d_{\mathrm{max}}$ and the number of events with a reconstructed cosmic ray closer than $d_{\mathrm{max}}$ (MuCS-tagged cosmic rays):
@@ -264,6 +256,13 @@ The acceptance $a$ of our cut on $d_{\mathrm{max}}$, instead, will be defined as
 \end{equation}
 
 Fig. \ref{fig:purity} shows the tagging efficiency $\epsilon_{\mathrm{tag}}$, the purity $p$ and the acceptance $a$ as a function of $d_{\mathrm{max}}$. The reconstruction efficiency $\epsilon$, which does not depend on $d_{\mathrm{max}}$, is also shown as a reference.
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[width=0.7\linewidth]{figures/purity.pdf}
+    \caption{Tagging efficiency $\epsilon_{\mathrm{tag}}$ (red), purity $p$ (blue) and acceptance $a$ (green) as a function of $d_{\mathrm{max}}$. The reconstruction efficiency $\epsilon$, which does not depend on $d_{\mathrm{max}}$, is also shown as a reference (dashed line).} \label{fig:purity}
+  \end{center}
+\end{figure}
 
 The MuCS reconstruction efficiency, as defined in \eqref{eq:eff}, can then be obtained by:
 \begin{equation}
@@ -359,11 +358,11 @@ Moreover, since their $\theta$ coordinate is close to $90^\circ$, they are also 
 We quote the systematic error related to the detector non-uniformities for each $\theta,\phi,L$ bin as the difference between the best reconstructing efficiency of the three configurations and the overall reconstruction efficiency (obtained merging the three dataset), as also described in \cite{besiii}.
 
 \subsection{Energy sampling}
-The multiple Coulomb scattering depends on the energy of the cosmic ray. The angular dispersion $\theta_{0}$ of a cosmic muon can be, in fact, calculated by the relation:
+The multiple Coulomb scattering depends on the energy of the cosmic ray. The angular dispersion $\theta_{0}$ of a cosmic muon can be, in fact, calculated by the relation, expressed in \cite{pdg}:
 \begin{equation}
-\theta_{0} = \frac{13.6}{\beta c p}\sqrt{x/X_{0}}\left[1+0.038\thinspace\mathrm{ln}(x/X_0)\right],
+\theta_{0} = \frac{13.6~\mathrm{MeV}}{\beta c p}\sqrt{x/X_{0}}\left[1+0.038\thinspace\mathrm{ln}(x/X_0)\right],
 \end{equation}
-where $p$ is the momentum of the muon, $x$ is the distance traveled, and $X_0$ is the radiation length of the material.
+where $p$ and $\beta c$ are the momentum and velocity of the incident particle, and $x/X_0$ is the thickness of the scattering medium in radiation lengths.
 
 \begin{figure}[htbp]
   \begin{center}
@@ -486,9 +485,8 @@ The dataset with the merged MuCS, Monte Carlo and data information are stored in
 
   \bibitem{sce} R. Acciarri, et al. [MicroBooNE Collaboration], \textit{Space Charge Effect Measurements and Corrections}. \texttt{MICROBOONE-NOTE-1018-PUB}, 2016. \url{http: //www-microboone.fnal.gov/publications/publicnotes/index.html}.
 
-  \bibitem{besiii}
-    W.~L.~Yuan, et al.,
-    \textit{Study of tracking efficiency and its systematic uncertainty from $J/\psi \to p \overline{p} \pi^+ \pi^-$ at BESIII}, Chin.\ Phys.\ C 40 (2016) no.2,  026201 \texttt{doi:10.1088/1674-1137/40/2/026201 [arXiv:1507.03453 [hep-ex]]}.
+  \bibitem{besiii} W.~L.~Yuan, et al., \textit{Study of tracking efficiency and its systematic uncertainty from $J/\psi \to p \overline{p} \pi^+ \pi^-$ at BESIII}, Chin.\ Phys.\ C 40 (2016) no.2,  026201 \texttt{doi:10.1088/1674-1137/40/2/026201 [arXiv:1507.03453 [hep-ex]]}.
+  \bibitem{pdg} C.~Patrignani, et al. [Particle Data Group Collaboration], \textit{Review of Particle Physics}, Chin.\ Phys.\ C 40 (2016) no.10,  100001 \texttt{doi:10.1088/1674-1137/40/10/100001}.
 
 
 \end{thebibliography}
