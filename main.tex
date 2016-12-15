@@ -49,7 +49,7 @@
 The message of the public note based upon this document is as follows:
 
 \begin{itemize}
-  \item reconstructed tracks in a LArTPC can be matched to hits in an external cosmic ray counter (in our case the MuCS);
+  \item reconstructed tracks in a LArTPC can be matched to hits in an external cosmic-ray counter (in our case the MuCS);
   \item the data reconstruction efficiency can be measured comparing the number of MuCS-triggered events with the number of MuCS reconstructed tracks;
   \item the multiple scattering of the cosmic rays introduces an irreducible impurity in our sample of MuCS reconstructed tracks.
   \item there is a systematic error in the measurement of the data reconstructing efficiency due to the presence of detector non-uniformities;
@@ -236,7 +236,7 @@ The angular distribution of the MuCS-triggering cosmic rays, obtained extrapolat
 
 We define the MuCS reconstruction efficiency $\epsilon$ as the ratio between the number of events with a reconstructed MuCS cosmic ray and the number of MuCS-triggered events:
 \begin{equation}\label{eq:eff}
-  \epsilon = \frac{\mathrm{N.~of~reco.~MuCS~cosmic~ray~events}}{\mathrm{N.~of~MuCS~triggered~events}}.
+  \epsilon = \frac{\mathrm{N.~of~reco.~MuCS~cosmic-ray~events}}{\mathrm{N.~of~MuCS~triggered~events}}.
 \end{equation}
 In a data sample it is not possible to distinguish a MuCS cosmic ray from a normal cosmic ray and we define the MuCS-tagged track as the reconstructed track with the closest starting point $(x_{\mathrm{reco}},y_{\mathrm{reco}},z_{\mathrm{reco}})$ to the extrapolated MuCS starting point $(x_{\mathrm{MuCS}},y_{\mathrm{MuCS}},z_{\mathrm{MuCS}})$. However, events without a reconstructed MuCS cosmic ray will always have at least another reconstructed cosmic ray, so it is necessary to set a maximum distance $d_{\mathrm{max}}$ between the two points, $(x_{\mathrm{reco}},y_{\mathrm{reco}},z_{\mathrm{reco}})$ and $(x_{\mathrm{MuCS}},y_{\mathrm{MuCS}},z_{\mathrm{MuCS}})$. The number of our events with a MuCS-tagged track will then depend on $d_{\mathrm{max}}$. The efficiency $\epsilon_{\mathrm{tag}}$ of the cut on the $d_{\mathrm{max}}$ is defined as:
 \begin{equation}
@@ -247,18 +247,18 @@ and can be measured both for our data sample and for our general Monte Carlo sim
 In a Monte Carlo simulation of a MuCS run, instead, it is possible to verify if the MuCS-tagged cosmic ray is a real MuCS cosmic ray, or if it is another reconstructed cosmic ray, which happens to be closer than $d_{\mathrm{max}}$ to the extrapolated MuCS starting point.
 The purity $p$ of our Monte Carlo MuCS sample will be defined as the ratio between the number of events with a reconstructed MuCS cosmic ray closer than $d_{\mathrm{max}}$ and the number of events with a reconstructed cosmic ray closer than $d_{\mathrm{max}}$ (MuCS-tagged cosmic rays):
 \begin{equation}
-  p=\frac{\mathrm{N.~of~reco.~MuCS~cosmic~ray~events~within~}d_{\mathrm{max}}}{\mathrm{N.~of~reco.~events~within~}d_{\mathrm{max}}}.
+  p=\frac{\mathrm{N.~of~reco.~MuCS~cosmic-ray~events~within~}d_{\mathrm{max}}}{\mathrm{N.~of~reco.~events~within~}d_{\mathrm{max}}}.
 \end{equation}
 The acceptance $a$ of our cut on $d_{\mathrm{max}}$ will be defined as the ratio between the number of events with a reconstructed MuCS cosmic ray closer than $d_{\mathrm{max}}$ and the total number of events with a reconstructed MuCS cosmic ray:
 \begin{equation}
-  a=\frac{\mathrm{N.~of~reco.~MuCS~cosmic~ray~events~within~}d_{\mathrm{max}}}{\mathrm{N.~of~reco.~MuCS~cosmic~ray~events}}.
+  a=\frac{\mathrm{N.~of~reco.~MuCS~cosmic-ray~events~within~}d_{\mathrm{max}}}{\mathrm{N.~of~reco.~MuCS~cosmic-ray~events}}.
 \end{equation}
 
 Fig. \ref{fig:purity} shows the tagging efficiency $\epsilon_{\mathrm{tag}}$, the purity $p$ and the acceptance $a$ as a function of $d_{\mathrm{max}}$. The reconstruction efficiency $\epsilon$, which does not depend on $d_{\mathrm{max}}$, is also shown as a reference.
 
 \begin{figure}[htbp]
   \begin{center}
-    \includegraphics[width=0.7\linewidth]{figures/purity.pdf}
+    \includegraphics[width=0.6\linewidth]{figures/purity.pdf}
     \caption{Tagging efficiency $\epsilon_{\mathrm{tag}}$ (red), purity $p$ (blue) and acceptance $a$ (green) as a function of $d_{\mathrm{max}}$. The reconstruction efficiency $\epsilon$, which does not depend on $d_{\mathrm{max}}$, is also shown as a reference (dashed line).} \label{fig:purity}
   \end{center}
 \end{figure}
@@ -272,7 +272,7 @@ Using this formula, our data and Monte Carlo reconstruction efficiencies will no
 
 It is now possible to measure the data and the Monte Carlo reconstruction efficiencies and express them as a function of the spherical starting angles $\theta$, $\phi$ and of the expected track length in the TPC $L$. In an ideal TPC, in fact, the reconstruction efficiency for a cosmic ray depends only on the number of hit wires, which is given univocally by the direction and the length of the track in the TPC.
 
-Our efficiency can then be plotted as a three-dimensional histogram: each bin will correspond to a particular combination of the $\theta$, $\phi$, $L$ variables. Bin width has been chosen large enough to have at least 15 MuCS triggered events for each ($\theta$, $\phi$, $L$) bin. The same $p/a$ correction factor has been applied to every bin. Fig. \ref{fig:3d} shows both the data and the Monte Carlo reconstruction efficiency, generated as described in Sec. \ref{sec:merging}.
+Our efficiency can then be plotted as a three-dimensional histogram: each bin will correspond to a particular combination of the $\theta$, $\phi$, $L$ variables. Bin width has been chosen large enough to have at least 15 MuCS triggered events in every ($\theta$, $\phi$, $L$) bin. The same $p/a$ correction factor has been applied to every bin. Fig. \ref{fig:3d} shows both the data and the Monte Carlo reconstruction efficiency, generated as described in Sec. \ref{sec:merging}.
 
 \begin{figure}[htbp]
   \begin{subfigure}{0.52\textwidth}
@@ -297,7 +297,7 @@ where $\epsilon_{a}$ ($\epsilon_{b}$) is the reconstruction efficiency in the $a
 
 \begin{figure}[htbp]
   \begin{center}
-    \includegraphics[width=0.7\linewidth]{figures/significance.pdf}
+    \includegraphics[width=0.6\linewidth]{figures/significance.pdf}
     \caption{Distribution of the significances of the reconstruction efficiency for each $\theta,\phi,L$ bin, measured for any combination of the three MuCS configuration.} \label{fig:significance}
   \end{center}
 \end{figure}
@@ -365,7 +365,7 @@ where $p$ and $\beta c$ are the momentum and velocity of the incident particle, 
 
 \begin{figure}[htbp]
   \begin{center}
-    \includegraphics[width=0.7\linewidth]{figures/sampling.pdf}
+    \includegraphics[width=0.6\linewidth]{figures/sampling.pdf}
     \caption{Distribution of the reconstruction efficiency obtained generating 1000 thousand pseudo-experiments with 19 MuCS-triggered events each.} \label{fig:sampling}
   \end{center}
 \end{figure}
@@ -378,17 +378,21 @@ In order to verify if this sampling introduces a systematic effect, we choose th
 It is now possible to compare the data and Monte Carlo reconstruction efficiencies. The three-dimensional efficiency plots shown in Fig. \ref{fig:3d} can be projected on the bi-dimensional planes ($\theta,\phi$), ($\theta,L$), ($\phi,L$), shown in Fig. \ref{fig:2d} and on the single axis $\theta$, $\phi$, $L$, shown in Fig. \ref{fig:1d}.
 
 \begin{figure}[htbp]
-  \begin{subfigure}{0.33\textwidth}
-    \includegraphics[width=\linewidth]{figures/theta.pdf}
-    \caption{$\theta$} \label{fig:theta}
-  \end{subfigure}\begin{subfigure}{0.33\textwidth}
-    \includegraphics[width=\linewidth]{figures/phi.pdf}
-    \caption{$\phi$} \label{fig:phi}
-  \end{subfigure}\begin{subfigure}{0.33\textwidth}
-    \includegraphics[width=\linewidth]{figures/l.pdf}
-    \caption{$L$} \label{fig:l}
-  \end{subfigure}
-  \caption{Monte Carlo (red line) and data (black points) reconstruction efficiency as a function of the starting angles $\theta$, $\phi$ and the extrapolated track length $L$.}\label{fig:1d}
+  \begin{center}
+    \begin{subfigure}{0.6\textwidth}
+      \includegraphics[width=\linewidth]{figures/theta.pdf}
+      \caption{$\theta$} \label{fig:theta}
+    \end{subfigure}
+    \begin{subfigure}{0.6\textwidth}
+      \includegraphics[width=\linewidth]{figures/phi.pdf}
+      \caption{$\phi$} \label{fig:phi}
+    \end{subfigure}
+    \begin{subfigure}{0.6\textwidth}
+      \includegraphics[width=\linewidth]{figures/l.pdf}
+      \caption{$L$} \label{fig:l}
+    \end{subfigure}
+    \caption{Monte Carlo (red line) and data (black points) reconstruction efficiency as a function of the starting angles $\theta$, $\phi$ and the extrapolated track length $L$.}\label{fig:1d}
+  \end{center}
 \end{figure}
 
 Taking into account the systematic error given by the detector non-uniformities, as described in Sec. \ref{sec:wires}, the obtained data/Monte Carlo agreement is satisfactory, with almost every bin with a data/Monte Carlo ratio within 2$\sigma$ of unity. As expected, the reconstruction efficiency is proportional to the expected track length $L$ in the TPC, since longer tracks correspond, in general, to a larger number of hit wires and they are then easier to reconstruct.
@@ -448,7 +452,7 @@ However, the coverage of the ($\theta, \phi, L$) parameter space provided by the
 
 \begin{figure}[htbp]
   \begin{center}
-    \includegraphics[width=0.7\linewidth]{figures/crt.png}
+    \includegraphics[width=0.6\linewidth]{figures/crt.png}
     \caption{Monte Carlo simulation of the coverage on the ($\theta,\phi$) plane of both the MuCS (light blue) and the CRT (dark blue).} \label{fig:crt}
   \end{center}
 \end{figure}
