@@ -1,12 +1,9 @@
 ## Abstract
-This analysis note describes the work done to study the reconstruction efficiencies using a dataset of cosmic rays passing through the Muon Counter System (MuCS). 
-The goal is to provide data and Monte Carlo reconstruction efficiencies that can be used to compare reconstruction performances and to show that an external cosmic-ray counter can be used to measure the data reconstruction efficiency in the LArTPC.
 
-We measured the data reconstruction efficiency comparing the number of events triggered by the MuCS and the number of events with a MuCS-compatible reconstructed track. 
-The Monte Carlo reconstruction efficiency, instead, was measured by comparing the number of generated cosmic rays with the number of reconstructed tracks. 
+The MicroBooNE experiment is a liquid argon TPC experiment designed for short-baseline neutrino physics, currently running at Fermilab. Due to its location near the surface, cosmic muons can be a source of backgrounds to several analyses and a good understanding of them is of fundamental importance for the experiment. This study presents a method of using an external muon counter system to determine the cosmic-ray reconstruction efficiency in MicroBooNE.
 
-The reconstruction efficiency expressed as a function of the cosmic-ray starting angle (given by the spherical angles _theta_ and _phi_ and of the length _L_ of its path in the TPC.
+Data has been acquired with the external muon counter system placed in the three different positions, corresponding to cosmic rays hitting different parts of the LArTPC.
 
-Using the `pandoraCosmic` algorithm provided by the Pandora framework, the overall reconstruction efficiency is 96.1 +- 0.1 (stat) +- 1.1 (sys) for data and 96.3+-0.1 for Monte Carlo.
+The reconstruction of the tracks is performed using the multi-algorithm Pandora framework. The data reconstruction efficiency is e<sub>data</sub> = 96.1 +- 0.1 (stat) +- 1.1 (sys) %, in good agreement with the Monte Carlo reconstruction efficiency e<sub>MC</sub> = 96.3 +- 0.1 %.
 
-In the future, the method described in this paper will be adapted to use the data coming form the Cosmic Ray Tagger, which is able to tag around 80% of the cosmic rays hitting MicroBooNE LArTPC. In this way, we will cover the entire _theta_, _phi_, _L_ parameter space and measure efficiency-corrected quantities, such as the cosmic-ray flux in the LArTPC.
+This analysis represents a small-scale demonstration of the method that can be used with the data coming from the recently installed Cosmic Ray Tagger, which is able to tag ~80% of the cosmic rays passing through the MicroBooNE detector.
