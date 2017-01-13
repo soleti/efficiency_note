@@ -5,4 +5,5 @@
 *.key
 *.fls
 *.fdb*
+*.DS_Store
 main.pdf
