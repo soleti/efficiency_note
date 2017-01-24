@@ -34,7 +34,7 @@
 
   Data has been acquired with the external muon counter system placed in the three different positions, corresponding to cosmic rays hitting different parts of the LArTPC.
 
-  The reconstruction of the tracks is performed using the multi-algorithm Pandora framework. The data reconstruction efficiency is $\epsilon_{\mathrm{data}}=96.1\pm0.1~(\mathrm{stat}) \pm 1.3~(\mathrm{sys})~\%$, in good agreement with the Monte Carlo reconstruction efficiency $\epsilon_{\mathrm{MC}} = 96.3\pm0.1~\%$.
+  The reconstruction of the tracks is performed using the multi-algorithm Pandora framework. The data reconstruction efficiency is $\epsilon_{\mathrm{data}}=97.1\pm0.1~(\mathrm{stat}) \pm 1.4~(\mathrm{sys})~\%$, in good agreement with the Monte Carlo reconstruction efficiency $\epsilon_{\mathrm{MC}} = 97.3\pm0.1~\%$.
 
   %We show that the presence of detector non-uniformities, caused by regions with missing wires, leads to a systematic uncertainty in the measurement of the data reconstruction efficiency.
 
@@ -298,7 +298,7 @@ Our efficiency can then be plotted as a three-dimensional histogram: each bin wi
   \caption{Monte Carlo and data three-dimensional reconstruction efficiency as a function of the starting angles $\theta$, $\phi$ and the extrapolated track length $L$. A larger box corresponds to a larger efficiency. The empty region in the upper part of the plot corresponds to a region of the parameter space not covered by our dataset.}\label{fig:3d}
 \end{figure}
 
-\subsection{Decay-in-flight muons}
+\subsection{Decay-in-flight muons}\label{sec:dif}
 The cosmic muons hitting the MuCS can decay in flight before reaching the LArTPC. In this case, they would trigger the MuCS but would not generate a cosmic track in the detector. Since in our definition of the data reconstruction efficiency $\epsilon_{\mathrm{data}}$, eq. \eqref{eq:eff}, the denominator correspond to the number of MuCS-triggered events, we need to correct for this effect. From our MuCS Monte Carlo simulation we measured the fraction of cosmic rays that go through the MuCS but decay before reaching the LArTPC:
 \begin{equation}
 D = \frac{\mathrm{N.~of~decays~in~flight}}{\mathrm{N.~of~MuCS~triggered~events}} = (1.0 \pm 0.1) \%.
@@ -416,7 +416,7 @@ It is now possible to compare the data and Monte Carlo reconstruction efficienci
   \end{center}
 \end{figure}
 
-Taking into account the systematic uncertainty given by (1) the decay-in-flight correction factor (0.1\%, section \ref{sec:dif}), (2) the detector non-uniformities (1.1\%, in section \ref{sec:wires}), and (3) the $P/A$ correcting factor (0.2\%, section \ref{sec:reco}), the obtained data/Monte Carlo agreement is satisfactory, with almost every bin with a data/Monte Carlo ratio within 2$\sigma$ of unity. As expected, the reconstruction efficiency is proportional to the expected track length $L$ in the TPC, since longer tracks correspond, in general, to a larger number of hit wires and they are then easier to reconstruct.
+Taking into account the systematic uncertainties given by (1) the decay-in-flight correction factor (0.1\%, section \ref{sec:dif}), (2) the detector non-uniformities (1.1\%, section \ref{sec:wires}), and (3) the $P/A$ correcting factor (0.2\%, section \ref{sec:reco}), the obtained data/Monte Carlo agreement is satisfactory, with almost every bin with a data/Monte Carlo ratio within 2$\sigma$ of unity. As expected, the reconstruction efficiency is proportional to the expected track length $L$ in the TPC, since longer tracks correspond, in general, to a larger number of hit wires and they are then easier to reconstruct.
 
 The overall reconstruction efficiency, obtained integrating the three-dimensional plot, is:
 \begin{align*}
