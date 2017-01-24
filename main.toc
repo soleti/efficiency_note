@@ -4,8 +4,10 @@
 \contentsline {section}{\numberline {3}MuCS data processing}{5}{section.3}
 \contentsline {section}{\numberline {4}MuCS alignment and angular checks}{9}{section.4}
 \contentsline {section}{\numberline {5}Reconstruction efficiencies}{11}{section.5}
-\contentsline {subsection}{\numberline {5.1}Detector non-uniformities}{14}{subsection.5.1}
-\contentsline {subsection}{\numberline {5.2}Energy sampling}{16}{subsection.5.2}
-\contentsline {subsection}{\numberline {5.3}Data/Monte Carlo comparison}{17}{subsection.5.3}
-\contentsline {section}{\numberline {6}Summary and plans}{17}{section.6}
-\contentsline {section}{\numberline {A}Technical details}{21}{appendix.A}
+\contentsline {subsection}{\numberline {5.1}Decay-in-flight muons}{14}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Detector non-uniformities}{14}{subsection.5.2}
+\contentsline {subsection}{\numberline {5.3}Energy sampling}{17}{subsection.5.3}
+\contentsline {subsection}{\numberline {5.4}Data/Monte Carlo comparison}{18}{subsection.5.4}
+\contentsline {section}{\numberline {6}Summary and plans}{18}{section.6}
+\contentsline {section}{\numberline {A}Angular cuts}{22}{appendix.A}
+\contentsline {section}{\numberline {B}Technical details}{22}{appendix.B}
