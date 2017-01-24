@@ -282,7 +282,7 @@ The Monte Carlo cosmic-ray reconstruction efficiency, obtained with a general Mo
 
 This Monte Carlo sample will contain cosmic rays generated all over the TPC, with $\epsilon_{\mathrm{MC}}$ having a minimal dependence on the position of the cosmic ray in the TPC. A direct comparison with the MuCS data will allow us to verify if the data reconstruction efficiency, measured in specific parts of the detector, is valid all over the detector.
 
-We can express then the data, $\epsilon_{\mathrm{data}}$, and the Monte Carlo, $\epsilon_{\mathrm{MC}}$, reconstruction efficiencies as a function of the spherical starting angles $\theta$, $\phi$ and of the expected track length $L$ in the TPC. In an ideal TPC, in fact, the reconstruction efficiency for a cosmic ray depends only on the number of hit wires, which is given univocally by the direction and the length of the track in the TPC.
+We can express the data, $\epsilon_{\mathrm{data}}$, and the Monte Carlo, $\epsilon_{\mathrm{MC}}$, reconstruction efficiencies as a function of the spherical starting angles $\theta$, $\phi$ and of the expected track length $L$ in the TPC. In an ideal TPC, in fact, the reconstruction efficiency for a cosmic ray depends only on the number of hit wires, which is given univocally by the direction and the length of the track in the TPC.
 
 Our efficiency can then be plotted as a three-dimensional histogram: each bin will correspond to a particular combination of the $\theta$, $\phi$, $L$ variables. Bin width has been chosen large enough to have at least 15 MuCS triggered events in every ($\theta$, $\phi$, $L$) bin. The same $P/A$ correction factor has been applied to every bin. Figure \ref{fig:3d} shows both the data and the Monte Carlo reconstruction efficiency, generated as described in section \ref{sec:merging}.
 
@@ -299,7 +299,7 @@ Our efficiency can then be plotted as a three-dimensional histogram: each bin wi
 \end{figure}
 
 \subsection{Decay-in-flight muons}\label{sec:dif}
-The cosmic muons hitting the MuCS can decay in flight before reaching the LArTPC. In this case, they would trigger the MuCS but would not generate a cosmic track in the detector. Since in our definition of the data reconstruction efficiency $\epsilon_{\mathrm{data}}$, eq. \eqref{eq:eff}, the denominator correspond to the number of MuCS-triggered events, we need to correct for this effect. From our MuCS Monte Carlo simulation we measured the fraction of cosmic rays that go through the MuCS but decay before reaching the LArTPC:
+The cosmic muons hitting the MuCS can decay in flight before reaching the LArTPC. In this case, they trigger the MuCS but do not generate a cosmic track in the detector. Since in our definition of the data reconstruction efficiency $\epsilon_{\mathrm{data}}$, eq. \eqref{eq:eff}, the denominator correspond to the number of MuCS-triggered events, we need to correct for this effect. From our MuCS Monte Carlo simulation we measured the fraction of cosmic rays that go through the MuCS but decay before reaching the LArTPC:
 \begin{equation}
 D = \frac{\mathrm{N.~of~decays~in~flight}}{\mathrm{N.~of~MuCS~triggered~events}} = (1.0 \pm 0.1) \%.
 \end{equation}
