@@ -298,8 +298,8 @@ Our efficiency can then be plotted as a three-dimensional histogram: each bin wi
   \caption{Monte Carlo and data three-dimensional reconstruction efficiency as a function of the starting angles $\theta$, $\phi$ and the extrapolated track length $L$. A larger box corresponds to a larger efficiency. The empty region in the upper part of the plot corresponds to a region of the parameter space not covered by our dataset.}\label{fig:3d}
 \end{figure}
 
-\subsection{Decay-in-flight muons}\label{sec:dif}
-The cosmic muons hitting the MuCS can decay in flight before reaching the LArTPC. In this case, they trigger the MuCS but do not generate a cosmic track in the detector. Since in our definition of the data reconstruction efficiency $\epsilon_{\mathrm{data}}$, eq. \eqref{eq:eff}, the denominator correspond to the number of MuCS-triggered events, we need to correct for this effect. From our MuCS Monte Carlo simulation we measured the fraction of cosmic rays that go through the MuCS but decay before reaching the LArTPC:
+\subsection{Decay-in-flight or captured muons}\label{sec:dif}
+The cosmic muons hitting the MuCS can decay in flight or being captured before reaching the LArTPC. In this case, they trigger the MuCS but do not generate a cosmic track in the detector. Since in our definition of the data reconstruction efficiency $\epsilon_{\mathrm{data}}$, eq. \eqref{eq:eff}, the denominator correspond to the number of MuCS-triggered events, we need to correct for this effect. From our MuCS Monte Carlo simulation we measured the fraction of cosmic rays that go through the MuCS but decay before reaching the LArTPC:
 \begin{equation}
 D = \frac{\mathrm{N.~of~decays~in~flight}}{\mathrm{N.~of~MuCS~triggered~events}} = (1.0 \pm 0.1) \%.
 \end{equation}
@@ -464,6 +464,8 @@ This analysis showed that it is possible to match hits in a muon counter system 
 This efficiency, obtained with the procedure described in section \ref{sec:reco}, has been measured as a function of the starting angles $\theta$, $\phi$ and the expected length in the TPC, $L$. These coordinates have been measured using the spatial information provided by the hits in the MuCS.
 
 The data reconstruction efficiency is in agreement, within the errors, with the Monte Carlo reconstruction efficiency, measured using a simulation of cosmic rays all over the LArTPC.
+
+The portion of muons triggering the MuCS but decaying or captured before reaching the TPC is, according to a Monte Carlo simulation, 1.0\%. It is necessary to account for this factor in the measurement of the data reconstruction efficiency.
 
 We have also shown that the detector non-uniformities must be taken into account in the measurement of the reconstruction efficiency and the related systematic uncertainty is 1.1\%.
 
