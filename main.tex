@@ -161,7 +161,7 @@ d = \sqrt{(x_{\mathrm{MuCS}}-x_{\mathrm{reco}})^2+(y_{\mathrm{MuCS}}-y_{\mathrm{
 \end{equation}
 where $(x_{\mathrm{MuCS}},y_{\mathrm{MuCS}},z_{\mathrm{MuCS}})$ and $(x_{\mathrm{reco}},y_{\mathrm{reco}},z_{\mathrm{reco}})$ are the coordinates of the intersection of the MuCS-extrapolated track with the TPC and of the start of the closest reconstructed track, respectively.
 A PMT flash is associated with the MuCS signal if it falls between -1.0 and -0.8 \textmu s, where $t=0$ is given by the MuCS signal.
-figure \ref{fig:evd} shows a diagram with the MuCS-tagged track, the MuCS-extrapolated track and the other reconstructed tracks in the same readout window.
+Figure \ref{fig:evd} shows a diagram with the MuCS-tagged track, the MuCS-extrapolated track and the other reconstructed tracks in the same readout window.
 
 \begin{figure}[htbp]
   \begin{center}
@@ -231,7 +231,7 @@ We define the MuCS reconstruction efficiency $\epsilon$ as the ratio between the
 \begin{equation}\label{eq:eff}
   \epsilon = \frac{\mathrm{N.~of~reco.~MuCS~cosmic\myhyphen ray~events}}{\mathrm{N.~of~MuCS~triggered~events}}.
 \end{equation}
-However, in a data sample it is not possible to distinguish a MuCS cosmic ray from a normal cosmic ray and we define the MuCS-tagged track as the reconstructed track with the closest starting point $(x_{\mathrm{reco}},y_{\mathrm{reco}},z_{\mathrm{reco}})$ to the extrapolated MuCS starting point $(x_{\mathrm{MuCS}},y_{\mathrm{MuCS}},z_{\mathrm{MuCS}})$, see figure \ref{fig:evd}.
+However, in a data sample it is not possible to distinguish a MuCS cosmic ray from a normal cosmic ray and we define the MuCS-tagged track as the reconstructed track with the closest starting point $(x_{\mathrm{reco}},y_{\mathrm{reco}},z_{\mathrm{reco}})$ to the extrapolated MuCS starting point $(x_{\mathrm{MuCS}},y_{\mathrm{MuCS}},z_{\mathrm{MuCS}})$, see figure \ref{fig:evd}. Since some cosmic rays can trigger the MuCS without hitting the TPC (see red tracks in figure \ref{fig:mucs}), we keep only the events with an extrapolated trajectory in the TPC longer than 20 cm.
 
 Events without a reconstructed MuCS cosmic ray will always have at least another reconstructed cosmic ray, so it is necessary to set a maximum distance $d_{\mathrm{max}}$ between the two points, $(x_{\mathrm{reco}},y_{\mathrm{reco}},z_{\mathrm{reco}})$ and $(x_{\mathrm{MuCS}},y_{\mathrm{MuCS}},z_{\mathrm{MuCS}})$. The number of our events with a MuCS-tagged track will then depend on $d_{\mathrm{max}}$.
 
