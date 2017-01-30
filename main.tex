@@ -177,7 +177,7 @@ Our dataset will then include two different sets of information, with a one-to-o
   \item Reconstructed TPC data information: for each event, we store the reconstructed spatial information of the MuCS-tagged track and of the in-time PMT flash, if present.
 \end{itemize}
 
-
+\subsection{Monte Carlo simulation}
 As Monte Carlo sample we used a complete MCC7 cosmic-ray simulation, as described in \cite{cosmic}. The cosmic rays have been generated using CORSIKA \cite{corsika},  propagated with GEANT4 \cite{geant}, and then passed through the detector simulation stage. The detector simulation attempts to simulate the detector response as precisely as possible, meaning that the current state of the detector is reflected, including known unresponsive and noisy wires. Other known effects, such as the space charge effect \cite{sce}, are not currently modeled in the simulation.
 
 The spherical angles $\theta$ and $\phi$ are measured using the starting point in the TPC and direction of the generated cosmic ray, while the expected track length $L$ is measured extrapolating a line through the TPC.
@@ -208,7 +208,7 @@ The two-dimensional plots of the extrapolated positions are reported in figure \
   \caption{Extrapolated points of the MuCS-tagged tracks at the height of top and bottom panels for the upstream, center, and downstream configuration.} \label{fig:alignment}
 \end{figure}
 
-The angular distribution of the MuCS-triggering cosmic rays, obtained extrapolating a line from the MuCS hits, has been measured from the merged dataset of the three configurations and compared with an independent Monte Carlo simulation, used only to check that the angular distribution of the cosmic rays was the same.  In this case, the Monte Carlo samples have been obtained generating a sample of cosmic rays within the top panel borders. Each event is stored only if the cosmic ray crosses also the bottom panel. This Monte Carlo information must not be confused with the reconstructed Monte Carlo information described in section \ref{sec:merging}, which is obtained reconstructing all the simulated cosmic rays in a full readout window. figure \ref{fig:mucs_angles} shows that the distributions of the spherical angles have a good data/Monte Carlo agreement.
+The angular distribution of the MuCS-triggering cosmic rays, obtained extrapolating a line from the MuCS hits, has been measured from the merged dataset of the three configurations and compared with an independent MuCS Monte Carlo simulation, used to check that the angular distribution of the cosmic rays was the same.  In this case, the Monte Carlo samples have been obtained generating a sample of cosmic rays within the top panel borders. Each event is stored only if the cosmic ray crosses also the bottom panel. MuCS panels have not been explicitly included in the GEANT4 stage of the simulation. This Monte Carlo information must not be confused with the reconstructed Monte Carlo information described in section \ref{sec:merging}, which is obtained reconstructing all the simulated cosmic rays in a full readout window. Figure \ref{fig:mucs_angles} shows that the distributions of the spherical angles have a good data/Monte Carlo agreement.
 
 \begin{figure}[htbp]
   \begin{subfigure}{0.52\textwidth}
@@ -235,7 +235,7 @@ However, in a data sample it is not possible to distinguish a MuCS cosmic ray fr
 
 Events without a reconstructed MuCS cosmic ray will always have at least another reconstructed cosmic ray, so it is necessary to set a maximum distance $d_{\mathrm{max}}$ between the two points, $(x_{\mathrm{reco}},y_{\mathrm{reco}},z_{\mathrm{reco}})$ and $(x_{\mathrm{MuCS}},y_{\mathrm{MuCS}},z_{\mathrm{MuCS}})$. The number of our events with a MuCS-tagged track will then depend on $d_{\mathrm{max}}$.
 
-In a Monte Carlo simulation of a MuCS run, instead, the truth information allows us to verify if the MuCS-tagged cosmic ray is a real MuCS cosmic ray, or if it is another reconstructed cosmic ray, which happens to be mis-identified due to the extrapolated starting point distance being closer than $d_{\mathrm{max}}$.
+In a Monte Carlo simulation of a MuCS run, generated as described in section \ref{sec:flux}, the truth information allows us to verify if the MuCS-tagged cosmic ray is a real MuCS cosmic ray, or if it is another reconstructed cosmic ray, which happens to be mis-identified due to the extrapolated starting point distance being closer than $d_{\mathrm{max}}$.
 The distance $d$ is defined in this case as:
 \begin{equation}\label{eq:d_mc}
 d = \sqrt{(x_{\mathrm{sim}}-x_{\mathrm{reco}})^2+(y_{\mathrm{sim}}-y_{\mathrm{reco}})^2+(z_{\mathrm{sim}}-z_{\mathrm{reco}})^2},
@@ -297,7 +297,7 @@ Our efficiency can then be plotted as a three-dimensional histogram: each bin wi
   \end{subfigure}
   \caption{Monte Carlo and data three-dimensional reconstruction efficiency as a function of the starting angles $\theta$, $\phi$ and the extrapolated track length $L$. A larger box corresponds to a larger efficiency. The empty region in the upper part of the plot corresponds to a region of the parameter space not covered by our dataset.}\label{fig:3d}
 \end{figure}
-
+\section{Systematic uncertainties}
 \subsection{Decay-in-flight or captured muons}\label{sec:dif}
 The cosmic muons hitting the MuCS can decay in flight or being captured before reaching the LArTPC. In this case, they trigger the MuCS but do not generate a cosmic track in the detector. Since in our definition of the data reconstruction efficiency $\epsilon_{\mathrm{data}}$, eq. \eqref{eq:eff}, the denominator correspond to the number of MuCS-triggered events, we need to correct for this effect. From our MuCS Monte Carlo simulation we measured the fraction of cosmic rays that go through the MuCS but decay before reaching the LArTPC:
 \begin{equation}

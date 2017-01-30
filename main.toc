@@ -2,12 +2,14 @@
 \contentsline {section}{\numberline {1}Introduction}{4}{section.1}
 \contentsline {section}{\numberline {2}The Muon Counter System}{4}{section.2}
 \contentsline {section}{\numberline {3}MuCS data processing}{5}{section.3}
+\contentsline {subsection}{\numberline {3.1}Monte Carlo simulation}{9}{subsection.3.1}
 \contentsline {section}{\numberline {4}MuCS alignment and angular checks}{9}{section.4}
-\contentsline {section}{\numberline {5}Reconstruction efficiencies}{11}{section.5}
-\contentsline {subsection}{\numberline {5.1}Decay-in-flight muons}{14}{subsection.5.1}
-\contentsline {subsection}{\numberline {5.2}Detector non-uniformities}{14}{subsection.5.2}
-\contentsline {subsection}{\numberline {5.3}Energy sampling}{17}{subsection.5.3}
-\contentsline {subsection}{\numberline {5.4}Data/Monte Carlo comparison}{18}{subsection.5.4}
-\contentsline {section}{\numberline {6}Summary and plans}{18}{section.6}
+\contentsline {section}{\numberline {5}Reconstruction efficiencies}{10}{section.5}
+\contentsline {section}{\numberline {6}Systematic uncertainties}{13}{section.6}
+\contentsline {subsection}{\numberline {6.1}Decay-in-flight or captured muons}{13}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}Detector non-uniformities}{14}{subsection.6.2}
+\contentsline {subsection}{\numberline {6.3}Energy sampling}{17}{subsection.6.3}
+\contentsline {subsection}{\numberline {6.4}Data/Monte Carlo comparison}{18}{subsection.6.4}
+\contentsline {section}{\numberline {7}Summary and plans}{18}{section.7}
 \contentsline {section}{\numberline {A}Angular cuts}{22}{appendix.A}
 \contentsline {section}{\numberline {B}Technical details}{22}{appendix.B}

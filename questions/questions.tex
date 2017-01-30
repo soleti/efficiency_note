@@ -42,24 +42,36 @@
 \begin{description}[style=nextline]
 
 \item[Andrew - line 95 - From figure 2, I see that not all MuCS muons pass through the TPC. Can you confirm that this has no effect on the calculated efficiencies? I'd guess that the requirement of both a PMT and MuCS signal in the trigger ensures that we only count the muons that pass through both the MuCS and TPC. It might be worth adding a sentence about this somewhere in the internal note.]
+Actually, the fraction of events hitting the MuCS and missing the TPC is, according to the MuCS Monte Carlo, 0.3\%. In order to remove these events from our sample, we check if the extrapolated trajectory in the TPC is longer 20 cm. I added a sentence in section 5 explaining this.
+
 
 \item[A - line 133 - I'd insert a new section header 'Monte Carlo simulation' at this point. Am I right in saying that the MuCS system isn't explicitly included in the G4 simulation? You should probably say this in the internal note.]
+Correct. I added a sentence to clarify this.
 
 \item[A - line 147/148 - I'm confused about how you filter MC events (sorry!). Lines 147/48 imply that you discard Monte Carlo muons outside the angular acceptance of the MuCS. However, in order to calculate the quantity P (i.e. purity), I think you'd need to use a MC sample covering the full range of angles. Could you clarify? I have a similar question about lines 189/90. When you calculate P and A from the MC, do you require that the MC muons pass through the known locations of the MuCS panels? I think perhaps not, given the statement in 167/68 about an independent MC sample. It might help to add some extra text to the note about this.]
+I am sorry, probably the text wasn't clear. I rewrote sec. 5 in the last version of the internal note: long story short, we have two Monte Carlo samples. One is the MCC7 cosmic-ray sample, with cosmic rays generated all over the TPC, and one is the MuCS Monte Carlo, used to measure the angular distributions and the P, A parameters. The MuCS Monte Carlo is generated as explained in 167-170. So, to answer your question, when we measure P and A we require the MC muons to pass through the locations of the panels.
 
 \item[A - Figure 5 (around line 162) - Figure 5 looks nice! Could you label the upper and lower panels 'Top' and 'Bottom'? Also, you should probably write the labels 'Upstream', 'Center' and 'Downstream' onto the plots themselves (so that these plots will make sense when shown separately in talks). The axis labels 'x' and 'z' are also a bit too small on these plots.]
+Right, I added the labels.
 
-\item[A - Figure 7 (around line 208) - Thanks very much for adding the data points to figure 7 (something I requested). I think the data look good. The fact that both the data and MC reconstruction efficiencies have a flat dependence on $d_{max}$ indicates that the quantity P/A (in particular the acceptance) is well-modelled by the MC, which is good. By the way, do you apply the same P/A correction to each of the different MuCS configurations?]
+\item[A - Figure 7 (around line 208) - Thanks very much for adding the data points to figure 7 (something I requested). I think the data look good. The fact that both the data and MC reconstruction efficiencies have a flat dependence on $d_{\mathrm{max}}$ indicates that the quantity P/A (in particular the acceptance) is well-modeled by the MC, which is good. By the way, do you apply the same P/A correction to each of the different MuCS configurations?]
+Yes, the P/A correction is applied to the merged sample, so same value for the three configurations.
 
-\item[A - around line 208 - In a previous thread, Vassili suggested making a plot of the $d_{max}$ variable. I think a data/MC comparison of this variable might be a good plot for the internal note.]
+\item[A - around line 208 - In a previous thread, Vassili suggested making a plot of the $d_{\mathrm{max}}$ variable. I think a data/MC comparison of this variable might be a good plot for the internal note.]
+I am sorry, but I don't understand what you mean by a plot of the $d_{\mathrm{max}}$ variable. Something different from figure 7?
 
-\item[A - around line 220 - I wonder if, at this point, you could quote the calculated values of $\epsilon_{MC}$ and $\epsilon_{data}$ in the text with their statistical errors (i.e. 96.1\% and 96.3\%)? (It might be nice to do this before the discussion of systematics). Could you also include a table showing the separate $\epsilon_{MC}$ and $\epsilon_{data}$ values for each of the three different MuCS configurations? I'm assuming there are three different values of $\epsilon_{MC}$, but I might be mistaken.]
+\item[A - around line 220 - I wonder if, at this point, you could quote the calculated values of $\epsilon_{\mathrm{MC}}$ and $\epsilon_{\mathrm{data}}$ in the text with their statistical errors (i.e. 96.1\% and 96.3\%)? (It might be nice to do this before the discussion of systematics). Could you also include a table showing the separate $\epsilon_{\mathrm{MC}}$ and $\epsilon_{\mathrm{data}}$ values for each of the three different MuCS configurations? I'm assuming there are three different values of $\epsilon_{\mathrm{MC}}$, but I might be mistaken.]
+Right, I'll add a table with the $\epsilon_{\mathrm{data}}$ and $\epsilon_{\mathrm{MuCS-MC}}$ values for each configuration. The value of $\epsilon_{\mathrm{MC}}$ is only one, because it is obtained generating cosmic rays all over the TPC, but, yes, there are three different values of $\epsilon_{\mathrm{MuCS-MC}}$.
 
 \item[A - Figure 8 (line 219) - The 3D (or 4D?) plots in figure 8 look cool - but I wonder if they're too hard to absorb? Also, only the outer edges of these plots can ever be visible. I think the 1D and 2D plots in figures 13 and 14 do a good job of getting the message across.]
 
+We agree that the 4D plots in figure 8 are not good to show the real values. However, we think they might be useful to show our approach, that is to have a reconstruction efficiency as a function of three different parameters, that we can reduce to two or one projecting the original 4D distribution on a plane or on an axis.
+
 \item[A - line 221 - I'd insert a new section header 'Systematic Uncertainties' here.]
+Done.
 
 \item[A - line 252 - You should quote the overall systematic error resulting from non-uniformities in the text at this point (it looks like the number is 1.1\%?).  This seems like it's probably an over-estimate, since: (1) detector uniformities are included in the simulation to some extent, (2) figure 9 doesn't suggest that the systematic error would be so large. Can you clarify in the text how you get to 1.1\% - I guess the best MuCS efficiency is 1.1\% higher than the average efficiency? I'm not suggesting that you change the method - just clarify in the text.]
+Yes, that 1.1\% means that the best configuration has an efficiency 1.1\% higher than the average one.
 
 \item[A - around line 273 - Is there a possible extra systematic associated with the calculation of the purity P? This quantity probably depends on the angular distributions of cosmic-ray muons being well-simulated. However, it's hard to imagine this being a large effect!]
 
