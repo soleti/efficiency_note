@@ -71,13 +71,14 @@ We agree that the 4D plots in figure 8 are not good to show the real values. How
 Done.
 
 \item[A - line 252 - You should quote the overall systematic error resulting from non-uniformities in the text at this point (it looks like the number is 1.1\%?).  This seems like it's probably an over-estimate, since: (1) detector uniformities are included in the simulation to some extent, (2) figure 9 doesn't suggest that the systematic error would be so large. Can you clarify in the text how you get to 1.1\% - I guess the best MuCS efficiency is 1.1\% higher than the average efficiency? I'm not suggesting that you change the method - just clarify in the text.]
-Yes, that 1.1\% means that the best configuration has an efficiency 1.1\% higher than the average one.
+Yes, that 1.1\% means that the best configuration has an overall efficiency 1.1\% higher than the average one, I added a sentence to explain this. Regarding point (1), it is true that detector non-uniformities are included in the MC, but since we are considering a complete sample of cosmic rays, generated all over the TPC, their effect is negligible compared to our sample, where a consistent fraction of our cosmic rays go through a region with missing wires. For point (2), yes, the effect is only 1.5$\sigma$ but cannot be directly compared to the 1.1\%, since the former is a bin-by-bin significance histogram, while the latter is an overall difference.
 
 \item[A - around line 273 - Is there a possible extra systematic associated with the calculation of the purity P? This quantity probably depends on the angular distributions of cosmic-ray muons being well-simulated. However, it's hard to imagine this being a large effect!]
+The systematic associated to the P/A calculation has been quoted as 0.2\% and its evaluation is describe in the last version of the note: essentially. We also tried to remove events with reconstructed angles that differ more than $2^{\circ}$ from the extrapolated ones, but the increase in the purity is in the order of 0.1\% and it has been considered negligible. See Appendix A in the note for further info.
 
 \item[A - Figure 13 (around line 277) - Are the MC errors in these figures stats-only? You should clarify this in the caption of figure 13. Also, I might change the y-axis titles from 'Efficiency' to 'Track reconstruction efficiency' in these plots.]
+Right, I added a sentence in the caption. For the title, I will wait for other EB members to comment on the plot style, since we will also need to remove the "MicroBooNE in progress" labels before publishing the plots.
 
-\item[A - line 281 - change 'efficiency is proportional to' to 'efficiency increases with'.]
 \end{description}
 
 
