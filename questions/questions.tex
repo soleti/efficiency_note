@@ -5,10 +5,12 @@
 \usepackage{epstopdf}
 \usepackage{enumitem}
 \usepackage{subcaption}
+\usepackage{csquotes}
+\def\myhyphen{{\hbox{-}}}
 
 \title{Cosmic-ray reconstruction efficiency measurement using an external cosmic-ray counter}
 \author{Stefano Roberto Soleti}
-\date{January 20, 2017}                                           % Activate to display a given date or no date
+\date{\today}                                           % Activate to display a given date or no date
 
 \begin{document}
 \maketitle
@@ -57,8 +59,15 @@ Right, I added the labels.
 \item[A - Figure 7 (around line 208) - Thanks very much for adding the data points to figure 7 (something I requested). I think the data look good. The fact that both the data and MC reconstruction efficiencies have a flat dependence on $d_{\mathrm{max}}$ indicates that the quantity P/A (in particular the acceptance) is well-modeled by the MC, which is good. By the way, do you apply the same P/A correction to each of the different MuCS configurations?]
 Yes, the P/A correction is applied to the merged sample, so same value for the three configurations.
 
-\item[A - around line 208 - In a previous thread, Vassili suggested making a plot of the $d_{\mathrm{max}}$ variable. I think a data/MC comparison of this variable might be a good plot for the internal note.]
-I am sorry, but I don't understand what you mean by a plot of the $d_{\mathrm{max}}$ variable. Something different from figure 7?
+\item[A - around line 208 - In a previous thread, Vassili suggested making a plot of the $d$ variable. I think a data/MC comparison of this variable might be a good plot for the internal note.]
+We agree this is a useful plot. Figure \ref{fig:dist} shows the distribution of the $d$ variable for data and Monte Carlo. As you can see, there are some small discrepancies, but our cut is in the region where the number of events is low and the differences between data and Monte Carlo are negligibile.
+
+\begin{figure}[htbp]
+\begin{center}
+  \includegraphics[width=0.7\linewidth]{../figures/dist.pdf}
+  \caption{Distribution of the distance between the extrapolated starting point and the reconstructed track startin point for data (black points) and Monte Carlo (solid red line).} \label{fig:dist}
+\end{center}
+\end{figure}
 
 \item[A - around line 220 - I wonder if, at this point, you could quote the calculated values of $\epsilon_{\mathrm{MC}}$ and $\epsilon_{\mathrm{data}}$ in the text with their statistical errors (i.e. 96.1\% and 96.3\%)? (It might be nice to do this before the discussion of systematics). Could you also include a table showing the separate $\epsilon_{\mathrm{MC}}$ and $\epsilon_{\mathrm{data}}$ values for each of the three different MuCS configurations? I'm assuming there are three different values of $\epsilon_{\mathrm{MC}}$, but I might be mistaken.]
 Right, I'll add a table with the $\epsilon_{\mathrm{data}}$ and $\epsilon_{\mathrm{MuCS-MC}}$ values for each configuration. The value of $\epsilon_{\mathrm{MC}}$ is only one, because it is obtained generating cosmic rays all over the TPC, but, yes, there are three different values of $\epsilon_{\mathrm{MuCS-MC}}$.
@@ -78,6 +87,31 @@ The systematic associated to the P/A calculation has been quoted as 0.2\% and it
 
 \item[A - Figure 13 (around line 277) - Are the MC errors in these figures stats-only? You should clarify this in the caption of figure 13. Also, I might change the y-axis titles from 'Efficiency' to 'Track reconstruction efficiency' in these plots.]
 Right, I added a sentence in the caption. For the title, I will wait for other EB members to comment on the plot style, since we will also need to remove the "MicroBooNE in progress" labels before publishing the plots.
+
+\item[Vassili - My main suggestion is that I would still like to see the distribution of the distances d between a TPC and a MuCS track. This quantity $d_{\mathrm{max}}$ defines the efficiency, since increasing the cutoff makes it more likely that a track will be found, thus increasing the apparent efficiency. Maybe Eq. 9 takes care of the issue, but the fact that $d_{\mathrm{max}}$ is chosen so that $P/A = 1$, effectively eliminating this factor, makes the whole approach seem a little like a slight-of-hand. I have no idea if this choice of $d_{\mathrm{max}}$ is sensible without seeing the $d$ distribution. It shouldn't be hard to make, since d is already calculated for every event.]
+That's a good cross-check we didn't think about, thanks. You can see in figure \ref{fig:dist} that there are some small discrepancies between data and Monte Carlo, but around the region of our cut the difference is negligible and we think that our choice of $d_{\mathrm{max}}$ is therefore appropriate.
+
+\item[V - Table 1: How where these positions determined? By surveying?]
+Yes, we added a sentence to clarify it.
+
+\item[V - ll. 218-218: I don't understand the statement that "The small dependence ... is due to the small discrepancies between the trend ..." at all. Could you rephrase it to clarify?]
+We mean that, while the grey solid line is horizontal by construction (doesn't depend on $d_{\mathrm{max}}$), the grey dashed line is not, since $\epsilon^{\mathrm{data}}_{\mathrm{tag}}$ has a slightly different trend than $\epsilon^{\mathrm{MuCS\myhyphen MC}}_{\mathrm{tag}}$. We changed to sentence to:
+
+\begin{displayquote}
+  Using eq. (4), our MuCS Monte Carlo reconstruction efficiency $\epsilon_{\mathrm{MuCS\myhyphen MC}}$ will not depend, by construction, on the chosen value of $d_{\mathrm{max}}$. Since the $P/A$ correcting factor has been measured with a Monte Carlo simulation, the data reconstruction efficiency $\epsilon_{\mathrm{data}}$ will have a small dependance on $d_{\mathrm{max}}$ (see figure 7), because of the small difference between $\epsilon^{\mathrm{data}}_{\mathrm{tag}}$ and $\epsilon^{\mathrm{MuCS\myhyphen MC}}_{\mathrm{tag}}$.
+\end{displayquote}
+
+\item[V - l. 225: "having a minimal dependence ..." Where was this checked? (Sorry if I missed it.)]
+We mean that, since the cosmic rays are generated all over the TPC and not in specific parts of detector as in the MuCS Monte Carlo, the dependence of the reconstruction efficiency on the position is minimal, because it's "averaged" on the entire volume.
+
+\item[V - Fig. 7: Maybe this is a little outside the scope of this paper, but why is there a small difference between the reconstruction efficiencies in data and Monte Carlo? (Last two lines in the legend.) Do we understand this? Is it due to more noise in the data than was added in the MC?]
+The difference between data and Monte Carlo is around 0.2\%. We think that, with a statistical error of 0.1\%, the two numbers can be considered in good agreement. However, a possible reason could be the absence of the MuCS panels volume in the GEANT4 stage of the Monte Carlo, which slightly increase the multiple Coulomb scattering of the muons in the data.
+
+\item[V - l. 256: "significance is probably not the word usually used for something like this quantity. Maybe "normalized difference," or some other word? (This appears several more times below, so it would be a significant change.)]
+We think that significance is the right word, because we are measuring if the discrepancy between two reconstruction efficiency values is significant or if it is within the statistical error.
+
+\item[V - Fig. 10: The quantity plotted is not really dE/dx, although it could be related to it, when it's not noise. It's just an electronic signal. Maybe "collected charge" would be more appropriate.]
+Right, we changed it to "collected charge".
 
 \end{description}
 
