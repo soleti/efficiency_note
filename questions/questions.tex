@@ -102,7 +102,7 @@ We mean that, while the grey solid line is horizontal by construction (doesn't d
 \end{displayquote}
 
 \item[V - l. 225: "having a minimal dependence ..." Where was this checked? (Sorry if I missed it.)]
-We mean that, since the cosmic rays are generated all over the TPC and not in specific parts of detector as in the MuCS Monte Carlo, the dependence of the reconstruction efficiency on the position is minimal, because it's "averaged" on the entire volume.
+We mean that, since the cosmic rays are generated all over the TPC and not in specific parts of detector as in the MuCS Monte Carlo, the dependence of the reconstruction efficiency on the position is averaged on the entire volume. You're right, we changed from "minimal" to "averaged"
 
 \item[V - Fig. 7: Maybe this is a little outside the scope of this paper, but why is there a small difference between the reconstruction efficiencies in data and Monte Carlo? (Last two lines in the legend.) Do we understand this? Is it due to more noise in the data than was added in the MC?]
 The difference between data and Monte Carlo is around 0.2\%. We think that, with a statistical error of 0.1\%, the two numbers can be considered in good agreement. However, a possible reason could be the absence of the MuCS panels volume in the GEANT4 stage of the Monte Carlo, which slightly increase the multiple Coulomb scattering of the muons in the data.
@@ -115,5 +115,40 @@ Right, we changed it to "collected charge".
 
 \end{description}
 
+\section*{Questions asked by the Collaboration}
+\begin{description}[style=nextline]
+  \item[Christopher - Section 3: When you "match" the hits in the MuCS panels with points on another reconstructed track trajectory, do you use any timing information to match the two together?  Perhaps the probability that two reconstructed tracks in the same event both have a point very close to those registered in the MuCS panels is negligible.]
+
+  We are not using any timing information to match the track. The probability to have two cosmic rays going through the MuCS in the same time window has been found to be negligible (0.1\%). However, there can be another cosmic ray that didn’t go through the MuCS but whose starting point is close to the extrapolated starting point given by the MuCS hits. In this case, the “purity” of our sample depends on the maximum distance ($d_{\mathrm{max}}$) cut. This effect is taken into account in our formula of the reconstruction efficiency (eq. (9)).
+
+
+  \item[C - Section 4: You say that you use the data-driven procedure described in Public Note 18 for correcting the track endpoints for the effects of space charge.  However, in that paper only one MuCS configuration is used (I think it corresponds to the 'Central' MuCS configuration that you use in your studies) to calculate the correction.  Have you considered the possibility of systematic error in your measurements from using a data-driven correction designed for MuCS-tagged tracks tagged by a different panel configuration than several that you use here?]
+
+  That’s a very good point. Actually, the method we are using is the same one described in the public note and you’re right, that one corresponds to the central configuration. However, we run three different fits (shown in figure \ref{fig:sce}), one for each configuration, so the method is fine-tuned for each sample. The errors on the fit give a systematic uncertainty that is well below our statistical error, but probably it would be good to mention that.
+
+  \begin{figure}[htbp]
+  \begin{center}
+    \begin{subfigure}{0.32\textwidth}
+      \includegraphics[width=\linewidth]{../figures/upstream_sce.pdf}
+      \caption{Upstream}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+      \includegraphics[width=\linewidth]{../figures/centre_sce.pdf}
+      \caption{Centre}
+    \end{subfigure}
+    \begin{subfigure}{0.32\textwidth}
+      \includegraphics[width=\linewidth]{../figures/downstream_sce.pdf}
+      \caption{Downstream}
+    \end{subfigure}
+    \caption{Space-charge effect correction fit for each spatial configuration.}\label{fig:sce}
+  \end{center}
+  \end{figure}
+
+
+  \item[C - Section 6: In place of using Monte Carlo to calculate the number of muons that decay-in-flight or are captured, did you try using a tighter length cut than 20 cm?  I realize a tighter cut on track length might limit your sample too greatly.]
+
+  I am sorry but we didn’t really understand what you mean here. Our Monte Carlo simulation measures the portion of muons decaying before reaching the TPC. The 20 cm length cut is a cut on the extrapolated length in the TPC that ensures that our muon had an extrapolated trajectory intersecting the TPC for at least 20 cm. However, it is an extrapolation from the MuCS hits, so we don’t know if the muon reached or not the TPC and we need to correct for this effect.
+
+\end{description}
 
 \end{document}
