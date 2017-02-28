@@ -20,10 +20,12 @@
 
 \title{Reconstruction Efficiencies for Data \& MC using the Muon Counter System \\ \vspace{1em} \small{\textbf{MICROBOONE-NOTE-1021-INT-v1}}}
 
-\author[1]{M. Bass\thanks{matthew.bass@physics.ox.ac.uk}}
-\author[1]{R. Guenette\thanks{roxanne.guenette@physics.ox.ac.uk}}
+\author[1]{M. Bass}
+\author[1]{R. Guenette}
+\author[2]{L. Kalousis}
 \author[1]{S.R. Soleti\thanks{stefano.soleti@physics.ox.ac.uk}}
 \affil[1]{\emph{\small{University of Oxford, Oxford OX1 3RH, United Kingdom}}}
+\affil[1]{\emph{\small{Vrije Universiteit, Brussels 1050, Belgium}}}
 
 \date{\today}
 
@@ -76,6 +78,7 @@ In the future, the method described in this paper will be adapted to use the dat
 
 \section{The Muon Counter System}\label{sec:proc}
 The MuCS consists of two sets of planar modules made up of scintillator strips placed into two separate, light-tight panels, read out via wavelength shifting fibers connected to Multi-Anode PMTs and placed on the top of the TPC. The Multi-Anode PMTs are read out by a DAQ system, separated from the DAQ system that reads out the TPC and PMT systems of the main detector.
+The electronics was designed at the Nevis Laboratories of the Columbia University under the Double Chooz project. The MuCS and its dedicated DAQ were provided by Virginia Tech as an external system.
 
 Each planar module is made up of two sets of 24 scintillator strips, 4 cm wide, arranged into bi-layers oriented perpendicular to each other. This configuration provides two coordinates ($z$ and $x$ in the MicroBooNE TPC coordinate system, shown in figure \ref{fig:coord}) of the crossing points of the cosmic rays. Combining these two coordinates with the height of the modules (corresponding to the $y$ coordinate in the MicroBooNE TPC coordinate system), it is possible to extrapolate the three-dimensional trajectory of the cosmic ray.
 The starting angle of the cosmic ray, in spherical coordinates, will be given by:
@@ -232,9 +235,9 @@ We define the MuCS reconstruction efficiency $\epsilon$ as the ratio between the
 \end{equation}
 However, in a data sample it is not possible to distinguish a MuCS cosmic ray from a normal cosmic ray and we define the MuCS-tagged track as the reconstructed track with the closest starting point $(x_{\mathrm{reco}},y_{\mathrm{reco}},z_{\mathrm{reco}})$ to the extrapolated MuCS starting point $(x_{\mathrm{MuCS}},y_{\mathrm{MuCS}},z_{\mathrm{MuCS}})$, see figure \ref{fig:evd}. Since some cosmic rays can trigger the MuCS without hitting the TPC (see red tracks in figure \ref{fig:mucs}), we keep only the events with an extrapolated trajectory in the TPC longer than 20 cm.
 
-Events without a reconstructed MuCS cosmic ray will always have at least another reconstructed cosmic ray, so it is necessary to set a maximum distance $d_{\mathrm{max}}$ between the two points, $(x_{\mathrm{reco}},y_{\mathrm{reco}},z_{\mathrm{reco}})$ and $(x_{\mathrm{MuCS}},y_{\mathrm{MuCS}},z_{\mathrm{MuCS}})$. The number of our events with a MuCS-tagged track will then depend on $d_{\mathrm{max}}$. 
+Events without a reconstructed MuCS cosmic ray will always have at least another reconstructed cosmic ray, so it is necessary to set a maximum distance $d_{\mathrm{max}}$ between the two points, $(x_{\mathrm{reco}},y_{\mathrm{reco}},z_{\mathrm{reco}})$ and $(x_{\mathrm{MuCS}},y_{\mathrm{MuCS}},z_{\mathrm{MuCS}})$. The number of our events with a MuCS-tagged track will then depend on $d_{\mathrm{max}}$.
 
-In a Monte Carlo simulation of a MuCS run, generated as described in section \ref{sec:flux}, the truth information allows us to verify if the MuCS-tagged cosmic ray is a real MuCS cosmic ray, or if it is another reconstructed cosmic ray, which happens to be mis-identified due to the extrapolated starting point distance being closer than $d_{\mathrm{max}}$. 
+In a Monte Carlo simulation of a MuCS run, generated as described in section \ref{sec:flux}, the truth information allows us to verify if the MuCS-tagged cosmic ray is a real MuCS cosmic ray, or if it is another reconstructed cosmic ray, which happens to be mis-identified due to the extrapolated starting point distance being closer than $d_{\mathrm{max}}$.
 The distance $d$ is defined in this case as:
 \begin{equation}\label{eq:d_mc}
 d = \sqrt{(x_{\mathrm{sim}}-x_{\mathrm{reco}})^2+(y_{\mathrm{sim}}-y_{\mathrm{reco}})^2+(z_{\mathrm{sim}}-z_{\mathrm{reco}})^2},
@@ -246,7 +249,7 @@ where $(x_{\mathrm{sim}},y_{\mathrm{sim}},z_{\mathrm{sim}})$ and $(x_{\mathrm{re
     \includegraphics[width=0.7\linewidth]{figures/dist.pdf}
     \caption{Data and Monte Carlo distribution of the distance between the extrapolated starting point and the closest reconstructed starting point. The dashed line correspond to the chosen $d_{\mathrm{max}}$ cut (32 cm).} \label{fig:dist}
   \end{center}
-\end{figure} 
+\end{figure}
 
 In the MuCS reconstruction efficiency definition, eq. \eqref{eq:eff}, we need then to replace the number of MuCS-triggered events with the number of simulated MuCS events.
 
@@ -309,7 +312,7 @@ The Monte Carlo cosmic-ray reconstruction efficiency, obtained with a general Mo
   \epsilon_{\mathrm{MC}} = \frac{\mathrm{N.~of~reco.~cosmic\myhyphen ray~events}}{\mathrm{N.~of~generated~cosmic\myhyphen ray~events~hitting~the~TPC}}.
 \end{equation}
 
-This Monte Carlo sample will contain cosmic rays generated all over the TPC, with $\epsilon_{\mathrm{MC}}$ having a minimal dependence on the position of the cosmic ray in the TPC. A direct comparison with the MuCS data will allow us to verify if the data reconstruction efficiency, measured in specific parts of the detector, is valid all over the detector. 
+This Monte Carlo sample will contain cosmic rays generated all over the TPC, with $\epsilon_{\mathrm{MC}}$ having a minimal dependence on the position of the cosmic ray in the TPC. A direct comparison with the MuCS data will allow us to verify if the data reconstruction efficiency, measured in specific parts of the detector, is valid all over the detector.
 
 We can express the data, $\epsilon_{\mathrm{data}}$, and the Monte Carlo, $\epsilon_{\mathrm{MC}}$, reconstruction efficiencies as a function of the spherical starting angles $\theta$, $\phi$ and of the expected track length $L$ in the TPC. In an ideal TPC, in fact, the reconstruction efficiency for a cosmic ray depends only on the number of hit wires, which is given unequivocally by the direction and the length of the track in the TPC.
 
